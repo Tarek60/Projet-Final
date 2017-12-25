@@ -1,0 +1,13 @@
+header {
+  background: url('../img/fondheader.jpg');
+  min-height: 70px;
+  padding-top: 17px;
+  text-align: center;
+}
+
+/*Onglets du header */
+header nav a {
+  color: #FFB033;
+  font-size: 20px;
+  margin: 20px;
+}
