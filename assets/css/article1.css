@@ -4,28 +4,34 @@ body {
   background-size: cover;
 }
 /* div de la liste d'article */
-.liste-article {
-  height: 1000px;
+.article1 {
+  height: auto;
   background: url('../img/fond-liste.png') no-repeat;
-  background-size: cover;
+  background-size: auto;
   border: 5px #FFB033 solid;
   border-radius: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-.liste-article h1 {
-  color: white;
-  margin-bottom: 100px;
-}
-.article h2 {
+
+.article1 h1 {
   color: #FFB033;
 }
-.article p {
+
+.article1 p {
   color: white;
+  font-size:  16px;
+
+
 }
 #art {
-  float: left;
-  height: auto;
-  width: 300px;
-  margin-right: 20px;
+
+text-align: center;
+}
+figcaption {
+  color: white;
+  text-align: right;
+
 }

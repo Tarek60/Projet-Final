@@ -1,14 +1,27 @@
 body {
-  background: url('../img/fond-body.jpg') no-repeat;
+  background: url('../img/fond-body4.jpg') no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
+.titre {
+  text-align: center;
+  margin-top: 60px;
+}
+
+#logo-ow {
+  margin: auto;
+  width: 500px;
+  height: auto;
+  display: block;
+}
+
 /*block inscription */
-.inscription h2 {
-  text-align: right;
-  margin-top: 20px;
-  margin-right: 50px;
+.presentation-texte p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 .block-inscription {
   background: url('../img/fondheader.jpg');
