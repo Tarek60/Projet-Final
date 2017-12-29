@@ -32,6 +32,7 @@ body {
   border: 5px #FFB033 solid;
   border-radius: 10px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 .block-inscription label {
   width: 200px;
