@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-            <p>Bievenue sur Overwatch FR</p>
+            <a href="actualite.php"><p>Bievenue sur Overwatch FR</p></a>
             <form class="connexion" action="index.html" method="post">
               <label>E-mail : </label><input type="email" name="email" />
               <label>Mot de passe : </label><input type="password" name="password" />

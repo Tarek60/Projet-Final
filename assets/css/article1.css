@@ -4,34 +4,39 @@ body {
   background-size: cover;
 }
 /* div de la liste d'article */
-.article1 {
+.divBlock {
   height: auto;
-  background: url('../img/fond-liste.png') no-repeat;
-  background-size: auto;
-  border: 5px #FFB033 solid;
-  border-radius: 10px;
+  background: url('../img/fond-liste.png');
+  background-size: cover;
+  border-left: 2px #FFB033 solid;
+  border-right: 2px #FFB033 solid;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.article1 h1 {
+.divBlock h1 {
   color: #FFB033;
+  margin-bottom: 70px;
+  text-align: center;
 }
 
-.article1 p {
+.divBlock p {
   color: white;
   font-size:  16px;
-
-
+  margin-bottom: 50px;
 }
+
 #art {
-
-text-align: center;
+margin: auto;
 }
-figcaption {
-  color: white;
-  text-align: right;
 
+.paragraphe1 {
+  margin-top: 50px;
+}
+
+.comment label {
+  color: #FFB033;
+  font-size: 20px;
 }

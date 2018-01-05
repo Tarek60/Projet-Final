@@ -11,11 +11,23 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="liste-article">
+          <div class="divBlock">
             <h1>Dernières nouveautés Overwatch</h1>
             <div class="article">
-              <a href="article1.php"><img class=img-responsive src="assets/img/article1.jpg" alt="" id="art"><h2>L'équipe d'Overwatch World vous souhaite un bon réveillon et un joyeux Noël</h2>
-              <p>Le 25 décembre approche à grands pas. Toute l'équipe d'Overwatch World se joint afin de vous souhaiter un bon réveillon et un joyeux Noël ! </p></a>
+              <a href="article1.php"><img class=img-responsive src="assets/img/overwatch.jpg" alt="" id="art"><h2>Titre de l'article</h2>
+              <p>Sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset.</p></a>
+            </div><br>
+            <div class="article">
+              <a href="article1.php"><img class=img-responsive src="assets/img/overwatch.jpg" alt="" id="art"><h2>Titre de l'article</h2>
+              <p>Sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset.</p></a>
+            </div><br>
+            <div class="article">
+              <a href="article1.php"><img class=img-responsive src="assets/img/overwatch.jpg" alt="" id="art"><h2>Titre de l'article</h2>
+              <p>Sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset.</p></a>
+            </div><br>
+            <div class="article">
+              <a href="article1.php"><img class=img-responsive src="assets/img/overwatch.jpg" alt="" id="art"><h2>Titre de l'article</h2>
+              <p>Sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset.</p></a>
             </div><br>
           </div>
         </div>

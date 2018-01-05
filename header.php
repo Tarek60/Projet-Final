@@ -15,8 +15,6 @@
             <a href="#">Live twitch</a>
             <a href="#">Overtchat</a>
             <a href="#">Amis</a>
-            <a href="#">Profil</a>
+            <a href="profil.php">Profil</a>
         </nav>
     </header>
-  </body>
-</html>

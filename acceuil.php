@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/header-acceuil.css">
   <link rel="stylesheet" href="assets/css/acceuil.css">
   <title>Acceuil</title>
 </head>
 <body>
-  <?php include('header-acceuil.php') ?>
+  <!--                            header                              -->
+  <header>
+    <a href="actualite.php"><p>Bievenue sur Overwatch FR</p></a>
+    <form class="connexion" action="index.html" method="post">
+      <label>E-mail : </label><input type="email" name="email" />
+      <label>Mot de passe : </label><input type="password" name="password" />
+      <input type="submit" name="connexion" value="Connexion">
+    </form>
+  </header>
   <!-- titre de bienvenue + logo -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
         <div class="titre">
           <h1>Bienvenue sur</h1>
-          <img src="assets/img/logo-ow.png" alt="" id="logo-ow">
+          <img class="img-responsive" src="assets/img/logo-ow.png" alt="" id="logo-ow">
           <h1>Overwatch FR</h1>
         </div>
       </div>
@@ -36,23 +45,37 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-ls-offset-2 col-lg-8 col-lg-offset-2">
-        <div class="block-inscription">
+        <div class="divBlock">
           <form class="form-inscription" action="index.php" method="post">
-            <label>Nom : </label><input type="text" name="nom" /><br>
+            <h1>Formulaire d'inscription</h1>
+            <label>Nom d'utilisateur : </label><input type="text" name="nom" /><br>
             <div id="space"></div>
-            <label>Prénom : </label><input type="text" name="prenom" /><br>
+            <label>Adresse e-mail : </label><input type="email" name="prenom" /><br>
             <div id="space"></div>
-            <label>Votre âge : </label><input type="text" name="age" value=""><br>
+            <label>Mot de passe : </label><input type="password" name="age" value=""><br>
             <div id="space"></div>
-            <label>Adresse e-mail : </label><input type="email" name="email" /><br>
+            <label>Confirmer mot de passe : </label><input type="password" name="email" /><br>
             <div id="space"></div>
-            <label>Confirmer adresse e-mail :</label><input type="email" name="confirm-email" /><br>
+            <p>Rôle principale : </p>
+            <label>Dps</label><input type="checkbox" name="dps" /><br>
+            <label>Tank</label><input type="checkbox" name="dps" value="DPS" /><br>
+            <label>Support</label><input type="checkbox" name="dps" value="DPS" /><br>
             <div id="space"></div>
-            <label>Mot de passe : </label><input type="password" name="password" /><br>
+            <label>Rang compétitif : </label><select name="rank">
+              <option value="nonclasse">Non-classé</option>
+              <option value="bronze">Bronze 500-1499</option>
+              <option value="argent">Argent 1500-1999</option>
+              <option value="gold">Gold 2000-2499</option>
+              <option value="platine">Platine 2500-2999</option>
+              <option value="diamant">Diamant 3000-3499</option>
+              <option value="master">Maitre 3500-3999</option>
+              <option value="grandmaster">Grand Maitre +4000</option>
+              <option value="top500">Top 500</option>
+            </select><br>
             <div id="space"></div>
-            <label>Confirmer mot de passe</label><input type="password" name="confir-password" /><br>
+            <label>Compte battle.net : </label><input type="text" name="battlenet" /><br>
             <div id="space"></div>
-            <input type="submit" name="valider" value="valider">
+            <input type="submit" name="valider" value="valider" id="valid">
           </form>
         </div>
       </div>
