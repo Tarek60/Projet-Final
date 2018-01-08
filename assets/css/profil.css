@@ -4,16 +4,16 @@ body {
     background-size: cover;
 }
 
-.divBlock {
+.divProfil {
     height: auto;
     background: url('../img/fond-liste.png') no-repeat;
     background-size: auto;
-    border-left: 2px #FFB033 solid;
-    border-right: 2px #FFB033 solid;
+    border: 2px #FFB033 solid;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 50px;
 }
 
 .infoUser h1 {
@@ -22,7 +22,7 @@ body {
 }
 .infoUser p {
     text-align: right;
-    display: inline;
+
     color: #FFB033;
     font-weight: bold;
 }
@@ -46,4 +46,6 @@ body {
     width: 200px;
     height: auto;
     border-radius: 150px;
+    margin-left: auto;
+    margin-right: auto;
 }

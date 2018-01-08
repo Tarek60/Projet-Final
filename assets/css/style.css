@@ -1,0 +1,224 @@
+body {
+    background: url('../img/fond-body2.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Style du header */
+
+header {
+    background: url('../img/fondheader.jpg');
+    min-height: 70px;
+    padding-top: 17px;
+    text-align: center;
+}
+
+/*Onglets du header */
+
+header nav a {
+    color: #FFB033;
+    font-size: 20px;
+    margin: 20px;
+}
+
+/* Style de la page actualité */
+
+/* div de la liste d'article */
+
+.divActualite {
+    height: auto;
+    background: url('../img/fond-liste.png');
+    background-size: cover;
+    border-left: 2px #FFB033 solid;
+    border-right: 2px #FFB033 solid;
+    padding: 20px;
+}
+
+.divActualite h1 {
+    color: white;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.article {
+    margin-bottom: 100px;
+}
+
+.article h2 {
+    color: #FFB033;
+}
+
+.article p {
+    color: white;
+}
+
+#picture {
+    float: left;
+    height: auto;
+    width: 300px;
+    margin-right: 20px;
+}
+
+/* Style de la page de l'article */
+
+/* div de la liste d'article */
+
+.divArticle {
+    height: auto;
+    background: url('../img/fond-liste.png');
+    background-size: cover;
+    border-left: 2px #FFB033 solid;
+    border-right: 2px #FFB033 solid;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.divArticle h1 {
+    color: #FFB033;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.divArticle p {
+    color: white;
+    font-size:  16px;
+    margin-bottom: 50px;
+}
+
+#picture-art {
+    margin: auto;
+}
+
+.paragraphe1 {
+    margin-top: 50px;
+}
+
+.comment label {
+    color: #FFB033;
+    font-size: 20px;
+}
+
+/* Style de la page de profil */
+
+.divProfil {
+    height: auto;
+    background: url('../img/fond-liste.png') no-repeat;
+    background-size: auto;
+    border: 2px #FFB033 solid;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+
+.infoUser h1 {
+    color: #FFB033;
+    margin-bottom: 50px;
+}
+
+.infoUser p {
+    text-align: right;
+    color: #FFB033;
+    font-weight: bold;
+}
+
+.infoUser img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+
+.infoUser h2 {
+    display: inline;
+    font-size: 15px;
+    color: #ffb033;
+}
+
+.imgUser {
+    text-align: center;
+}
+
+.imgUser img {
+    margin-top: 80px;
+    margin-bottom: 30px;
+    width: 200px;
+    height: auto;
+    border-radius: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Style de la page forum */
+
+.divForum {
+    height: 1000px;
+    background: url('../img/fond-div.png');
+    background-size: cover;
+    border-left: 2px #FFB033 solid;
+    border-right: 2px #FFB033 solid;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.divForum h1 {
+    color: #FFB033;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 100px;
+}
+
+.divForum h2 {
+    color:#ffb033;
+}
+
+.divForum p {
+    color: white;
+}
+
+/* Style de la div pour accéder aux différentes pages du forum */
+
+.divForum .forum-block {
+    background-color: black;
+    padding-top: 5px;
+    padding-bottom: 100px;
+    padding-left: 40px;
+    border: 1px solid #ffb033;
+    border-radius: 5px;
+}
+
+/* Style de la page discussion */
+.divDiscussion {
+    height: 1000px;
+    background: url('../img/fond-div.png');
+    background-size: cover;
+    border-left: 2px #FFB033 solid;
+    border-right: 2px #FFB033 solid;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#discussion-table {
+    color: #ffb033;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#discussion-table td, #discussion-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#discussion-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffb033;
+    color: black;
+}

@@ -4,7 +4,7 @@ body {
   background-size: cover;
 }
 /* div de la liste d'article */
-.divBlock {
+.divArticle {
   height: auto;
   background: url('../img/fond-liste.png');
   background-size: cover;
@@ -16,13 +16,13 @@ body {
   padding-bottom: 20px;
 }
 
-.divBlock h1 {
+.divArticle h1 {
   color: #FFB033;
   margin-bottom: 70px;
   text-align: center;
 }
 
-.divBlock p {
+.divArticle p {
   color: white;
   font-size:  16px;
   margin-bottom: 50px;

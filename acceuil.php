@@ -45,23 +45,23 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-ls-offset-2 col-lg-8 col-lg-offset-2">
-        <div class="divBlock">
+        <div class="divAcceuil">
           <form class="form-inscription" action="index.php" method="post">
             <h1>Formulaire d'inscription</h1>
-            <label>Nom d'utilisateur : </label><input type="text" name="nom" /><br>
+            <label for="nom">Nom d'utilisateur : </label><input type="text" name="nom" /><br>
             <div id="space"></div>
-            <label>Adresse e-mail : </label><input type="email" name="prenom" /><br>
+            <label for="prenom">Adresse e-mail : </label><input type="email" name="prenom" /><br>
             <div id="space"></div>
-            <label>Mot de passe : </label><input type="password" name="age" value=""><br>
+            <label for="age">Mot de passe : </label><input type="password" name="age" value=""><br>
             <div id="space"></div>
-            <label>Confirmer mot de passe : </label><input type="password" name="email" /><br>
+            <label for="email">Confirmer mot de passe : </label><input type="password" name="email" /><br>
             <div id="space"></div>
             <p>Rôle principale : </p>
-            <label>Dps</label><input type="checkbox" name="dps" /><br>
-            <label>Tank</label><input type="checkbox" name="dps" value="DPS" /><br>
-            <label>Support</label><input type="checkbox" name="dps" value="DPS" /><br>
+            <label for="dps">Dps</label><input type="checkbox" name="dps" /><br>
+            <label for="tank">Tank</label><input type="checkbox" name="dps" value="tank" /><br>
+            <label for="soutien">Support</label><input type="checkbox" name="dps" value="soutien" /><br>
             <div id="space"></div>
-            <label>Rang compétitif : </label><select name="rank">
+            <label for="rank">Rang compétitif : </label><select name="rank">
               <option value="nonclasse">Non-classé</option>
               <option value="bronze">Bronze 500-1499</option>
               <option value="argent">Argent 1500-1999</option>
@@ -73,7 +73,13 @@
               <option value="top500">Top 500</option>
             </select><br>
             <div id="space"></div>
-            <label>Compte battle.net : </label><input type="text" name="battlenet" /><br>
+            <label for="plateform">Plateforme : </label><select class="" name="platform">
+              <option value="pc">PC</option>
+              <option value="ps4">PS4</option>
+              <option value="xbox">XBOX ONE</option>
+            </select><br>
+            <div id="space"></div>
+            <label for="battlenet">Compte battle.net : </label><input type="text" name="battlenet" /><br>
             <div id="space"></div>
             <input type="submit" name="valider" value="valider" id="valid">
           </form>

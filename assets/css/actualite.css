@@ -4,7 +4,7 @@ body {
   background-size: cover;
 }
 /* div de la liste d'article */
-.divBlock {
+.divActualite {
   height: auto;
   background: url('../img/fond-liste.png');
   background-size: cover;
@@ -12,7 +12,7 @@ body {
   border-right: 2px #FFB033 solid;
   padding: 20px;
 }
-.divBlock h1 {
+.divActualite h1 {
   color: white;
   margin-bottom: 100px;
   text-align: center;
