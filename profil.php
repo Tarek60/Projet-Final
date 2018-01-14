@@ -1,5 +1,5 @@
-<?php $title = 'Profil'; ?>       
-<?php include('header.php') ?>
+<?php $title = 'Profil';     
+ include('header.php') ?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
@@ -15,22 +15,22 @@
                         <div class="infoUser">
                             <h1>Informations profil</h1>
                             <h2>Pseudo :</h2>
-                            <p>Tarekool60</p>
+                            <span><p>Tarekool60</p></span>
                             <hr align="left">
                             <h2>Adresse email :</h2>
-                            <p>tarek.elouatar@gmail.com</p>
+                            <span>tarek.elouatar@gmail.com</span>
                             <hr align="left">
                             <h2>Plateforme : </h2>
-                            <p>PC</p>
+                            <span>PC</span>
                             <hr align="left">
                             <h2>Rôle principal :</h2>
-                            <p>Tank</p>
+                            <span>Tank</span>
                             <hr align="left">
                             <h2>Rang actuel :</h2>
-                            <p>Platine 2598</p>
+                            <span>Platine 2598</span>
                             <hr align="left">
                             <h2>Commentaire posté :</h2>
-                            <p>42</p>
+                            <span>42</span>
                             <hr align="left">
                             <h2>Mot de passe :</h2>
                             <p><input type="submit" name="" value="Modifier"></p>

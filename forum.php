@@ -1,5 +1,6 @@
-<?php $title = 'Forum'; ?>
-<?php include('header.php') ?>
+<?php $title = 'Forum';
+include('header.php')
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
@@ -15,13 +16,31 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <a href="#">
                                 <div class="forum-block">
                                     <h2>Recherches joueurs - PC</h2>
                                     <p>Trouvez d'autres joueurs sur PC et créer une équipe</p>
                                 </div>
                             </a>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <a href="#">
+                                    <div class="forum-block">
+                                        <h2>Recherches joueurs - PS4</h2>
+                                        <p>Trouvez d'autres joueurs sur PS4 et créer une équipe</p>
+                                    </div>
+                                </a>
+                            </div>
+                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <a href="#">
+                                <div class="forum-block">
+                                    <h2>Recherches joueurs - XBOX ONE</h2>
+                                    <p>Trouvez d'autres joueurs sur XBOX ONE et créer une équipe</p>
+                                </div>
+                            </a>
+                        </div>
                         </div>
                     </div>
                 </div>
