@@ -1,18 +1,13 @@
+
+
+
 .navbar {
     margin-bottom: 0px;
+    text-align: center;
 }
 
-#logoNavbar {
-    width: 55px; 
-    height: auto; 
-    margin-top: 3px; 
-    margin-right: 10px;
-}
-.navbar #iconProfil {
-    width: 45px; 
-    height: auto; 
-    margin-top: 6px; 
-}
+.navbar a {}
+
 .navbar-inverse {
     background: url('../img/fondheader.jpg');
     background-position: top;
@@ -20,7 +15,6 @@
 
 /* Couleur des titres affichés dans la barre */
 .navbar-inverse .navbar-brand {
-    margin-top: 6px;
     color: #FFB033;
 }
 
@@ -32,9 +26,9 @@
 
 /* Couleur utilisée pour les liens */
 .navbar-inverse .navbar-nav > li > a {
-    font-family: 'Press Start 2P', cursive;
-    margin-top: 6px;
-    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    float: none;
     color: #FFB033;
 }
 
@@ -71,20 +65,4 @@
     background-color: #FFB033;
     border-color: black;
 }
-.dropdown a {
-    font-size: 18px;
-    color: #FFB033;
-}
-/* Couleur du petit menu déroulant de l'onglet profil */
-.dropdown-menu {
-    background-color: black;
-    border: 1px solid #ffb033;
-}
-/* Couleur du separateur dans le menu */
-.dropdown-menu .divider {
-    background-color: #ffb033;
-}
 
-.dropdown-menu li a {
-    color: #ffb033;
-}

@@ -2,11 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="assets/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/lib/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
+        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/header.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <title><?php $title = 'Header';
-echo $title; ?></title>
+        <title><?php echo $title; ?></title>
     </head>
     <body>
         <header>
@@ -20,30 +23,27 @@ echo $title; ?></title>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Overwatch FR</a>
+                        <img class="img-responsive img-circle" src="assets/img/logo-ow.png" alt="" id="logoNavbar">
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li><a href="acceuil.php">Acceuil</a></li>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                 
+                        <ul class="nav navbar-nav navbar-center">
+                            <li><a href="accueil.php">Accueil</a></li>
                             <li><a href="actualite.php">News</a></li>
-                            <li><a href="#">Médias</a></li>
-                            <li><a href="#">Overtchat</a></li>
+                            <li><a href="media.php">Médias</a></li>
+                            <li><a href="overtchat.php">OverTchat</a></li>
                             <li><a href="forum.php">Forum</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil <span class="caret"></span></a>
+                        </ul>
+                        <ul class="navbar-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-circle" id="iconProfil"/></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="profil.php">Voir/Modifier profil</a></li>
-                                    <li><a href="#">Amis</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Déconnexion</a></li>
                                 </ul>
-                            </li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
         </header>
-        <script src="assets/lib/jquery-3.2.1.js"></script>
-        <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>

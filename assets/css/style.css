@@ -1,22 +1,24 @@
 body {
-    background: url('../img/fond-body2.jpg') no-repeat;
-    background-attachment: fixed;
+    font-family: 'Oxygen', serif;
+    background: url('../img/fond-body5.jpg') fixed no-repeat;
     background-size: cover;
+    background-position: top;
 }
 
 /* Style de la page actualité *
 /* div de la liste d'article */
 
 .divActualite {
+    background-color: rgba(0, 0, 0, 0.35);
     height: auto;
-    background: url('../img/fond-liste.png');
-    background-size: cover;
-    border-left: 2px #FFB033 solid;
-    border-right: 2px #FFB033 solid;
+    border-left: 1px #FFB033 solid;
+    border-right: 1px #FFB033 solid;
     padding: 20px;
 }
 
 .divActualite h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
     color: white;
     margin-bottom: 100px;
     text-align: center;
@@ -27,6 +29,8 @@ body {
 }
 
 .article h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
     color: #FFB033;
 }
 
@@ -46,11 +50,10 @@ body {
 /* div de la liste d'article */
 
 .divArticle {
+    background-color: rgba(0, 0, 0, 0.35);
     height: auto;
-    background: url('../img/fond-liste.png');
-    background-size: cover;
-    border-left: 2px #FFB033 solid;
-    border-right: 2px #FFB033 solid;
+    border-left: 1px #FFB033 solid;
+    border-right: 1px #FFB033 solid;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
@@ -58,6 +61,8 @@ body {
 }
 
 .divArticle h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
     color: #FFB033;
     margin-bottom: 70px;
     text-align: center;
@@ -65,7 +70,8 @@ body {
 
 .divArticle p {
     color: white;
-    font-size:  16px;
+    font-size: 20px;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
@@ -78,16 +84,36 @@ body {
 }
 
 .comment label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
     color: #FFB033;
     font-size: 20px;
 }
 
+.divCommentaires h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
+    color: #FFB033;
+    margin-top: 40px;
+}
+.divCommentaires .comment {
+    margin-top: 60px;
+}
+.divCommentaires .comment img {
+    float: left;
+    width: 60px; 
+    height: auto; 
+}
+
+.divCommentaires .comment p {
+    font-size: 15px;
+    margin-left: 100px;
+}
 /* Style de la page de profil */
 
 .divProfil {
+    background-color: rgba(0, 0, 0, 0.35);
     height: auto;
-    background: url('../img/fond-liste.png') no-repeat;
-    background-size: auto;
     border: 2px #FFB033 solid;
     padding-left: 50px;
     padding-right: 50px;
@@ -97,11 +123,13 @@ body {
 }
 
 .infoUser h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
     color: #FFB033;
     margin-bottom: 50px;
 }
 
-.infoUser span {
+.infoUser p {
     display: inline;
     text-align: right;
     color: #FFB033;
@@ -111,7 +139,8 @@ body {
 .infoUser img {
     width: 150px;
     height: 150px;
-    border-radius: 100px;
+    border: 2px solid red;
+    border-color: #FFB033;
 }
 
 .infoUser h2 {
@@ -129,7 +158,6 @@ body {
     margin-bottom: 30px;
     width: 200px;
     height: auto;
-    border-radius: 150px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -138,10 +166,9 @@ body {
 
 .divForum {
     height: 1000px;
-    background: url('../img/fond-div.png');
     background-size: cover;
-    border-left: 2px #FFB033 solid;
-    border-right: 2px #FFB033 solid;
+    border-left: 1px #FFB033 solid;
+    border-right: 1px #FFB033 solid;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 20px;
@@ -149,13 +176,16 @@ body {
 }
 
 .divForum h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
     color: #FFB033;
     text-align: center;
-    text-decoration: underline;
     margin-bottom: 100px;
 }
 
 .divForum h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
     color:#ffb033;
 }
 
@@ -164,7 +194,7 @@ body {
 }
 
 .forum-block {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.35);
     padding-top: 5px;
     padding-bottom: 100px;
     padding-left: 40px;
@@ -175,62 +205,54 @@ body {
 
 /* Style de la page discussion */
 
+/* Couleur des paginations */
+
+
+
 .divDiscussion {
     height: 1000px;
-    background: url('../img/fond-div.png');
-    background-size: cover;
-    border-left: 2px #FFB033 solid;
-    border-right: 2px #FFB033 solid;
+    border-left: 1px #FFB033 solid;
+    border-right: 1px #FFB033 solid;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.divDiscussion h1 {
-    color: #FFB033;
-    margin-bottom: 45px;
-    text-decoration: underline;
-}
-
-
-.divDiscussion #link {
-    color: #FFB033;
-}
-
-#discussion-table {
+.divDiscussion .pagination li a {
     background-color: black;
     color: #ffb033;
-    border-collapse: collapse;
-    border: 2px solid black;
-    width: 100%;
-    margin-top: 22px;
-}
-#discussion-table a {
-color: #FFB033; 
+    border: 1px solid #ffb033;
 }
 
-#discussion-table td {
-    padding: 15px;
+.divDiscussion h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
+    color: #FFB033;
+    margin-bottom: 45px;
 }
 
-#discussion-table th {
-    padding: 15px;
-    text-align: left;
-    background-color: #ffb033;
-    color: black;
+.discussion-table {
+    color: #ffb033;
+}
+.discussion-table a {
+    color: #FFB033; 
+}
+
+.discussion-table th {
+    background: url('../img/fondheader.jpg');
+    background-position: top;
+    color: #FFB033;
 }
 
 /* Style de la page sujet */
 
 .divSujet {
     height: 1000px;
-    background: url('../img/fond-div.png');
-    background-size: cover;
-    border-left: 2px #FFB033 solid;
-    border-right: 2px #FFB033 solid;
-    padding-left: 50px;
-    padding-right: 50px;
+    border-left:1px #FFB033 solid;
+    border-right: 1Px #FFB033 solid;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -239,7 +261,35 @@ color: #FFB033;
     color: #ffb033;
 }
 .sujetText {
-    background-color: white;
-    border: 2px solid red;
-    height: 100px;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid #ffb033;
+    height: auto;
+}
+
+/* Style page Overtchat */
+
+.divTchat {
+    height: 1000px;
+    border-left:1px #FFB033 solid;
+    border-right: 1Px #FFB033 solid;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.divTchat h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    text-align: center;
+    color: #FFB033;
+}
+.channels {
+}
+
+.channels h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    font-size: 15px;
+    text-align: center;
+    color: #FFB033;
 }

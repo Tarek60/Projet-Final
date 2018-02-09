@@ -1,0 +1,102 @@
+/* accueil */
+body {
+    background: url('../img/fond-body4.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.titre {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#logo-ow {
+    margin: auto;
+    height: auto;
+}
+
+.presentation-texte p {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+/*Page d'inscription */
+
+.divInscription {
+    background: url('../img/fondheader.jpg');
+    height: auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px #FFB033 solid;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.divInscription h1 {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 50px;
+    color: #FFB033;
+    font-size: 30px;
+}
+
+.divInscription label {
+    width: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: left;
+    color: #FFB033;
+}
+.divInscription p {
+    color: #FFB033;
+    font-weight: bold;
+}
+.divInscription #space {
+    height: 10px;
+}
+
+.divInscription #submit {
+    margin-top: 20px;
+}
+.formValid {
+    color: green;
+}
+
+/* Page de connexion */
+
+.divConnexion {
+    background: url('../img/fondheader.jpg');
+    height: auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px #FFB033 solid;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.divConnexion h1 {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 50px;
+    color: #FFB033;
+    font-size: 30px;
+}
+
+.divConnexion label {
+    width: 200px;
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: left;
+    color: #FFB033;
+}
+
+.divConnexion p {
+    color: #FFB033;
+    font-weight: bold;
+}
+
+.divConnexion #submit {
+    margin-top: 20px;
+}

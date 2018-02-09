@@ -4,23 +4,39 @@
     <div class="row">
         <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
             <div class="divArticle">
-                <h1>Titre de l'article</h1>
-                <img class=img-responsive src="assets/img/overwatch.jpg" alt="" id="picture-art">
+                <h1>Bande dessinée en ligne d’Overwatch « Chasse au yéti »</h1>
+                <img class=img-responsive src="assets/img/article2.1.jpg" alt="" id="picture-art">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
+                        <div class="col-lg-offset-2 col-lg-8">
                             <div class="paragraphe1">
                                 <p>
-                                    Sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset. Quod si qui longius in amicitia provecti essent, tamen saepe labefactari, si in honoris contentionem incidissent; pestem enim nullam maiorem esse amicitiis quam in plerisque pecuniae cupiditatem, in optimis quibusque honoris certamen et gloriae; ex quo inimicitias maximas saepe inter amicissimos exstitisse.
-                                    Verum ad istam omnem orationem brevis est defensio. Nam quoad aetas M. Caeli dare potuit isti suspicioni locum, fuit primum ipsius pudore, deinde etiam patris diligentia disciplinaque munita. Qui ut huic virilem togam deditšnihil dicam hoc loco de me; tantum sit, quantum vos existimatis; hoc dicam, hunc a patre continuo ad me esse deductum; nemo hunc M. Caelium in illo aetatis flore vidit nisi aut cum patre aut mecum aut in M. Crassi castissima domo, cum artibus honestissimis erudiretur.
-                                    Non ergo erunt homines deliciis diffluentes audiendi, si quando de amicitia, quam nec usu nec ratione habent cognitam, disputabunt. Nam quis est, pro deorum fidem atque hominum! qui velit, ut neque diligat quemquam nec ipse ab ullo diligatur, circumfluere omnibus copiis atque in omnium rerum abundantia vivere? Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla caritas, nulla stabilis benevolentiae potest esse fiducia, omnia semper suspecta atque sollicita, nullus locus amicitiae.
+                                    Le nouvel épisode de notre série de bandes dessinées en ligne, Chasse au yéti, est arrivé !
+                                    Mei et Flocon sont prêts à se lancer sur les traces du dangereux yéti qui rôde dans les pics enneigés du Népal. Mais avant qu’ils aient pu mettre en place le piège parfait, leurs projets pas si minutieusement préparés sont découverts ! Ils devront se montrer plus malins que la légendaire bête pour espérer lui échapper…
+                                </p>
+                                <p>
+                                    Scénarisée par Robert Brooks de Blizzard et illustrée par l’artiste de la communauté Nathan « onemegawatt » Nguyen, la bande dessinée « Chasse au yéti » est dès à présent disponible sur <a href="http://comic.playoverwatch.com/fr-fr/" target="blank">http://comic.playoverwatch.com/fr-fr/.</a> Vous pouvez aussi plonger dans l’univers visuel et sonore de cette histoire (en anglais) grâce à la <a href="https://reader.madefire.com/work/w-dcb56690afda4db49a75c86af9ba993a/read/" target="blank">version animée</a> réalisée par Madefire, disponible sur PC et Mac, smartphone et Apple TV.
+                                    Nous espérons que cette histoire vous plaira. Ne manquez pas les prochaines bandes dessinées d’Overwatch !<br> 
+                                    Vous avez manqué les précédentes bandes dessinées ? <a href="https://playoverwatch.com/fr-fr/media/#comics-section?utm_source=desktopweb-news&utm_campaign=web-eu-desktopwebnews&utm_medium=internal&utm_content=21363034" target="blank">Découvrez-les ici.</a>
                                 </p>
                             </div>
                             <form class="comment" action="index.html" method="post">
-                                <label>Votre commentaire :
-                                    <textarea name="comment" rows="8" cols="100" class="form-control"></textarea>
-                                </label>
+                                <label>Votre commentaire :</label>
+                                <textarea name="comment" rows="8" cols="100" class="form-control"></textarea>
+                                <input type="submit" value="Envoyer" />
                             </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-offset-2 col-lg-8">
+                            <div class="divCommentaires">
+                                <h2>Commentaires (0)</h2>
+                                <div class="comment">
+                                    <img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-circle" />
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -28,5 +44,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>

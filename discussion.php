@@ -4,19 +4,32 @@ include('header.php')
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
+        <div class="col-lg-offset-1 col-lg-10">
             <div class="divDiscussion">
-                <a href="forum.php"><-</a>
                 <h1>Discussions générales</h1>
-                <a href="#" id="link">1</a>
-                <a href="#" id="link">2</a>
-                <a href="#" id="link">3</a>
-                <a href="#" id="link">...</a>
-                <a href="#" id="link">11</a> 
-               <table id="discussion-table">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <table class="table discussion-table">
                     <thead>
-                        <tr id="row1">
-                            <th>Sujets</th>
+                        <tr>
+                            <th>Sujet</th>
                             <th>Auteur</th>
                             <th>Dernier message</th>
                             <th>Réponses</th>
@@ -24,41 +37,34 @@ include('header.php')
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="sujet.php">Vos placements saison 8</a></td>
+                            <td><a href="sujet.php">Sujet numero 1</a></td>
                             <td>Utilisateur1</td>
                             <td>09/01/2017</td>
-                            <td>8</td>
+                            <td>0</td>
                         </tr>
+
                         <tr>
-                            <td><a href="#">Jeff Kaplan souhaite une bonne année</a></td>
-                            <td>Utilisateur2</td>
+                            <td><a href="sujet.php">Sujet numero 1</a></td>
+                            <td>Utilisateur1</td>
                             <td>09/01/2017</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            <td><a href="#">[PS4] Overwatch Omnium League</a></td>
-                            <td>Utilisateur3</td>
+                            <td><a href="sujet.php">Sujet numero 1</a></td>
+                            <td>Utilisateur1</td>
                             <td>09/01/2017</td>
-                            <td>11</td>
+                            <td>0</td>
                         </tr>
                         <tr>
-                            <td><a href="#">Overmoderation VII</a></td>
-                            <td>Utilisateur4</td>
+                            <td><a href="sujet.php">Sujet numero 1</a></td>
+                            <td>Utilisateur1</td>
                             <td>09/01/2017</td>
-                            <td>3</td>
+                            <td>0</td>
                         </tr>
-                        <tr>
-                            <td><a href="#">OWL | Toutes les informations sur l'Overwatch League !</a></td>
-                            <td>Utilisateur5</td>
-                            <td>09/01/2017</td>
-                            <td>15</td>
-                        </tr>
-                    </tbody>                 
+                    </tbody>
                 </table>
-
             </div>
         </div>
     </div>
 </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>
