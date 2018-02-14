@@ -8,7 +8,7 @@ body {
 /* Style de la page actualité *
 /* div de la liste d'article */
 
-.divActualite {
+.divNews {
     background-color: rgba(0, 0, 0, 0.35);
     height: auto;
     border-left: 1px #FFB033 solid;
@@ -16,7 +16,7 @@ body {
     padding: 20px;
 }
 
-.divActualite h1 {
+.divNews h1 {
     font-family: 'Press Start 2P', cursive;
     font-size: 25px;
     color: white;
@@ -24,21 +24,21 @@ body {
     text-align: center;
 }
 
-.article {
+.divNews .article {
     margin-bottom: 100px;
 }
 
-.article h2 {
+.divNews .article h2 {
     font-family: 'Press Start 2P', cursive;
     font-size: 20px;
     color: #FFB033;
 }
 
-.article p {
+.divNews .article p {
     color: white;
 }
 
-#picture {
+.divNews #picture {
     float: left;
     height: auto;
     width: 300px;
@@ -75,11 +75,11 @@ body {
     margin-bottom: 50px;
 }
 
-#picture-art {
+.divArticle #picture {
     margin: auto;
 }
 
-.paragraphe1 {
+.divArticle .section {
     margin-top: 50px;
 }
 
@@ -90,25 +90,43 @@ body {
     font-size: 20px;
 }
 
-.divCommentaires h2 {
+.divComments h2 {
     font-family: 'Press Start 2P', cursive;
     font-size: 25px;
     color: #FFB033;
     margin-top: 40px;
 }
-.divCommentaires .comment {
+.divComments .comment {
     margin-top: 60px;
 }
-.divCommentaires .comment img {
+.divComments .comment img {
     float: left;
     width: 60px; 
     height: auto; 
 }
 
-.divCommentaires .comment p {
+.divComments .comment p {
     font-size: 15px;
     margin-left: 100px;
 }
+
+/* Style de la page création d'article */
+
+.divCreate {
+    background-color: rgba(0, 0, 0, 0.35);
+    height: 1000px;
+    border-left: 1px #FFB033 solid;
+    border-right: 1px #FFB033 solid;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.divCreate label {
+    color: #FFB033;
+}
+
 /* Style de la page de profil */
 
 .divProfil {
@@ -134,6 +152,7 @@ body {
     text-align: right;
     color: #FFB033;
     font-weight: bold;
+    float: right;
 }
 
 .infoUser img {
@@ -266,10 +285,10 @@ body {
     height: auto;
 }
 
-/* Style page Overtchat */
+/* Style page Overchat */
 
-.divTchat {
-    height: 1000px;
+.divChat {
+    height: auto;
     border-left:1px #FFB033 solid;
     border-right: 1Px #FFB033 solid;
     padding-left: 20px;
@@ -277,18 +296,28 @@ body {
     padding-bottom: 20px;
 }
 
-.divTchat h1 {
+.divChat h1 {
     font-family: 'Press Start 2P', cursive;
     font-size: 15px;
     text-align: center;
     color: #FFB033;
 }
+
+.divChat .content {
+    height: 100%;    
+}
+
+.divChat #chatInput {
+    display: inline;
+    width: 80%;
+
+}
+
 .channels {
 }
 
 .channels h1 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 15px;
     font-size: 15px;
     text-align: center;
     color: #FFB033;

@@ -1,12 +1,10 @@
-
-
-
 .navbar {
     margin-bottom: 0px;
     text-align: center;
 }
 
-.navbar a {}
+.navbar a {
+}
 
 .navbar-inverse {
     background: url('../img/fondheader.jpg');
@@ -15,6 +13,7 @@
 
 /* Couleur des titres affichés dans la barre */
 .navbar-inverse .navbar-brand {
+    font-family: 'Press Start 2P', cursive;
     color: #FFB033;
 }
 
@@ -25,7 +24,7 @@
 }
 
 /* Couleur utilisée pour les liens */
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav li a {
     text-align: center;
     display: inline-block;
     float: none;
@@ -33,24 +32,24 @@
 }
 
 /* Couleur utilisée pour les liens lorsque la souris passe dessus */
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
+.navbar-inverse .navbar-nav li a:hover,
+.navbar-inverse .navbar-nav li a:focus {
     background-color: #FFB033;
     color: black;
 }
 
 /* Couleur utilisée pour le lien actif (celui qui est affiché sur la page) */
-.navbar-inverse .navbar-nav > .active > a, 
-.navbar-inverse .navbar-nav > .active > a:hover, 
-.navbar-inverse .navbar-nav > .active > a:focus {
+.navbar-inverse .navbar-nav .active a, 
+.navbar-inverse .navbar-nav .active a:hover, 
+.navbar-inverse .navbar-nav .active a:focus {
     background-color: #FFB033;
     color: black;
 }
 
 /* Couleur utilisée pour un menu dépliant lorsqu'il est ouvert */
-.navbar-inverse .navbar-nav > .open > a, 
-.navbar-inverse .navbar-nav > .open > a:hover, 
-.navbar-inverse .navbar-nav > .open > a:focus {
+.navbar-inverse .navbar-nav .open a, 
+.navbar-inverse .navbar-nav .open a:hover, 
+.navbar-inverse .navbar-nav .open a:focus {
     background-color: #FFB033;
     color: black;
 }

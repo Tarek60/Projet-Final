@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet"> 
         <link rel="stylesheet" href="assets/lib/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/header-accueil.css">
         <link rel="stylesheet" href="assets/css/accueil.css">
-        <title>Acceuil</title>
+        <title>Accueil</title>
     </head>
     <body>
         <!-- header del apage d'accueil -->
@@ -20,7 +21,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="actualite.php">La cavalerie Overwatch</a>
+                        <a class="navbar-brand" href="actualite.php">Overchat</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">

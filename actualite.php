@@ -4,8 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="divActualite">
+            <div class="divNews">
                 <h1>Dernières nouveautés Overwatch</h1>
+                <a href="creer-article.php" class="btn btn-warning">Créer nouvel article</a>
                 <div class="article">
                     <a href="article1.php">
                         <img class=img-responsive src="assets/img/article2.jpg" alt="" id="picture">

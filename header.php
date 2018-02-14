@@ -23,25 +23,23 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <img class="img-responsive img-circle" src="assets/img/logo-ow.png" alt="" id="logoNavbar">
+                        <a href="index.php"><img class="img-responsive img-circle" src="assets/img/logo-ow.png" alt="" id="logoNavbar"></a>
                     </div>
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                 
                         <ul class="nav navbar-nav navbar-center">
                             <li><a href="accueil.php">Accueil</a></li>
                             <li><a href="actualite.php">News</a></li>
-                            <li><a href="media.php">Médias</a></li>
-                            <li><a href="overtchat.php">OverTchat</a></li>
+                            <li><a href="overtchat.php">Overchat</a></li>
                             <li><a href="forum.php">Forum</a></li>
                         </ul>
                         <ul class="navbar-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-circle" id="iconProfil"/></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="profil.php">Voir/Modifier profil</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Déconnexion</a></li>
-                                </ul>
+                            <ul class="dropdown-menu">
+                                <li><a href="profil.php">Voir/Modifier profil</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Déconnexion</a></li>
+                            </ul>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->

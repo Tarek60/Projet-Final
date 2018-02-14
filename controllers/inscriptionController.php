@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     } if (!preg_match($regUserName, $users->userName)) {
         $formError['userName'] = 'Le pseudo est incorrect';
     }
-
+    
     if (!empty($_POST['mail'])) {
         $users->mail = htmlspecialchars($_POST['mail']);
     } if (!preg_match($regMail, $users->mail)) {
@@ -64,8 +64,7 @@ if (isset($_POST['submit'])) {
         $formError['battlenetAccount'] = 'Le compte battle.net est incorrect';
     }
 
-
-//On vérifie que le formulaire a bien été soumis et qu'il n'y a pas eu d'erreur
+//On vérifie qu'il n'y a pas eu d'erreur
     if (count($formError) == 0) {
         $insertSuccess = true;
         $users->addUsers();
