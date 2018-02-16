@@ -8,7 +8,7 @@ include_once 'header-accueil.php';
 <div class="container-fluid">
     <div class="row">
         <div class="col-ls-offset-2 col-lg-8 col-lg-offset-2">
-            <div class="divInscription">
+            <div class="divRegistration">
                 <form class="form-inscription" action="inscription.php" method="post">
                     <h1>Inscription</h1>
                     <!-- On afficher les erreurs si il y en a -->

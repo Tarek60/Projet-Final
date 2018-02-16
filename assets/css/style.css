@@ -1,10 +1,12 @@
 body {
-    font-family: 'Oxygen', serif;
+    font-family: 'Cabin', serif;
     background: url('../img/fond-body5.jpg') fixed no-repeat;
     background-size: cover;
     background-position: top;
 }
-
+p {
+    font-size: 15px;
+}
 /* Style de la page actualité *
 /* div de la liste d'article */
 
@@ -17,8 +19,8 @@ body {
 }
 
 .divNews h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 25px;
+    font-family: 'Cabin', cursive;
+    font-size: 30px;
     color: white;
     margin-bottom: 100px;
     text-align: center;
@@ -29,8 +31,8 @@ body {
 }
 
 .divNews .article h2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
+    font-family: 'Cabin', cursive;
+    font-size: 25px;
     color: #FFB033;
 }
 
@@ -61,8 +63,8 @@ body {
 }
 
 .divArticle h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 25px;
+    font-family: 'Cabin', cursive;
+    font-size: 30px;
     color: #FFB033;
     margin-bottom: 70px;
     text-align: center;
@@ -84,14 +86,14 @@ body {
 }
 
 .comment label {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Cabin', cursive;
     font-size: 25px;
     color: #FFB033;
     font-size: 20px;
 }
 
 .divComments h2 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Cabin', cursive;
     font-size: 25px;
     color: #FFB033;
     margin-top: 40px;
@@ -141,7 +143,7 @@ body {
 }
 
 .infoUser h1 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Cabin', cursive;
     font-size: 25px;
     color: #FFB033;
     margin-bottom: 50px;
@@ -195,15 +197,15 @@ body {
 }
 
 .divForum h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 25px;
+    font-family: 'Cabin', cursive;
+    font-size: 30px;
     color: #FFB033;
     text-align: center;
     margin-bottom: 100px;
 }
 
 .divForum h2 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Cabin', cursive;
     font-size: 20px;
     color:#ffb033;
 }
@@ -245,7 +247,7 @@ body {
 }
 
 .divDiscussion h1 {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Cabin', cursive;
     font-size: 25px;
     color: #FFB033;
     margin-bottom: 45px;
@@ -289,27 +291,49 @@ body {
 
 .divChat {
     height: auto;
-    border-left:1px #FFB033 solid;
-    border-right: 1Px #FFB033 solid;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
 }
 
 .divChat h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 15px;
+    font-family: 'Cabin', cursive;
+    font-size: 25px;
     text-align: center;
     color: #FFB033;
 }
 
-.divChat .content {
-    height: 100%;    
+.divChat .chat-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 700px;
+    margin-bottom: 20px;
+    border: 1px solid #ffb033;
+}
+.divChat .chat-message {
+    margin: 15px;
+}
+
+.divChat #user-picture {
+    margin: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.divChat #userName {
+    font-size: 16px;
+    color: #FFB033;
+    font-weight: bold;
+}
+
+.divChat #user-message {
+    font-size: 16px;
+    color: white;
 }
 
 .divChat #chatInput {
     display: inline;
-    width: 80%;
+    width: 93%;
 
 }
 
@@ -317,8 +341,15 @@ body {
 }
 
 .channels h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 15px;
+    font-family: 'Cabin', cursive;
+    font-size: 25px;
     text-align: center;
     color: #FFB033;
+}
+
+.channels a {
+    color: #FFB033;
+    display: block;
+    font-size: 15px;
+    margin-top: 40px;
 }

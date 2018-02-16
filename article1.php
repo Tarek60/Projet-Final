@@ -5,7 +5,7 @@
         <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
             <div class="divArticle">
                 <h1>Bande dessinée en ligne d’Overwatch « Chasse au yéti »</h1>
-                <img class=img-responsive src="assets/img/article2.1.jpg" alt="" id="picture">
+                <img class=img-responsive src="assets/img/article/article4.jpg" alt="" id="picture">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8">

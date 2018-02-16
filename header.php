@@ -1,3 +1,8 @@
+<?php 
+include_once 'models/dataBase.php';
+include_once 'models/users.php';
+include_once 'controllers/connexionController.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +10,8 @@
         <link rel="stylesheet" href="assets/lib/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
         <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet"> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/header.css">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -38,7 +44,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="profil.php">Voir/Modifier profil</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Déconnexion</a></li>
+                                <li><a href="deconnexion.php">Déconnexion</a></li>
                             </ul>
                         </ul>
                     </div><!-- /.navbar-collapse -->

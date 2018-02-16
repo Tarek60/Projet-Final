@@ -8,6 +8,7 @@ $regMail = '#[A-Z-a-z-0-9-.éàèîÏôöùüûêëç]{2,}@[A-Z-a-z-0-9éèàê�
 $regPassword = '#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])#';
 $regBattlenet = '';
 
+// Si on clique sur le bouton submit
 if (isset($_POST['submit'])) {
 // On verifie si les input du formulaires ne sont pas vides
     if (!empty($_POST['userName'])) {
@@ -15,15 +16,15 @@ if (isset($_POST['submit'])) {
     } if (!preg_match($regUserName, $users->userName)) {
         $formError['userName'] = 'Le pseudo est incorrect';
     }
-    
+
     if (!empty($_POST['mail'])) {
         $users->mail = htmlspecialchars($_POST['mail']);
     } if (!preg_match($regMail, $users->mail)) {
         $formError['mail'] = 'L\'adresse mail est incorrect';
     }
-
-//Si les mot de passes ne sont pas identiques 
+    // Si les mot des passes existent
     if (isset($_POST['password']) && isset($_POST['passwordConfirm'])) {
+        //Si les mot de passes ne sont pas identiques 
         if ($_POST['password'] != ($_POST['passwordConfirm'])) {
             $formError['passwords'] = 'Les mot des passes ne correspondent pas.';
         } else {
@@ -39,25 +40,25 @@ if (isset($_POST['submit'])) {
         }
     }
 
-
+    // Si un role est selectionner
     if (isset($_POST['role'])) {
         $users->role = htmlspecialchars($_POST['role']);
     } else {
         $formError['role'] = 'Le role n\'est pas correct';
     }
-
+    // Si un role est selectionner
     if (isset($_POST['rank'])) {
         $users->rank = htmlspecialchars($_POST['rank']);
     } else {
         $formError['rank'] = 'Le rank est incorrect';
     }
-
+    // Si une platforme est selectionner
     if (isset($_POST['platform'])) {
         $users->platform = htmlspecialchars($_POST['platform']);
     } else {
         $formError['platform'] = 'La plateforme est incorrect';
     }
-
+    // Si le compte battlenet est rempli
     if (!empty($_POST['battlenetAccount'])) {
         $users->battlenetAccount = htmlspecialchars($_POST['battlenetAccount']);
     } else {
@@ -67,7 +68,7 @@ if (isset($_POST['submit'])) {
 //On vérifie qu'il n'y a pas eu d'erreur
     if (count($formError) == 0) {
         $insertSuccess = true;
-        $users->addUsers();
+        // $users->addUsers();
     }
 }
 ?>

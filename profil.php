@@ -1,5 +1,10 @@
-<?php $title = 'Profil';     
- include 'header.php';
+<?php
+session_start();
+include_once 'models/dataBase.php';
+include_once 'models/users.php';
+include_once 'controllers/connexionController.php';
+$title = 'Profil';
+include 'header.php';
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -16,22 +21,22 @@
                         <div class="infoUser">
                             <h1>Informations profil</h1>
                             <h2>Pseudo :</h2>
-                            <p>Tarekool60</p>
+                            <p><?= $_SESSION['userName']; ?></p>
                             <hr>
                             <h2>Adresse email :</h2>
-                            <p>tarekool.60@gmail.com</p>
+                            <p><?= $_SESSION['mail']; ?></p>
                             <hr>
                             <h2>Plateforme : </h2>
-                            <p>PC</p>
+                            <p><?= $_SESSION['platform']; ?></p>
                             <hr>
                             <h2>Rôle principal :</h2>
-                            <p>Tank</p>
+                            <p><?= $_SESSION['role']; ?></p>
                             <hr>
                             <h2>Rang actuel :</h2>
-                            <p>Platine 2500</p>
+                            <p><?= $_SESSION['rank']; ?></p>
                             <hr>
-                            <h2>Commentaire posté :</h2>
-                            <p>0</p>
+                            <h2>Compte battle.net :</h2>
+                            <p><?= $_SESSION['battlenetAccount']; ?></p>
                             <hr>
                             <input type="submit" name="" value="Modifier">
                         </div>

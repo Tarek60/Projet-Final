@@ -5,8 +5,8 @@ body {
     background-size: cover;
 }
 
-.titre {
-    font-family: 'Press Start 2P', cursive;
+.title {
+    font-family: 'Cabin', cursive;
     text-align: center;
     margin-top: 60px;
 }
@@ -16,17 +16,17 @@ body {
     height: auto;
 }
 
-.presentation-texte p {
-    font-family: 'Neucha', serif;
+.presentation-text {
+    font-family: 'Cabin', cursive;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 50px;
     margin-bottom: 70px;
 }
 
 /*Page d'inscription */
 
-.divInscription {
+.divRegistration {
     background: url('../img/fondheader.jpg');
     height: auto;
     text-align: center;
@@ -36,35 +36,35 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.divInscription h1 {
-    font-family: 'Press Start 2P', cursive;
+.divRegistration h1 {
+    font-family: 'Cabin', cursive;
     margin-bottom: 50px;
     color: #FFB033;
     font-size: 30px;
 }
 
-.divInscription label {
+.divRegistration label {
+    font-family: 'Cabin', cursive;
+    font-size: 12px;
     width: 200px;
     margin-right: 20px;
     margin-left: 20px;
     text-align: left;
 }
-.divInscription p {
-    font-family: 'Neucha', serif;
-    font-size: 16px;
+.divRegistration p {
     color: #FFB033;
     font-weight: bold;
 }
 
-.divInscription input, select {
+.divRegistration input, select {
     color: black;
 }
 
-.divInscription #space {
+.divRegistration #space {
     height: 10px;
 }
 
-.divInscription #submit {
+.divRegistration #submit {
     margin-top: 20px;
 }
 .formValid {
@@ -73,7 +73,7 @@ body {
 
 /* Page de connexion */
 
-.divConnexion {
+.divLogin {
     background: url('../img/fondheader.jpg');
     height: auto;
     text-align: center;
@@ -84,16 +84,16 @@ body {
     margin-bottom: 50px;
 }
 
-.divConnexion h1 {
-    font-family: 'Press Start 2P', cursive;
+.divLogin h1 {
+    font-family: 'Cabin', cursive;
     margin-bottom: 50px;
     color: #FFB033;
     font-size: 30px;
 }
 
-.divConnexion label {
-    font-family: 'Neucha', serif;
-    font-size: 16px;
+.divLogin label {
+    font-family: 'Cabin', cursive;
+    font-size: 12px;
     width: 200px;
     margin-right: 20px;
     margin-left: 20px;
@@ -101,15 +101,15 @@ body {
     color: #FFB033;
 }
 
-.divConnexion input {
+.divLogin input {
     color: black;
 }
 
-.divConnexion p {
+.divLogin p {
     color: #FFB033;
     font-weight: bold;
 }
 
-.divConnexion #submit {
+.divLogin #submit {
     margin-top: 20px;
 }

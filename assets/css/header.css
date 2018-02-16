@@ -32,9 +32,9 @@
 
 /* Couleur utilisée pour les liens */
 .navbar-inverse .navbar-nav > li > a {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Cabin', cursive;
     margin-top: 6px;
-    font-size: 14px;
+    font-size: 20px;
     color: #FFB033;
 }
 

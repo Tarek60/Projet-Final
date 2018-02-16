@@ -45,7 +45,6 @@ class users extends dataBase {
     }
 
     public function loginUserByMail() {
-        $isCorrect = false;
         $userLogin = array();
         $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
@@ -54,18 +53,8 @@ class users extends dataBase {
             if ($userInfo->execute()) {
                 $userLogin = $userInfo->fetch(PDO::FETCH_OBJ);
             }
-            if (is_object($userLogin)) {
-                $this->userName = $userLogin->userName;
-                $this->mail = $userLogin->mail;
-                $this->password = $userLogin->password;
-                $this->role = $userLogin->role;
-                $this->rank = $userLogin->rank;
-                $this->platform = $userLogin->platform;
-                $this->battlenetAccount = $userLogin->battlenetAccount;
-                $isCorrect = false;
-            }
+            return $userLogin;
         }
-        return $isCorrect;
     }
 
     public function __destruct() {

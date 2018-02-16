@@ -7,7 +7,7 @@ include_once 'header-accueil.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="titre">
+                <div class="title">
                     <h1>Bienvenue sur Overchat</h1>
                     <img class="img-responsive" src="assets/img/logo-ow.png" alt="" id="logo-ow">
                 </div>
@@ -18,7 +18,7 @@ include_once 'header-accueil.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="presentation-texte">
+                <div class="presentation-text">
                     <p>"Overchat" est un site communautaire centré autour du jeu Overwatch. Les fans du jeu peuvent s'inscrire via un formulaire simple et intuitif, où ils pourront indiquer notamment leur rôle principal (dps, tank, support) et leur rang compétitif afin de facilité la recherche de joueurs. Ils peuvent s'informer des dernières nouveautés gràce à une liste d'articles mis à jour régulièrement.
                         Le site est doté d'un chat virtuel, où les joueurs peuvent communiquer très facilement via différents canaux dédier à certains sujet (ex : #général, #recherche-joueurs...).
                         Un forum de discussions est également disponible permettant au joueurs de poster différents sujets concernant le jeu.
