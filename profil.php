@@ -13,7 +13,7 @@ include 'header.php';
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="imgUser">
-                            <img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-circle" /><br>
+                            <img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-thumbnail" /><br>
                             <input type="button" name="" value="Modifier" />
                         </div>
                     </div>

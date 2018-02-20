@@ -11,7 +11,7 @@ p {
 /* div de la liste d'article */
 
 .divNews {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.3);
     height: auto;
     border-left: 1px #FFB033 solid;
     border-right: 1px #FFB033 solid;
@@ -52,7 +52,7 @@ p {
 /* div de la liste d'article */
 
 .divArticle {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.3);
     height: auto;
     border-left: 1px #FFB033 solid;
     border-right: 1px #FFB033 solid;
@@ -115,24 +115,29 @@ p {
 /* Style de la page création d'article */
 
 .divCreate {
-    background-color: rgba(0, 0, 0, 0.35);
-    height: 1000px;
-    border-left: 1px #FFB033 solid;
-    border-right: 1px #FFB033 solid;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: auto;
+    border: 1px #FFB033 solid;
+    margin-top: 60px;
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: px;
+    padding-bottom: 50px;
 }
 
 .divCreate label {
     color: #FFB033;
 }
 
+.divCreate h1 {
+    text-align: center;
+    color: #FFB033;
+}
+
 /* Style de la page de profil */
 
 .divProfil {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.3);
     height: auto;
     border: 2px #FFB033 solid;
     padding-left: 50px;
@@ -215,7 +220,7 @@ p {
 }
 
 .forum-block {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.3);
     padding-top: 5px;
     padding-bottom: 100px;
     padding-left: 40px;
@@ -269,23 +274,42 @@ p {
 /* Style de la page sujet */
 
 .divSujet {
-    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: auto;
     border-left:1px #FFB033 solid;
     border-right: 1Px #FFB033 solid;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
-.divSujet a {
-    color: #ffb033;
+.divSujet h1 {
+    margin-left: 20px;
+    color: #FFB033;
 }
-.sujetText {
-    background-color: rgba(0,0,0,0.4);
-    border: 1px solid #ffb033;
+.divSujet .sujetText {
+    height: auto;
+    padding: 20px;
+}
+
+.divSujet .sujetText {
+    color: white;
+}
+.divSujet .infoUser {
     height: auto;
 }
+
+.divSujet .infoUser p {
+    color: #FFB033;
+    font-size: 20px;
+}
+
+.divSujet .sujetText img {
+    width: 120px;
+    height: auto;
+    border: 2px solid red;
+    border-color: #FFB033;
+}
+
+
 
 /* Style page Overchat */
 

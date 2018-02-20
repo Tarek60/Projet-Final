@@ -29,7 +29,7 @@ include_once 'controllers/connexionController.php';
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="index.php"><img class="img-responsive img-circle" src="assets/img/logo-ow.png" alt="" id="logoNavbar"></a>
+                        <a href="index.php"><img class="img-responsive" src="assets/img/logo-ow.png" alt="" id="logoNavbar"></a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                 
