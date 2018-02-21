@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = 'Chat';
 include_once 'header.php';
 ?>
@@ -11,49 +12,49 @@ include_once 'header.php';
                     <div class="chat-message">
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/user-pic.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
                                 <span>Jeankevin_du_02</span>
                             </a>
                             <span id="user-message"> : Salut</span>
                         </div>
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/photo-profil.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/soldat76.png" id="user-picture"/>
                                 <span>Tarekool60</span>
                             </a>
                             <span id="user-message"> : T'es qui ?</span>
                         </div>
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/user-pic.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
                                 <span>Jeankevin_du_02</span>
                             </a>
                             <span id="user-message"> : Je m'appelle Kevin</span>
                         </div>
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/photo-profil.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/soldat76.png" id="user-picture"/>
                                 <span>Tarekool60</span>
                             </a>
                             <span id="user-message"> : D'accord</span>
                         </div>
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/user-pic.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
                                 <span>Jeankevin_du_02</span>
                             </a>
                             <span id="user-message"> : Tu veux jouer ?</span>
                         </div>
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/photo-profil.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/soldat76.png" id="user-picture"/>
                                 <span>Tarekool60</span>
                             </a>
                             <span id="user-message"> : Non</span>
                         </div>
                         <div class="message-content">
                             <a href="#" id="userName"> 
-                                <img src="assets/img/user-pic.jpg" id="user-picture"/>
+                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
                                 <span>Jeankevin_du_02</span>
                             </a>
                             <span id="user-message"> : Ok</span>

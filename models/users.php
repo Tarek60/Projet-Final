@@ -1,6 +1,6 @@
 <?php
 
-class users extends dataBase {
+class owprjt_users extends dataBase {
 
     public $id = 0;
     public $userName = '';
@@ -21,7 +21,7 @@ class users extends dataBase {
      * @return type
      */
     public function addUsers() {
-        $query = 'INSERT INTO `users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
+        $query = 'INSERT INTO `owprjt_users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
         $usersAdd = $this->db->prepare($query);
         $usersAdd->bindValue(':userName', $this->userName, PDO::PARAM_STR);
         $usersAdd->bindValue(':mail', $this->mail, PDO::PARAM_STR);
@@ -36,7 +36,7 @@ class users extends dataBase {
 
     public function getUsersList() {
         $usersList = array();
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `users`';
+        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users`';
         $usersResult = $this->db->query($query);
         if (is_object($usersResult)) {
             $usersList = $usersResult->fetch(PDO::FETCH_OBJ);
@@ -46,7 +46,7 @@ class users extends dataBase {
 
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `users` WHERE `mail` = :mail';
+        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {

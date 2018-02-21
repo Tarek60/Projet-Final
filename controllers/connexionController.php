@@ -1,6 +1,6 @@
 <?php
 
-$users = new users();
+$users = new owprjt_users();
 $formError = array();
 
 // Si on clique sur le bouton

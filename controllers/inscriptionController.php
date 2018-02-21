@@ -1,6 +1,6 @@
 <?php
 
-$users = new users();
+$users = new owprjt_users();
 $insertSuccess = false;
 $formError = array();
 $regUserName = '#^([a-zA-Z0-9-_]{2,30})$#';
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 //On vérifie qu'il n'y a pas eu d'erreur
     if (count($formError) == 0) {
         $insertSuccess = true;
-        // $users->addUsers();
+        $users->addUsers();
     }
 }
 ?>

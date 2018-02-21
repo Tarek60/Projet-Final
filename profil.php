@@ -13,8 +13,8 @@ include 'header.php';
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="imgUser">
-                            <img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-thumbnail" /><br>
-                            <input type="button" name="" value="Modifier" />
+                            <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive" /><br>
+                            <input type="button" name="" value="Choisir une image" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

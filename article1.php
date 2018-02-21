@@ -1,5 +1,8 @@
-<?php $title = 'Article'; ?>
-<?php include('header.php') ?>
+<?php 
+session_start();
+$title = 'Article';
+include_once 'header.php';
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">

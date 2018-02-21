@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = 'Discussion générale';
 include('header.php')
 ?>

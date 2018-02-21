@@ -40,7 +40,7 @@ include_once 'controllers/connexionController.php';
                             <li><a href="forum.php">Forum</a></li>
                         </ul>
                         <ul class="navbar-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/photo-profil.jpg" alt="photo de l'utilisateur" class="img-responsive img-circle" id="iconProfil"/></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive img-circle" id="iconProfil"/></a>
                             <ul class="dropdown-menu">
                                 <li><a href="profil.php">Voir/Modifier profil</a></li>
                                 <li role="separator" class="divider"></li>

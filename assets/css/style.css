@@ -162,12 +162,6 @@ p {
     float: right;
 }
 
-.infoUser img {
-    width: 150px;
-    height: 150px;
-    border: 2px solid red;
-    border-color: #FFB033;
-}
 
 .infoUser h2 {
     display: inline;
@@ -182,8 +176,8 @@ p {
 .imgUser img {
     margin-top: 80px;
     margin-bottom: 30px;
-    width: 200px;
-    height: auto;
+    width: auto;
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -282,7 +276,9 @@ p {
 }
 
 .divSujet h1 {
+    text-align: center;
     margin-left: 20px;
+    margin-bottom: 20px;
     color: #FFB033;
 }
 .divSujet .sujetText {
@@ -305,11 +301,13 @@ p {
 .divSujet .sujetText img {
     width: 120px;
     height: auto;
-    border: 2px solid red;
     border-color: #FFB033;
 }
 
-
+.divSujet label {
+    font-size: 20px;
+    color: #FFB033;
+}
 
 /* Style page Overchat */
 
