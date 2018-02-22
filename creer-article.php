@@ -14,7 +14,7 @@ include_once 'header.php';
                 <?php foreach ($formError as $error) { ?>
                     <p><?= $error ?></p>
                 <?php } ?>
-                <form method="POST" action="creer-article.php" enctype="multipart/form-data">
+                <form method="POST" action="creer-article.php?id" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="inputlg">Titre de l'article</label>
                         <input class="form-control input-lg" id="articleTitle" type="text" name="title" />
@@ -27,9 +27,9 @@ include_once 'header.php';
                         <label for="exampleFormControlTextarea1">Contenu de l'article</label>
                         <textarea class="form-control" id="articleTextarea" rows="15" name="content"></textarea>
                     </div>
-                    <input type="submit" name="submit" value="Créer article" />
+                    <input type="submit" name="submit" class="btn btn-warning" value="Créer article" />
                 </form>
-                    <p style="color: #FFB033;"><?= $insertSuccess ? 'Envoi réussi' : 'Erreur' ?></p>
+                    <p style="color: #FFB033;"><?= $insertSuccess ? 'Envoi réussi' : '' ?></p>
             </div>
         </div>
     </div>

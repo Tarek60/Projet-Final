@@ -173,13 +173,21 @@ p {
     text-align: center;
 }
 
-.imgUser img {
+#profilePicture {
     margin-top: 80px;
     margin-bottom: 30px;
     width: auto;
     height: 150px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.modal-body img {
+    border: 2px solid #ffb033;
+    background: #0F0F11;
+    margin: 10px;
+    width: 100;
+    height: auto;
 }
 
 /*Style de la page forum */

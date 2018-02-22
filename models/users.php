@@ -11,6 +11,7 @@ class owprjt_users extends dataBase {
     public $rank = '';
     public $platform = '';
     public $battlenetAccount = '';
+    public $id_owprjt_profilePicture = 0;
 
     public function __construct() {
         parent::__construct();
@@ -46,7 +47,7 @@ class owprjt_users extends dataBase {
 
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users` WHERE `mail` = :mail';
+        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {

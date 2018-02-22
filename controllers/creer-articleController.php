@@ -6,6 +6,7 @@ $pictureArticle = isset($_FILES['picture']);
 $contentArticle = !empty($_POST['content']);
 $formError = array();
 $insertSuccess = false;
+$articles->id_owprjt_users = $_SESSION['id'];
 
 if (isset($_POST['submit'])) {
     if ($titleArticle) {
@@ -28,7 +29,8 @@ if (isset($_POST['submit'])) {
     } else {
         $formError['content'] = 'Remplir le contenu de l\'article';
     }
-
+    var_dump($formError);
+    var_dump($_SESSION['id']);
     if (count($formError) == 0) {
         $insertSuccess = true;
         $articles->createArticle();

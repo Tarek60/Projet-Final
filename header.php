@@ -1,7 +1,7 @@
-<?php 
+<?php /*
 include_once 'models/dataBase.php';
 include_once 'models/users.php';
-include_once 'controllers/connexionController.php';
+include_once 'controllers/connexionController.php'; */
 ?>
 <!DOCTYPE html>
 <html>
