@@ -12,7 +12,7 @@ p {
 
 .divNews {
     background-color: rgba(0, 0, 0, 0.3);
-    height: auto;
+    min-height: 870px;
     border-left: 1px #FFB033 solid;
     border-right: 1px #FFB033 solid;
     padding: 20px;

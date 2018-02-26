@@ -34,6 +34,22 @@ class owprjt_articles extends dataBase {
         return $articlesList;
     }
     
+    public function getArticleById() {
+        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `owprjt_articles` WHERE `id` = :id';
+        $articleInfo = $this->db->prepare($query);
+        $articleInfo->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $articleInfo->execute();
+        return $articleInfo->fetch(PDO::FETCH_OBJ);
+        
+    }
+
+     public function deleteArticleById() {
+         $query = 'DELETE FROM `owprjt_articles` WHERE `id` = :id';
+         $deleteArticle = $this->db->prepare($query);
+         $deleteArticle->bindValue('id', $this->id, PDO::PARAM_INT);
+         return $deleteArticle->execute();
+     }
+
     public function __destruct() {
         parent::__destruct();
     }

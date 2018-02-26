@@ -10,11 +10,11 @@ include_once 'header.php';
     <div class="row">
         <div class="col-lg-12">
             <div class="divCreate">
-                <h1>Créer un article</h1>
+                <h1>Modifier l'article</h1>
                 <?php foreach ($formError as $error) { ?>
                 <p style="color: red"><?= $error ?></p>
                 <?php } ?>
-                <form method="POST" action="creer-article.php" enctype="multipart/form-data">
+                <form method="POST" action="creer-article.php?id" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="inputlg">Titre de l'article</label>
                         <input class="form-control input-lg" id="articleTitle" type="text" name="title" />

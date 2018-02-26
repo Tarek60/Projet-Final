@@ -15,13 +15,16 @@ include('header.php')
                 <a href="creer-article.php" class="btn btn-warning">Créer nouvel article</a>
                 <?php foreach ($articlesList as $articles) { ?>
                     <div class="article">
-                        <a href="article1.php">
+                        <a href="article1.php?articleId=<?= $articles->id ?>">
                             <img class=img-responsive src="assets/img/article/<?= $articles->picture; ?>" alt="" id="picture">
                             <h2><?= $articles->title; ?></h2>
                         </a>
                         <p><?= $articles->resume; ?></p>
+                        <a href="article1.php?articleId=<?= $articles->id ?>" class="btn btn-primary">Lire la suite</a>
+                        <a href="modification-article.php?articleId=<?= $articles->id ?>" class="btn btn-info">Modifier l'article</a>
+                        <a href="actualite.php?deleteArticle=<?= $articles->id ?>" class="btn btn-danger">Supprimer l'article</a>
                     </div>
-                <br>
+                    <br>
                 <?php } ?>
             </div>
         </div>
