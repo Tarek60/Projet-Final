@@ -3,12 +3,14 @@
 $articles = new owprjt_articles();
 $titleArticle = !empty($_POST['title']);
 $pictureArticle = isset($_FILES['picture']);
+$resumeArticle = !empty($_POST['resume']);
 $contentArticle = !empty($_POST['content']);
 $formError = array();
 $insertSuccess = false;
 $articles->id_owprjt_users = $_SESSION['id'];
 
 if (isset($_POST['submit'])) {
+    
     if ($titleArticle) {
         $articles->title = htmlspecialchars($_POST['title']);
         var_dump($articles->title);
@@ -22,6 +24,13 @@ if (isset($_POST['submit'])) {
     } else {
         $formError['picture'] = 'Veuillez importer une image';
     }
+    
+    if ($resumeArticle) {
+        $articles->resume = htmlspecialchars($_POST['resume']);
+        var_dump($articles->resume);
+    } else {
+        $formError['resume'] = 'Remplir le resumé de l\'article';
+    }
 
     if ($contentArticle) {
         $articles->content = htmlspecialchars($_POST['content']);
@@ -29,8 +38,7 @@ if (isset($_POST['submit'])) {
     } else {
         $formError['content'] = 'Remplir le contenu de l\'article';
     }
-    var_dump($formError);
-    var_dump($_SESSION['id']);
+    
     if (count($formError) == 0) {
         $insertSuccess = true;
         $articles->createArticle();

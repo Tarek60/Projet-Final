@@ -21,6 +21,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['rank'] = $userLogin->rank;
             $_SESSION['platform'] = $userLogin->platform;
             $_SESSION['battlenetAccount'] = $userLogin->battlenetAccount;
+            $_SESSION['id_owprjt_profilePicture'] = $userLogin->id_owprjt_profilePicture;
             // On redirige vers la page d'acutalité
             header('Location: actualite.php');
             exit;

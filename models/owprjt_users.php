@@ -47,7 +47,7 @@ class owprjt_users extends dataBase {
 
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users` WHERE `mail` = :mail';
+        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_owprjt_profilePicture` FROM `owprjt_users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {
@@ -58,6 +58,10 @@ class owprjt_users extends dataBase {
         }
     }
 
+    public function updateUser() {
+        $query = 'UPDATE `owprjt_users` SET `role` = :role, `rank` = :rank, `platform` = :platform, `battlenetAccount` = :battlenetAccount';
+    }
+    
     public function __destruct() {
         parent::__destruct();
     }

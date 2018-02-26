@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'models/dataBase.php';
-include_once 'models/users.php';
+include_once 'models/owprjt_users.php';
 include_once 'controllers/connexionController.php';
 include_once 'header-accueil.php';
 ?>
@@ -18,7 +18,7 @@ include_once 'header-accueil.php';
             </div>
             <?php foreach ($formError as $error) {
                 ?>
-                <p><?= $error ?></p>
+                <div class="alert alert-danger" role="alert"><?= $error ?></div>
                 <?php
             }
             ?>

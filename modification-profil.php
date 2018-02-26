@@ -3,6 +3,7 @@ session_start();
 include_once 'models/dataBase.php';
 include_once 'models/owprjt_users.php';
 include_once 'models/owprjt_profilePicture.php';
+include_once 'controllers/liste-imagesController.php';
 include_once 'controllers/connexionController.php';
 $title = 'Profil';
 include 'header.php';
@@ -10,13 +11,13 @@ include 'header.php';
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-            <div class="divProfil">
+            <div class="divEditProfil">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="imgUser">
                             <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive"  id="profilePicture" />
                             <!-- Button trigger modal -->
-                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Choisir une image</button> -->
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Choisir une image</button>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -34,10 +35,10 @@ include 'header.php';
                                                 <?php } ?>
                                             </form>
                                         </div>
-                                        <div class="modal-footer">
+                                        <!-- <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                             <button type="button" class="btn btn-primary">Enregistrer</button>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +54,11 @@ include 'header.php';
                             <p><?= $_SESSION['mail']; ?></p>
                             <hr>
                             <h2>Plateforme : </h2>
-                            <p><?= $_SESSION['platform']; ?></p>
+                            <p><select name="platform" value="<?= $users->platform ?>">
+                                <option></option>
+                                <option></option>
+                                <option></option>
+                                </select></p>
                             <hr>
                             <h2>Rôle principal :</h2>
                             <p><?= $_SESSION['role']; ?></p>
@@ -66,7 +71,7 @@ include 'header.php';
                         </div>
                     </div>
                 </div>
-                <p id="edit"><a href="modification-profil.php" name="submit" class="btn btn-primary">Modifier le profil</a></p>
+                <p id="edit"><input type="submit" name="submit" class="btn btn-success" value="Enregistrer les modifications" /></p>
             </div>
         </div>
     </div>

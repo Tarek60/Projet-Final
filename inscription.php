@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'models/dataBase.php';
-include_once 'models/users.php';
+include_once 'models/owprjt_users.php';
 include_once 'controllers/inscriptionController.php';
 include_once 'header-accueil.php';
 ?>
@@ -43,9 +43,9 @@ include_once 'header-accueil.php';
                     <p><label for="battlenet">Compte battle.net * </label><input type="text" name="battlenetAccount" value="<?= $users->battlenetAccount ?>" /></p>
                     <input class="btn btn-warning" type="submit" name="submit" value="Enregistrer" id="submit">
                 </form>
-                <!-- On afficher un message pour montrer que le formulaire à bien été envoyer -->
-                <p class="formValid"><?= $insertSuccess ? 'Envoi réussi' : '' ?></p>
             </div>
+                <!-- On afficher un message pour montrer que le formulaire à bien été envoyer -->
+                <div class="alert alert-success" role="alert"><?= $insertSuccess ? 'Envoi réussi' : '' ?></div>
         </div>
     </div>
 </div>

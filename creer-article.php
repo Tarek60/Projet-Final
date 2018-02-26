@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'models/dataBase.php';
-include_once 'models/articles.php';
+include_once 'models/owprjt_articles.php';
 include_once 'controllers/creer-articleController.php';
 $title = 'Créer un article';
 include_once 'header.php';
@@ -12,7 +12,7 @@ include_once 'header.php';
             <div class="divCreate">
                 <h1>Créer un article</h1>
                 <?php foreach ($formError as $error) { ?>
-                    <p><?= $error ?></p>
+                <p style="color: red"><?= $error ?></p>
                 <?php } ?>
                 <form method="POST" action="creer-article.php?id" enctype="multipart/form-data">
                     <div class="form-group">
@@ -22,6 +22,10 @@ include_once 'header.php';
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Image article</label>
                         <input type="file" class="form-control-file" id="articleFile" name="picture" style="color: #FFB033;">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Résumé de l'article</label>
+                        <textarea class="form-control" id="articleTextarea" rows="2" name="resume"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Contenu de l'article</label>
