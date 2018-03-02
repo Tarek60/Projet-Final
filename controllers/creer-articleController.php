@@ -12,29 +12,25 @@ $articles->id_owprjt_users = $_SESSION['id'];
 if (isset($_POST['submit'])) {
     
     if ($titleArticle) {
-        $articles->title = htmlspecialchars($_POST['title']);
-        var_dump($articles->title);
+        $articles->title = $_POST['title'];
     } else {
         $formError['title'] = 'Remplir le titre de l\'article';
     }
 
     if ($pictureArticle) {
         $articles->picture = $_FILES['picture']['name'];
-        var_dump($articles->picture);
     } else {
         $formError['picture'] = 'Veuillez importer une image';
     }
     
     if ($resumeArticle) {
-        $articles->resume = htmlspecialchars($_POST['resume']);
-        var_dump($articles->resume);
+        $articles->resume = $_POST['resume'];
     } else {
         $formError['resume'] = 'Remplir le resumé de l\'article';
     }
 
     if ($contentArticle) {
-        $articles->content = htmlspecialchars($_POST['content']);
-        var_dump($articles->content);
+        $articles->content = $_POST['content'];
     } else {
         $formError['content'] = 'Remplir le contenu de l\'article';
     }

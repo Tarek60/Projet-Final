@@ -3,7 +3,8 @@ session_start();
 include_once 'models/dataBase.php';
 include_once 'models/owprjt_users.php';
 include_once 'models/owprjt_profilePicture.php';
-include_once 'controllers/connexionController.php';
+include_once 'controllers/profilController.php';
+include_once 'controllers/liste-imagesController.php';
 $title = 'Profil';
 include 'header.php';
 ?>
@@ -47,26 +48,26 @@ include 'header.php';
                         <div class="infoUser">
                             <h1>Informations profil</h1>
                             <h2>Pseudo :</h2>
-                            <p><?= $_SESSION['userName']; ?></p>
+                            <p><?= $users->userName ?></p>
                             <hr>
                             <h2>Adresse email :</h2>
-                            <p><?= $_SESSION['mail']; ?></p>
+                            <p><?= $users->mail ?></p>
                             <hr>
                             <h2>Plateforme : </h2>
-                            <p><?= $_SESSION['platform']; ?></p>
+                            <p><?= $users->platform ?></p>
                             <hr>
                             <h2>Rôle principal :</h2>
-                            <p><?= $_SESSION['role']; ?></p>
+                            <p><?= $users->role ?></p>
                             <hr>
                             <h2>Rang actuel :</h2>
-                            <p><?= $_SESSION['rank']; ?></p>
+                            <p><?= $users->rank ?></p>
                             <hr>
                             <h2>Compte battle.net :</h2>
-                            <p><?= $_SESSION['battlenetAccount']; ?></p>
+                            <p><?= $users->battlenetAccount ?></p>
                         </div>
                     </div>
                 </div>
-                <p id="edit"><a href="modification-profil.php" name="submit" class="btn btn-primary">Modifier le profil</a></p>
+                <p id="edit"><a href="modification-profil.php?userId=<?= $_SESSION['id'] ?>" name="submit" class="btn btn-primary">Modifier le profil</a></p>
             </div>
         </div>
     </div>

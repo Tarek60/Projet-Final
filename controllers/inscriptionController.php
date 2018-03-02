@@ -3,6 +3,7 @@
 $users = new owprjt_users();
 $insertSuccess = false;
 $formError = array();
+// Déclarations des regex qui permettent de verifier les données d'un formulaire
 $regUserName = '#^([a-zA-Z0-9-_]{2,30})$#';
 $regMail = '#[A-Z-a-z-0-9-.éàèîÏôöùüûêëç]{2,}@[A-Z-a-z-0-9éèàêâùïüëç]{2,}[.][a-z]{2,6}$#';
 $regPassword = '#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])#';
@@ -68,7 +69,7 @@ if (isset($_POST['submit'])) {
 //On vérifie qu'il n'y a pas eu d'erreur
     if (count($formError) == 0) {
         $insertSuccess = true;
-        // $users->addUsers();
+        $users->addUsers();
     }
 }
 ?>

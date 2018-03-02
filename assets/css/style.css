@@ -63,17 +63,19 @@ p {
 }
 
 .divArticle h1 {
-    font-family: 'Cabin', cursive;
     font-size: 30px;
     color: #FFB033;
     margin-bottom: 70px;
     text-align: center;
 }
 
+.divArticle h2, h3, h4, h5 {
+    color: #FFB033;
+    margin-bottom: 20px;
+}
 .divArticle p {
     color: white;
     font-size: 20px;
-    margin-top: 50px;
     margin-bottom: 50px;
 }
 
@@ -84,6 +86,8 @@ p {
 .divArticle .section {
     margin-top: 50px;
 }
+
+.divArticle
 
 .comment label {
     font-family: 'Cabin', cursive;
@@ -220,14 +224,9 @@ p {
 }
 
 .divEditProfil .infoUser p {
-    text-align: right;
     color: #FFB033;
     font-weight: bold;
     float: right;
-}
-
-.divEditProfil .infoUser hr {
-    color: red;
 }
 
 .divEditProfil .infoUser h2 {
@@ -236,6 +235,10 @@ p {
     color: #ffb033;
 }
 
+.divEditProfil .infoUser input, select {
+    float: right;
+    
+}
 .divEditProfil .imgUser {
     text-align: center;
 }
@@ -261,7 +264,7 @@ p {
     background-color: #FFB033;
 }
 
-.divEditProfil #edit {
+.divEditProfil .infoUser #edit {
     margin-top: 40px;
     text-align: center;
 }

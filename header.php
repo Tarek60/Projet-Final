@@ -1,5 +1,4 @@
-<?php 
-?>
+<?php ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +14,12 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
+        <?php
+        include_once 'models/dataBase.php';
+        include_once 'models/owprjt_users.php';
+        include_once 'models/owprjt_profilePicture.php';
+        include_once 'controllers/profilController.php';
+        ?>
         <header>
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -26,7 +31,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="index.php"><img class="img-responsive" src="assets/img/logo-ow.png" alt="" id="logoNavbar"></a>
+                        <img class="img-responsive" src="assets/img/logo-ow.png" alt="" id="logoNavbar">
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                 
@@ -39,7 +44,7 @@
                         <ul class="navbar-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive img-circle" id="iconProfil"/></a>
                             <ul class="dropdown-menu">
-                                <li><a href="profil.php">Voir/Modifier profil</a></li>
+                                <li><a href="profil.php?userId=<?= $_SESSION['id'] ?>">Voir/Modifier profil</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="deconnexion.php">Déconnexion</a></li>
                             </ul>

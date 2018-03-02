@@ -4,7 +4,7 @@ include_once 'models/dataBase.php';
 include_once 'models/owprjt_users.php';
 include_once 'models/owprjt_profilePicture.php';
 include_once 'controllers/liste-imagesController.php';
-include_once 'controllers/connexionController.php';
+include_once 'controllers/modification-profilController.php';
 $title = 'Profil';
 include 'header.php';
 ?>
@@ -31,7 +31,9 @@ include 'header.php';
                                         <div class="modal-body">
                                             <form action="profil.php" method="POST">
                                                 <?php foreach ($listPictures as $pictures) { ?>
-                                                    <input type="image" name="profilePicture" src="assets/img/profil/<?= $pictures->name ?>" />
+                                                    <form method="post" action="modification-profil.php?userId=<?= $_SESSION['id'] ?>">
+                                                        <input type="image" name="profilePicture" src="assets/img/profil/<?= $pictures->name ?>" />
+                                                    </form>
                                                 <?php } ?>
                                             </form>
                                         </div>
@@ -47,31 +49,47 @@ include 'header.php';
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="infoUser">
                             <h1>Informations profil</h1>
-                            <h2>Pseudo :</h2>
-                            <p><?= $_SESSION['userName']; ?></p>
-                            <hr>
-                            <h2>Adresse email :</h2>
-                            <p><?= $_SESSION['mail']; ?></p>
-                            <hr>
-                            <h2>Plateforme : </h2>
-                            <p><select name="platform" value="<?= $users->platform ?>">
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                </select></p>
-                            <hr>
-                            <h2>Rôle principal :</h2>
-                            <p><?= $_SESSION['role']; ?></p>
-                            <hr>
-                            <h2>Rang actuel :</h2>
-                            <p><?= $_SESSION['rank']; ?></p>
-                            <hr>
-                            <h2>Compte battle.net :</h2>
-                            <p><?= $_SESSION['battlenetAccount']; ?></p>
+                            <form method="post" action="modification-profil.php?userId=<?= $_SESSION['id'] ?>">
+                                <h2>Pseudo :</h2>
+                                <p><?= $users->userName ?></p>
+                                <hr>
+                                <h2>Adresse email :</h2>
+                                <p><?= $users->mail ?></p>
+                                <hr>
+                                <h2>Plateforme : </h2>
+                                <select name="platform">
+                                    <option value="PC" <?= $users->platform == 'PC' ? 'selected' : '' ?>>PC</option>
+                                    <option value="PS4" <?= $users->platform == 'PS4' ? 'selected' : '' ?>>PS4</option>
+                                    <option value="XBOX ONE" <?= $users->platform == 'XBOX ONE' ? 'selected' : '' ?>>XBOX ONE</option>
+                                </select>
+                                <hr>
+                                <h2>Rôle principal :</h2>
+                                <select name="role">
+                                    <option value="Dps" <?= $users->role == 'Dps' ? 'selected' : '' ?>>Dps</option>
+                                    <option value="Tank" <?= $users->role == 'Tank' ? 'selected' : '' ?>>Tank</option>
+                                    <option value="Support" <?= $users->role == 'Support' ? 'selected' : '' ?>>Support</option>
+                                </select>
+                                <hr>
+                                <h2>Rang actuel :</h2>
+                                <select name="rank">
+                                    <option value="Non-classé" <?= $users->rank == 'Non-classé' ? 'selected' : '' ?>>Non-classé</option>
+                                    <option value="Bronze 500-1499" <?= $users->rank == 'Bronze 500-1499' ? 'selected' : '' ?>>Bronze 500-1499</option>
+                                    <option value="Argent 1500-1999" <?= $users->rank == 'Argent 1500-1999' ? 'selected' : '' ?>>Argent 1500-1999</option>
+                                    <option value="Gold 2000-2499" <?= $users->rank == 'Gold 2000-2499' ? 'selected' : '' ?>>Gold 2000-2499</option>
+                                    <option value="Platine 2500-2999" <?= $users->rank == 'Platine 2500-2999' ? 'selected' : '' ?>>Platine 2500-2999</option>
+                                    <option value="Diamant 3000-3499" <?= $users->rank == 'Diamant 3000-3499' ? 'selected' : '' ?>>Diamant 3000-3499</option>
+                                    <option value="Maitre 3500-3999" <?= $users->rank == 'Maitre 3500-3999' ? 'selected' : '' ?>>Maitre 3500-3999</option>
+                                    <option value="Grand Maitre +4000" <?= $users->rank == 'Grand Maitre +4000' ? 'selected' : '' ?>>Grand Maitre +4000</option>
+                                    <option value="Top 500" <?= $users->rank == 'Top 500' ? 'selected' : '' ?>>Top 500</option>
+                                </select>
+                                <hr>
+                                <h2>Compte battle.net :</h2>
+                                <input type="text" name="battlenetAccount" value="<?= $users->battlenetAccount ?>" />
+                                <p id="edit"><input type="submit" name="submit" class="btn btn-success" value="Enregistrer les modifications" /></p>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <p id="edit"><input type="submit" name="submit" class="btn btn-success" value="Enregistrer les modifications" /></p>
             </div>
         </div>
     </div>

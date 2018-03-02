@@ -16,20 +16,20 @@ include_once 'header.php';
                 <?php } ?>
                 <form method="POST" action="creer-article.php" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="inputlg">Titre de l'article</label>
+                        <label for="title">Titre de l'article</label>
                         <input class="form-control input-lg" id="articleTitle" type="text" name="title" />
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlFile1">Image article</label>
+                        <label for="picture">Image article</label>
                         <input type="file" class="form-control-file" id="articleFile" name="picture" style="color: #FFB033;">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Résumé de l'article</label>
-                        <textarea class="form-control" id="articleTextarea" rows="2" name="resume"></textarea>
+                        <label for="resume">Résumé de l'article</label>
+                        <textarea class="form-control" rows="3" name="resume"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Contenu de l'article</label>
-                        <textarea class="form-control" id="articleTextarea" rows="15" name="content"></textarea>
+                        <label for="content">Contenu de l'article</label>
+                        <textarea class="form-control articleTextarea" rows="15" name="content"></textarea>
                     </div>
                     <input type="submit" name="submit" class="btn btn-warning" value="Créer article" />
                 </form>

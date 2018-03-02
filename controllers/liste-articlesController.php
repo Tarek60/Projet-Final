@@ -1,15 +1,14 @@
 <?php
 
+$articles = new owprjt_articles();
 $success = false;
 if (isset($_GET['deleteArticle'])) {
-    $deleteArticle = new owprjt_articles();
-    $deleteArticle->id = $_GET['deleteArticle'];
-    if ($deleteArticle->deleteArticleById()){
+    $articles->id = $_GET['deleteArticle'];
+    if ($articles->deleteArticleById()){
         $success = true;
     }
 }
 
-$articles = new owprjt_articles();
 $articlesList = $articles->getListArticles();
 ?>
 
