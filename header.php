@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+include_once 'models/dataBase.php';
+include_once 'models/owprjt_users.php';
+include_once 'models/owprjt_profilePicture.php';
+include_once 'controllers/profilController.php';
+include_once 'controllers/liste-imagesController.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,12 +20,6 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <?php
-        include_once 'models/dataBase.php';
-        include_once 'models/owprjt_users.php';
-        include_once 'models/owprjt_profilePicture.php';
-        include_once 'controllers/profilController.php';
-        ?>
         <header>
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -42,14 +42,14 @@
                             <li><a href="forum.php">Forum</a></li>
                         </ul>
                         <ul class="navbar-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive img-circle" id="iconProfil"/></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/<?= $users->name ?>" alt="#" class="img-responsive" id="iconProfil"/></a>
                             <ul class="dropdown-menu">
                                 <li><a href="profil.php?userId=<?= $_SESSION['id'] ?>">Voir/Modifier profil</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="deconnexion.php">Déconnexion</a></li>
                             </ul>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
+                    </div>
+                </div>
             </nav>
         </header>

@@ -13,6 +13,7 @@ class owprjt_users extends dataBase {
     public $platform = '';
     public $battlenetAccount = '';
     public $id_owprjt_profilePicture = 0;
+    public $name = '';
 
     public function __construct() {
         parent::__construct();
@@ -69,7 +70,7 @@ class owprjt_users extends dataBase {
      */
     public function getUserInfoById() {
         $isCorrect = false;
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_owprjt_profilePicture` FROM `owprjt_users` WHERE `id` = :id';
+        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `name` FROM `owprjt_users` LEFT JOIN `owprjt_profilePicture` ON `owprjt_profilePicture`.`id` = `owprjt_users`.`id_owprjt_profilePicture` WHERE `owprjt_users`.`id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         if ($queryResult->execute()) {
@@ -82,6 +83,7 @@ class owprjt_users extends dataBase {
                 $this->rank = $userInfo->rank;
                 $this->platform = $userInfo->platform;
                 $this->battlenetAccount = $userInfo->battlenetAccount;
+                $this->name = $userInfo->name;
                 $isCorrect = true;
             }
             return $isCorrect;
@@ -101,6 +103,15 @@ class owprjt_users extends dataBase {
         $updateUser->bindValue(':battlenetAccount', $this->battlenetAccount, PDO::PARAM_STR);
         $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updateUser->execute();
+    }
+    
+    public function updateProfilePicture() {
+        $query = 'UPDATE `owprjt_users` SET `id_owprjt_profilePicture` = :idPicture WHERE id = :id';
+        $updatePictureProfile = $this->db->prepare($query);
+        $updatePictureProfile->bindValue(':idPicture', $this->id_owprjt_profilePicture, PDO::PARAM_INT);
+        $updatePictureProfile->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updatePictureProfile->execute();
+        
     }
 
     public function __destruct() {

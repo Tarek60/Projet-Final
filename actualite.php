@@ -1,10 +1,14 @@
 <?php
 session_start();
 include_once 'models/dataBase.php';
+include_once 'models/owprjt_users.php';
+include_once 'models/owprjt_profilePicture.php';
 include_once 'models/owprjt_articles.php';
+include_once 'controllers/profilController.php';
 include_once 'controllers/liste-articlesController.php';
+include_once 'controllers/liste-imagesController.php';
 $title = 'Actualités';
-include('header.php')
+include_once 'header.php';
 ?>
 <!-- Liste des articles -->
 <div class="container">

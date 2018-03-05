@@ -30,7 +30,14 @@ class owprjt_profilePicture extends dataBase {
         }
         return $listPictures;
     }
-
+     public function getPictureById() {
+        $query = 'SELECT `id` FROM `owprjt_profilePicture` WHERE `name` = :picture';
+        $pictureProfile = $this->db->prepare($query);
+        $pictureProfile->bindValue(':picture', $this->name, PDO::PARAM_STR);
+        $pictureProfile->execute();
+        return $pictureProfile->fetch(PDO::FETCH_OBJ);
+    }
+    
 }
 
 ?>

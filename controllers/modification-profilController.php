@@ -1,5 +1,20 @@
 <?php
 
+if (isset($_POST['picture'])) {
+    session_start();
+    include_once '../models/dataBase.php';
+    include_once '../models/owprjt_users.php';
+    include_once '../models/owprjt_profilePicture.php';
+    $picture = new owprjt_profilePicture();
+    $users = new owprjt_users();
+    $picture->name = $_POST['picture'];
+    $pictureProfil = $picture->getPictureById();
+    $users->id = $_SESSION['id'];
+    $users->id_owprjt_profilePicture = $pictureProfil->id;
+    $users->updateProfilePicture();
+    echo 'Success';
+}
+
 $users = new owprjt_users();
 $formError = array();
 if (isset($_GET['userId'])) {
@@ -7,8 +22,9 @@ if (isset($_GET['userId'])) {
     $users->getUserInfoById();
 }
 
+
 if (isset($_POST['submit'])) {
-    
+
     if (isset($_POST['role'])) {
         $users->role = htmlspecialchars($_POST['role']);
     } else {

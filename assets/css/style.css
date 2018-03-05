@@ -178,24 +178,14 @@ p {
 }
 
 .divProfil #profilePicture {
+    border: 1px solid #ffb033;
+    background-color: black; 
     margin-top: 80px;
     margin-bottom: 30px;
     width: auto;
     height: 150px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.divProfil .modal-body input {
-    border: 2px solid #ffb033;
-    background: #0F0F11;
-    margin: 10px;
-    width: 100px;
-    height: auto;
-}
-
-.divProfil .modal-body input:hover {
-    background-color: #FFB033;
 }
 
 .divProfil #edit {
@@ -244,6 +234,8 @@ p {
 }
 
 .divEditProfil #profilePicture {
+    border: 1px solid #ffb033;
+    background-color: black; 
     margin-top: 80px;
     margin-bottom: 30px;
     width: auto;

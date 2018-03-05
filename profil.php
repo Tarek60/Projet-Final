@@ -15,33 +15,7 @@ include 'header.php';
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="imgUser">
-                            <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive"  id="profilePicture" />
-                            <!-- Button trigger modal -->
-                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Choisir une image</button> -->
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h2 class="modal-title" id="exampleModalLongTitle">Sélectionner une image</h2>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="profil.php" method="POST">
-                                                <?php foreach ($listPictures as $pictures) { ?>
-                                                    <input type="image" name="profilePicture" src="assets/img/profil/<?= $pictures->name ?>" />
-                                                <?php } ?>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            <button type="button" class="btn btn-primary">Enregistrer</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <img src="assets/img/profil/<?= $users->name ?>" alt="photo de l'utilisateur" class="img-responsive"  id="profilePicture" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
