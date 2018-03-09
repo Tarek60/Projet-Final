@@ -54,4 +54,6 @@ if (isset($_POST['submit'])) {
         header('Location: profil.php?userId=' . $_SESSION['id']);
     }
 }
+
+
 ?>

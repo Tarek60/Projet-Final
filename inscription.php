@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once 'models/dataBase.php';
 include_once 'models/owprjt_users.php';
 include_once 'controllers/inscriptionController.php';
@@ -45,7 +44,9 @@ include_once 'header-accueil.php';
                 </form>
             </div>
                 <!-- On afficher un message pour montrer que le formulaire à bien été envoyer -->
+                <?php if ($insertSuccess) { ?>
                 <div class="alert alert-success" role="alert"><?= $insertSuccess ? 'Envoi réussi' : '' ?></div>
+                <?php } ?>
         </div>
     </div>
 </div>

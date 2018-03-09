@@ -6,5 +6,6 @@ if (isset($_GET['userId'])) {
     $users->getUserInfoById();
 }
 
+
 ?>
 

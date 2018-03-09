@@ -3,7 +3,6 @@ session_start();
 include_once 'models/dataBase.php';
 include_once 'models/owprjt_users.php';
 include_once 'models/owprjt_profilePicture.php';
-include_once 'controllers/liste-imagesController.php';
 include_once 'controllers/modification-profilController.php';
 $title = 'Profil';
 include 'header.php';

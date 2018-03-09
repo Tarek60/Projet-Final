@@ -6,6 +6,10 @@ class owprjt_profilePicture extends dataBase {
     public $id = 0;
     public $name = '';
 
+    public function __construct() {
+        parent::__construct();
+    }
+
     /**
      * Cette méthode permet d'ajouter une image de profil via un formulaire
      * @return type
@@ -30,14 +34,19 @@ class owprjt_profilePicture extends dataBase {
         }
         return $listPictures;
     }
-     public function getPictureById() {
+
+    public function getPictureById() {
         $query = 'SELECT `id` FROM `owprjt_profilePicture` WHERE `name` = :picture';
         $pictureProfile = $this->db->prepare($query);
         $pictureProfile->bindValue(':picture', $this->name, PDO::PARAM_STR);
         $pictureProfile->execute();
         return $pictureProfile->fetch(PDO::FETCH_OBJ);
     }
-    
+
+    public function __destruct() {
+        parent::__destruct();
+    }
+
 }
 
 ?>

@@ -3,6 +3,8 @@
 class dataBase {
     //L'attribut $db sera disponible dans ses enfants
     protected $db;
+    
+    CONST prefix = 'owprjt_';
 
     public function __construct() {
         try {
@@ -14,7 +16,7 @@ class dataBase {
     }
 
     public function __destruct() {
-        
+        $this->db = NULL;
     }
 
 }

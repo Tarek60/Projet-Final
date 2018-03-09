@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once 'models/dataBase.php';
 include_once 'models/owprjt_profilePicture.php';
 include_once 'controllers/addPictureController.php';

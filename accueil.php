@@ -1,5 +1,4 @@
 <?php
-session_start();
 $title = 'Accueil';
 include_once 'header.php';
 ?>

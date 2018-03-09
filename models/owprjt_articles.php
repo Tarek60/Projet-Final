@@ -2,7 +2,7 @@
 
 class owprjt_articles extends dataBase {
 
-    // Déclarations de attribut de la table owprjt_articles
+// Déclarations de attribut de la table owprjt_articles
     public $id = 0;
     public $publicationDate = '';
     public $title = '';
@@ -20,7 +20,7 @@ class owprjt_articles extends dataBase {
      * @return type
      */
     public function createArticle() {
-        $query = 'INSERT INTO `owprjt_articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users`) VALUES (CURDATE(), :title, :picture, :resume, :content, :id_owprjt_users)';
+        $query = 'INSERT INTO `'.SELF::prefix.'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users`) VALUES (CURDATE(), :title, :picture, :resume, :content, :id_'.SELF::prefix.'users)';
         $createArticle = $this->db->prepare($query);
         $createArticle->bindValue('title', $this->title, PDO::PARAM_STR);
         $createArticle->bindValue('picture', $this->picture, PDO::PARAM_STR);
@@ -35,7 +35,7 @@ class owprjt_articles extends dataBase {
      * @return type
      */
     public function getListArticles() {
-        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `owprjt_articles`';
+        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `'.SELF::prefix.'articles`';
         $queryResult = $this->db->query($query);
         if (is_object($queryResult)) {
             $articlesList = $queryResult->fetchAll(PDO::FETCH_OBJ);
@@ -48,7 +48,7 @@ class owprjt_articles extends dataBase {
      * @return type
      */
     public function getArticleById() {
-        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `owprjt_articles` WHERE `id` = :id';
+        $query = 'SELECT `'.SELF::prefix.'articles`.`id`,  DATE_FORMAT( `'.SELF::prefix.'articles`.`publicationDate`, "%d/%m/%Y" ) AS `date`, DATE_FORMAT( `'.SELF::prefix.'articles`.`publicationDate`, "%H:%i" ) AS `hour`, `'.SELF::prefix.'articles`.`title`, `'.SELF::prefix.'articles`.`picture`, `'.SELF::prefix.'articles`.`resume`, `'.SELF::prefix.'articles`.`content`, `'.SELF::prefix.'articles`.`id_'.SELF::prefix.'users`, `'.SELF::prefix.'users`.`userName` FROM `'.SELF::prefix.'articles` LEFT JOIN `'.SELF::prefix.'users` ON `'.SELF::prefix.'users`.`id` = `'.SELF::prefix.'articles`.`id_'.SELF::prefix.'users` WHERE `'.SELF::prefix.'articles`.`id` = :id';
         $articleInfo = $this->db->prepare($query);
         $articleInfo->bindValue(':id', $this->id, PDO::PARAM_INT);
         $articleInfo->execute();
@@ -57,10 +57,10 @@ class owprjt_articles extends dataBase {
 
     /**
      * Cette méthode permet de modifier un article 
-     * @return type
+     * @return boolean
      */
     public function updateArticle() {
-        $query = 'UPDATE `owprjt_articles` SET `title` = :title, `picture` = :picture, `resume` = :resume, `content` = :content WHERE `id` = :id';
+        $query = 'UPDATE `'.SELF::prefix.'articles` SET `title` = :title, `picture` = :picture, `resume` = :resume, `content` = :content WHERE `id` = :id';
         $updateArticle = $this->db->prepare($query);
         $updateArticle->bindValue('title', $this->title, pdo::PARAM_STR);
         $updateArticle->bindValue('picture', $this->picture, pdo::PARAM_STR);
@@ -72,10 +72,10 @@ class owprjt_articles extends dataBase {
 
     /**
      * Cette méthode permet de supprimer un article
-     * @return type
+     * @return boolean
      */
     public function deleteArticleById() {
-        $query = 'DELETE FROM `owprjt_articles` WHERE `id` = :id';
+        $query = 'DELETE FROM `'.SELF::prefix.'articles` WHERE `id` = :id';
         $deleteArticle = $this->db->prepare($query);
         $deleteArticle->bindValue('id', $this->id, PDO::PARAM_INT);
         return $deleteArticle->execute();
@@ -86,5 +86,3 @@ class owprjt_articles extends dataBase {
     }
 
 }
-
-?>

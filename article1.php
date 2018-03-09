@@ -2,7 +2,9 @@
 session_start();
 include_once 'models/dataBase.php';
 include_once 'models/owprjt_articles.php';
+include_once 'models/owprjt_comments.php';
 include_once 'controllers/articleController.php';
+include_once 'controllers/ajout-commentaireController.php';
 $title = 'Article';
 include_once 'header.php';
 ?>
@@ -15,14 +17,14 @@ include_once 'header.php';
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section">
-                                <p id="datetimeArticle">Écrit par <a href="#">Tarekool60</a>, le 01/03/2018 à 10h32</p>
+                                <p id="datetimeArticle">Écrit par <a href="#"><?= $articleInfo->userName ?></a>, le <?= $articleInfo->date ?> à <?= $articleInfo->hour ?></p>
                                 <?= $articleInfo->content ?>
                             </div>
-                            <form class="comment" action="index.html" method="post">
+                            <form class="comment" action="article1.php?articleId=<?= $articleInfo->id ?>" method="post">
                                 <div class="form-group">
                                     <label>Votre commentaire :</label>
-                                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                                    <button type="submit" class="btn btn-default">Envoyer</button>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea>
+                                    <button type="submit" name="submit" class="btn btn-default">Envoyer</button>
                                 </div> 
                             </form>
                         </div>
@@ -33,6 +35,7 @@ include_once 'header.php';
                                 <h2>Commentaires (0)</h2>
                                 <div class="comment">
                                     <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive img-circle" />
+                                    <p>Tarekool60</p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
                                 </div>
