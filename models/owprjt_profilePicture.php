@@ -15,7 +15,7 @@ class owprjt_profilePicture extends dataBase {
      * @return type
      */
     public function addPicture() {
-        $query = 'INSERT INTO `owprjt_profilePicture` (`name`) VALUES (:name)';
+        $query = 'INSERT INTO `'.SELF::prefix.'profilePicture` (`name`) VALUES (:name)';
         $addPicture = $this->db->prepare($query);
         $addPicture->bindValue('name', $this->name, PDO::PARAM_STR);
         return $addPicture->execute();
@@ -27,7 +27,7 @@ class owprjt_profilePicture extends dataBase {
      */
     public function listPicturesById() {
         $listPictures = array();
-        $query = 'SELECT `id`, `name` FROM `owprjt_profilePicture`';
+        $query = 'SELECT `id`, `name` FROM `'.SELF::prefix.'profilePicture`';
         $result = $this->db->query($query);
         if (is_object($result)) {
             $listPictures = $result->fetchAll(PDO::FETCH_OBJ);
@@ -36,7 +36,7 @@ class owprjt_profilePicture extends dataBase {
     }
 
     public function getPictureById() {
-        $query = 'SELECT `id` FROM `owprjt_profilePicture` WHERE `name` = :picture';
+        $query = 'SELECT `id` FROM `'.SELF::prefix.'profilePicture` WHERE `name` = :picture';
         $pictureProfile = $this->db->prepare($query);
         $pictureProfile->bindValue(':picture', $this->name, PDO::PARAM_STR);
         $pictureProfile->execute();

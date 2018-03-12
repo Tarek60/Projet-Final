@@ -20,7 +20,7 @@ class owprjt_articles extends dataBase {
      * @return type
      */
     public function createArticle() {
-        $query = 'INSERT INTO `'.SELF::prefix.'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users`) VALUES (CURDATE(), :title, :picture, :resume, :content, :id_'.SELF::prefix.'users)';
+        $query = 'INSERT INTO `'.SELF::prefix.'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users`) VALUES (NOW(), :title, :picture, :resume, :content, :id_'.SELF::prefix.'users)';
         $createArticle = $this->db->prepare($query);
         $createArticle->bindValue('title', $this->title, PDO::PARAM_STR);
         $createArticle->bindValue('picture', $this->picture, PDO::PARAM_STR);
@@ -74,7 +74,7 @@ class owprjt_articles extends dataBase {
      * Cette méthode permet de supprimer un article
      * @return boolean
      */
-    public function deleteArticleById() {
+    public function deleteArticle() {
         $query = 'DELETE FROM `'.SELF::prefix.'articles` WHERE `id` = :id';
         $deleteArticle = $this->db->prepare($query);
         $deleteArticle->bindValue('id', $this->id, PDO::PARAM_INT);

@@ -14,7 +14,7 @@ class owprjt_comments extends dataBase {
     }
     
     public function addComment() {
-        $query = 'INSERT INTO `owprjt_comments` (`publicationDate`, `content`, `id_owprjt_articles`, `id_owprjt_users`) VALUES (CURDATE(), :comment, :article, :user)';
+        $query = 'INSERT INTO `owprjt_comments` (`publicationDate`, `content`, `id_'.SELF::prefix.'articles`, `id_'.SELF::prefix.'users`) VALUES (NOW(), :comment, :article, :user)';
         $addComment = $this->db->prepare($query);
         $addComment->bindValue(':comment', $this->content, PDO::PARAM_STR);
         $addComment->bindValue(':article', $this->id_owprjt_articles, PDO::PARAM_INT);
