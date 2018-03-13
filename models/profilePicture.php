@@ -1,6 +1,6 @@
 <?php
 
-class owprjt_profilePicture extends dataBase {
+class profilePicture extends dataBase {
 
     // Déclarations des attibut de la table owprjt_profilePicture
     public $id = 0;

@@ -1,11 +1,11 @@
 <?php
 
-class owprjt_reactionTypes extends dataBase {
+class topicsCategory extends dataBase {
 
-// Déclaration des attributs de la table owprjt_reactionTypes
+// Déclaration des attributs de la table owprjt_topicsCategory
     public $id = 0;
-    public $icon = '';
-    public $name = '';
+    public $title  = '';
+    public $id_owprjt_topics = 0;
 
     public function __construct() {
         parent::__construct();

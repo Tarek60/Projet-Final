@@ -1,6 +1,6 @@
 <?php
 
-$users = new owprjt_users();
+$users = new users();
 $insertSuccess = false;
 $formError = array();
 // Déclarations des regex qui permettent de verifier les données d'un formulaire

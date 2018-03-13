@@ -1,6 +1,6 @@
 <?php
 
-$profilPicture = new owprjt_profilePicture();
+$profilPicture = new profilePicture();
 $formError = array();
 $insertSuccess = false;
 

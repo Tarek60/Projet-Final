@@ -1,6 +1,6 @@
 <?php
 include_once 'models/dataBase.php';
-include_once 'models/owprjt_profilePicture.php';
+include_once 'models/profilePicture.php';
 include_once 'controllers/addPictureController.php';
 $title = 'Ajout d\'image';
 include_once 'header.php';

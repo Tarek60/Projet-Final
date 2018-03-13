@@ -1,6 +1,6 @@
 <?php
 
-$comment = new owprjt_comments();
+$comment = new comments();
 
 $formError = array();
 $insertSuccess = false;

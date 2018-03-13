@@ -1,6 +1,6 @@
 <?php
 
-class owprjt_articles extends dataBase {
+class articles extends dataBase {
 
 // Déclarations de attribut de la table owprjt_articles
     public $id = 0;
@@ -35,7 +35,7 @@ class owprjt_articles extends dataBase {
      * @return type
      */
     public function getListArticles() {
-        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `'.SELF::prefix.'articles`';
+        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `'.SELF::prefix.'articles` ORDER BY `id` DESC';
         $queryResult = $this->db->query($query);
         if (is_object($queryResult)) {
             $articlesList = $queryResult->fetchAll(PDO::FETCH_OBJ);

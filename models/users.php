@@ -1,6 +1,6 @@
 <?php
 
-class owprjt_users extends dataBase {
+class users extends dataBase {
 
 // Déclaration des attributs de la table owprjt_users
     public $id = 0;
@@ -24,7 +24,7 @@ class owprjt_users extends dataBase {
      * @return boolean
      */
     public function addUsers() {
-        $query = 'INSERT INTO `'.SELF::prefix.'users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
+        $query = 'INSERT INTO `' . SELF::prefix . 'users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
         $usersAdd = $this->db->prepare($query);
         $usersAdd->bindValue(':userName', $this->userName, PDO::PARAM_STR);
         $usersAdd->bindValue(':mail', $this->mail, PDO::PARAM_STR);
@@ -37,23 +37,24 @@ class owprjt_users extends dataBase {
         return $usersAdd->execute();
     }
 
-   /* public function getUsersList() {
-        $usersList = array();
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users`';
-        $usersResult = $this->db->query($query);
-        if (is_object($usersResult)) {
-            $usersList = $usersResult->fetch(PDO::FETCH_OBJ);
-        }
-        return $usersList;
-    }
-*/
+    /* public function getUsersList() {
+      $usersList = array();
+      $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users`';
+      $usersResult = $this->db->query($query);
+      if (is_object($usersResult)) {
+      $usersList = $usersResult->fetch(PDO::FETCH_OBJ);
+      }
+      return $usersList;
+      }
+     */
+
     /**
      * Cette méthode permet de se connecter avec l'adresse email de l'utilisateur
      * @return array
      */
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_'.SELF::prefix.'profilePicture` FROM `'.SELF::prefix.'users` WHERE `mail` = :mail';
+        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_' . SELF::prefix . 'profilePicture` FROM `' . SELF::prefix . 'users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {
@@ -70,7 +71,10 @@ class owprjt_users extends dataBase {
      */
     public function getUserInfoById() {
         $isCorrect = false;
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `name` FROM `'.SELF::prefix.'users` LEFT JOIN `'.SELF::prefix.'profilePicture` ON `'.SELF::prefix.'profilePicture`.`id` = `'.SELF::prefix.'users`.`id_'.SELF::prefix.'profilePicture` WHERE `'.SELF::prefix.'users`.`id` = :id';
+        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `name`'
+                . ' FROM `' . SELF::prefix . 'users`'
+                . ' LEFT JOIN `' . SELF::prefix . 'profilePicture` ON `' . SELF::prefix . 'profilePicture`.`id` = `' . SELF::prefix . 'users`.`id_' . SELF::prefix . 'profilePicture`'
+                . ' WHERE `' . SELF::prefix . 'users`.`id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         if ($queryResult->execute()) {
@@ -95,7 +99,7 @@ class owprjt_users extends dataBase {
      * @return bolean
      */
     public function updateUser() {
-        $query = 'UPDATE `'.SELF::prefix.'users` SET `role` = :role, `rank` = :rank, `platform` = :platform, `battlenetAccount` = :battlenetAccount WHERE `id` = :id';
+        $query = 'UPDATE `' . SELF::prefix . 'users` SET `role` = :role, `rank` = :rank, `platform` = :platform, `battlenetAccount` = :battlenetAccount WHERE `id` = :id';
         $updateUser = $this->db->prepare($query);
         $updateUser->bindValue(':role', $this->role, PDO::PARAM_STR);
         $updateUser->bindValue(':rank', $this->rank, PDO::PARAM_STR);
@@ -104,14 +108,13 @@ class owprjt_users extends dataBase {
         $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updateUser->execute();
     }
-    
+
     public function updateProfilePicture() {
-        $query = 'UPDATE `'.SELF::prefix.'users` SET `id_'.SELF::prefix.'profilePicture` = :idPicture WHERE id = :id';
+        $query = 'UPDATE `' . SELF::prefix . 'users` SET `id_' . SELF::prefix . 'profilePicture` = :idPicture WHERE id = :id';
         $updatePictureProfile = $this->db->prepare($query);
         $updatePictureProfile->bindValue(':idPicture', $this->id_owprjt_profilePicture, PDO::PARAM_INT);
         $updatePictureProfile->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updatePictureProfile->execute();
-        
     }
 
     public function __destruct() {

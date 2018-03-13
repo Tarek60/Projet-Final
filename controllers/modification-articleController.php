@@ -1,6 +1,6 @@
 <?php
 
-$articles = new owprjt_articles();
+$articles = new articles();
 $titleArticle = !empty($_POST['title']);
 $pictureArticle = isset($_FILES['picture']);
 $resumeArticle = !empty($_POST['resume']);

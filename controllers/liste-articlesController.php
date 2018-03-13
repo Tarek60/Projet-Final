@@ -1,6 +1,6 @@
 <?php
 
-$articles = new owprjt_articles();
+$articles = new articles();
 $success = false;
 if (isset($_GET['deleteArticle'])) {
     $articles->id = $_GET['deleteArticle'];

@@ -1,7 +1,7 @@
 <?php
 include_once 'models/dataBase.php';
-include_once 'models/owprjt_users.php';
-include_once 'models/owprjt_profilePicture.php';
+include_once 'models/users.php';
+include_once 'models/profilePicture.php';
 include_once 'controllers/liste-imagesController.php';
 include_once 'controllers/headerController.php';
 ?>

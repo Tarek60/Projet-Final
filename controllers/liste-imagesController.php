@@ -1,4 +1,4 @@
 <?php
-$profilePicture = new owprjt_profilePicture();
+$profilePicture = new profilePicture();
 $listPictures = $profilePicture->listPicturesById();
 ?>

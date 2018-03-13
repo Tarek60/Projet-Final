@@ -3,10 +3,10 @@
 if (isset($_POST['picture'])) {
     session_start();
     include_once '../models/dataBase.php';
-    include_once '../models/owprjt_users.php';
-    include_once '../models/owprjt_profilePicture.php';
-    $picture = new owprjt_profilePicture();
-    $users = new owprjt_users();
+    include_once '../models/users.php';
+    include_once '../models/profilePicture.php';
+    $picture = new profilePicture();
+    $users = new users();
     $picture->name = $_POST['picture'];
     $pictureProfil = $picture->getPictureById();
     $users->id = $_SESSION['id'];
@@ -15,7 +15,7 @@ if (isset($_POST['picture'])) {
     echo 'Success';
 }
 
-$users = new owprjt_users();
+$users = new users();
 $formError = array();
 if (isset($_GET['userId'])) {
     $users->id = $_GET['userId'];

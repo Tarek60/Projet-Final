@@ -87,7 +87,6 @@ p {
     margin-top: 50px;
 }
 
-.divArticle
 
 .comment label {
     font-family: 'Cabin', cursive;
@@ -103,17 +102,17 @@ p {
     margin-top: 40px;
 }
 .divComments .comment {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 .divComments .comment img {
     float: left;
     width: 60px; 
-    height: auto; 
-}
+    height: auto;
+    margin-right:20px;
+} 
 
 .divComments .comment p {
     font-size: 15px;
-    margin-left: 100px;
 }
 
 /* Style de la page création d'article */

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'models/dataBase.php';
-include_once 'models/owprjt_articles.php';
+include_once 'models/articles.php';
 include_once 'controllers/articleController.php';
 include_once 'controllers/modification-articleController.php';
 $title = 'Créer un article';

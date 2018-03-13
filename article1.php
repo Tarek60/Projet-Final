@@ -1,10 +1,11 @@
 <?php 
 session_start();
 include_once 'models/dataBase.php';
-include_once 'models/owprjt_articles.php';
-include_once 'models/owprjt_comments.php';
+include_once 'models/articles.php';
+include_once 'models/comments.php';
 include_once 'controllers/articleController.php';
 include_once 'controllers/ajout-commentaireController.php';
+include_once 'controllers/commentairesController.php';
 $title = 'Article';
 include_once 'header.php';
 ?>
@@ -30,14 +31,15 @@ include_once 'header.php';
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-offset-2 col-lg-8">
+                        <div class="col-lg-offset-1 col-lg-10">
                             <div class="divComments">
-                                <h2>Commentaires (0)</h2>
+                                <h2>Commentaires (<?= $numberComments->nbComments ?>)</h2>
                                 <div class="comment">
-                                    <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive img-circle" />
-                                    <p>Tarekool60</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                                    <?php foreach ($commentDetails as $comments) { ?>
+                                    <img src="assets/img/profil/<?= $comments->name ?>" alt="photo de l'utilisateur" class="img-responsive img-circle" />
+                                    <a href=""><?= $comments->userName ?></a>
+                                    <p><?= $comments->content ?></p>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

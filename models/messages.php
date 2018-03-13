@@ -1,6 +1,6 @@
 <?php
 
-class owprjt_messages extends dataBase {
+class messages extends dataBase {
 
 // Déclaration des attributs de la table owprjt_messages
     public $id = 0;

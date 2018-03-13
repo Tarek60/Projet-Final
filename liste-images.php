@@ -1,6 +1,6 @@
 <?php
 include_once 'models/dataBase.php';
-include_once 'models/owprjt_profilePicture.php';
+include_once 'models/profilePicture.php';
 include_once 'controllers/liste-imagesController.php';
 $title = 'Liste d\'image';
 include_once 'header.php';
