@@ -4,7 +4,7 @@ class profilePicture extends dataBase {
 
     // Déclarations des attibut de la table owprjt_profilePicture
     public $id = 0;
-    public $name = '';
+    public $picProfileName = '';
 
     public function __construct() {
         parent::__construct();
@@ -15,7 +15,7 @@ class profilePicture extends dataBase {
      * @return type
      */
     public function addPicture() {
-        $query = 'INSERT INTO `'.SELF::prefix.'profilePicture` (`name`) VALUES (:name)';
+        $query = 'INSERT INTO `'.SELF::prefix.'profilePicture` (`picProfileName`) VALUES (:name)';
         $addPicture = $this->db->prepare($query);
         $addPicture->bindValue('name', $this->name, PDO::PARAM_STR);
         return $addPicture->execute();
@@ -27,7 +27,7 @@ class profilePicture extends dataBase {
      */
     public function listPicturesById() {
         $listPictures = array();
-        $query = 'SELECT `id`, `name` FROM `'.SELF::prefix.'profilePicture`';
+        $query = 'SELECT `id`, `picProfileName` FROM `'.SELF::prefix.'profilePicture`';
         $result = $this->db->query($query);
         if (is_object($result)) {
             $listPictures = $result->fetchAll(PDO::FETCH_OBJ);
@@ -36,7 +36,7 @@ class profilePicture extends dataBase {
     }
 
     public function getPictureById() {
-        $query = 'SELECT `id` FROM `'.SELF::prefix.'profilePicture` WHERE `name` = :picture';
+        $query = 'SELECT `id` FROM `'.SELF::prefix.'profilePicture` WHERE `picProfileName` = :picture';
         $pictureProfile = $this->db->prepare($query);
         $pictureProfile->bindValue(':picture', $this->name, PDO::PARAM_STR);
         $pictureProfile->execute();

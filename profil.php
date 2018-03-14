@@ -14,7 +14,7 @@ include 'header.php';
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="imgUser">
-                            <img src="assets/img/profil/<?= $users->name ?>" alt="photo de l'utilisateur" class="img-responsive"  id="profilePicture" />
+                            <img src="assets/img/profil/<?= $users->picProfileName ?>" alt="photo de l'utilisateur" class="img-responsive"  id="profilePicture" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">

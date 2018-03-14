@@ -115,6 +115,11 @@ p {
     font-size: 15px;
 }
 
+.divComments .comment span {
+    margin-left: 10px;
+    color: #FFB033;
+}
+
 /* Style de la page création d'article */
 
 .divCreate {

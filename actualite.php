@@ -26,7 +26,7 @@ include_once 'header.php';
                         <p><?= $articles->resume; ?></p>
                         <a href="article1.php?articleId=<?= $articles->id ?>" class="btn btn-primary">Lire la suite</a>
                         <a href="modification-article.php?articleId=<?= $articles->id ?>" class="btn btn-info">Modifier l'article</a>
-                        <a href="actualite.php?deleteArticle=<?= $articles->id ?>" class="btn btn-danger">Supprimer l'article</a>
+                        <a href="actualite.php?deleteArticle=<?= $articles->id ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'article ?')">Supprimer l'article</a>
                     </div>
                     <br>
                 <?php } ?>

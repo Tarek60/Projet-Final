@@ -36,8 +36,8 @@ include_once 'header.php';
                                 <h2>Commentaires (<?= $numberComments->nbComments ?>)</h2>
                                 <div class="comment">
                                     <?php foreach ($commentDetails as $comments) { ?>
-                                    <img src="assets/img/profil/<?= $comments->name ?>" alt="photo de l'utilisateur" class="img-responsive img-circle" />
-                                    <a href=""><?= $comments->userName ?></a>
+                                    <img src="assets/img/profil/<?= $comments->picProfileName ?>" alt="photo de l'utilisateur" class="img-responsive img-circle" />
+                                    <a href=""><?= $comments->userName ?></a><span><?= $comments->date ?>, à <?= $comments->hour ?></span>
                                     <p><?= $comments->content ?></p>
                                     <?php } ?>
                                 </div>

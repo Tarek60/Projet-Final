@@ -71,7 +71,7 @@ class users extends dataBase {
      */
     public function getUserInfoById() {
         $isCorrect = false;
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `name`'
+        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `picProfileName`'
                 . ' FROM `' . SELF::prefix . 'users`'
                 . ' LEFT JOIN `' . SELF::prefix . 'profilePicture` ON `' . SELF::prefix . 'profilePicture`.`id` = `' . SELF::prefix . 'users`.`id_' . SELF::prefix . 'profilePicture`'
                 . ' WHERE `' . SELF::prefix . 'users`.`id` = :id';
@@ -87,7 +87,7 @@ class users extends dataBase {
                 $this->rank = $userInfo->rank;
                 $this->platform = $userInfo->platform;
                 $this->battlenetAccount = $userInfo->battlenetAccount;
-                $this->name = $userInfo->name;
+                $this->picProfileName = $userInfo->picProfileName;
                 $isCorrect = true;
             }
             return $isCorrect;

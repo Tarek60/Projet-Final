@@ -42,7 +42,7 @@ include_once 'controllers/headerController.php';
                             <li><a href="forum.php">Forum</a></li>
                         </ul>
                         <ul class="navbar-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/<?= $users->name ?>" alt="#" class="img-responsive" id="iconProfil"/></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/<?= $users->picProfileName ?>" alt="#" class="img-responsive" id="iconProfil"/></a>
                             <ul class="dropdown-menu">
                                 <li><a href="profil.php?userId=<?= $_SESSION['id'] ?>">Voir/Modifier profil</a></li>
                                 <li role="separator" class="divider"></li>

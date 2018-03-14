@@ -23,7 +23,7 @@ class comments extends dataBase {
     }
 
     public function showComments() {
-        $query = 'SELECT `owprjt_comments`.`id`, `owprjt_comments`.`publicationDate`, `owprjt_comments`.`content`, `owprjt_comments`.`id_owprjt_articles`, `owprjt_comments`.`id_owprjt_users`, `owprjt_comments`.`id_1`, `owprjt_users`.`userName`, `owprjt_profilePicture`.`name`'
+        $query = 'SELECT `owprjt_comments`.`id`, DATE_FORMAT(`owprjt_comments`.`publicationDate`, "%d/%m/%Y" ) AS `date`, DATE_FORMAT(`owprjt_comments`.`publicationDate`, "%H:%i" ) AS `hour`, `owprjt_comments`.`content`, `owprjt_comments`.`id_owprjt_articles`, `owprjt_comments`.`id_owprjt_users`, `owprjt_comments`.`id_1`, `owprjt_users`.`userName`, `owprjt_profilePicture`.`picProfileName`'
                 . ' FROM `owprjt_comments` LEFT JOIN `owprjt_articles` ON `owprjt_comments`.`id_owprjt_articles` = `owprjt_articles`.`id`'
                 . ' LEFT JOIN `owprjt_users` ON `owprjt_comments`.`id_owprjt_users` = `owprjt_users`.`id`'
                 . ' LEFT JOIN `owprjt_profilePicture` ON `owprjt_users`.`id_owprjt_profilePicture` = `owprjt_profilePicture`.`id`'
