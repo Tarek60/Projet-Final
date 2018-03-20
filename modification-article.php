@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once 'configuration.php';
 include_once 'models/dataBase.php';
 include_once 'models/articles.php';
 include_once 'controllers/articleController.php';

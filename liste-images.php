@@ -1,4 +1,5 @@
 <?php
+include_once 'configuration.php';
 include_once 'models/dataBase.php';
 include_once 'models/profilePicture.php';
 include_once 'controllers/liste-imagesController.php';

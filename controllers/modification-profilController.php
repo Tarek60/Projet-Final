@@ -2,6 +2,7 @@
 
 if (isset($_POST['picture'])) {
     session_start();
+    include_once '../configuration.php';
     include_once '../models/dataBase.php';
     include_once '../models/users.php';
     include_once '../models/profilePicture.php';
@@ -54,6 +55,4 @@ if (isset($_POST['submit'])) {
         header('Location: profil.php?userId=' . $_SESSION['id']);
     }
 }
-
-
 ?>

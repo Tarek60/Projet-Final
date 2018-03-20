@@ -13,7 +13,7 @@ class users extends dataBase {
     public $platform = '';
     public $battlenetAccount = '';
     public $id_owprjt_profilePicture = 0;
-    public $name = '';
+    public $picProfileName = '';
 
     public function __construct() {
         parent::__construct();
@@ -24,7 +24,7 @@ class users extends dataBase {
      * @return boolean
      */
     public function addUsers() {
-        $query = 'INSERT INTO `' . SELF::prefix . 'users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
+        $query = 'INSERT INTO `' . TABLEPREFIX . 'users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
         $usersAdd = $this->db->prepare($query);
         $usersAdd->bindValue(':userName', $this->userName, PDO::PARAM_STR);
         $usersAdd->bindValue(':mail', $this->mail, PDO::PARAM_STR);
@@ -54,7 +54,7 @@ class users extends dataBase {
      */
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_' . SELF::prefix . 'profilePicture` FROM `' . SELF::prefix . 'users` WHERE `mail` = :mail';
+        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_' . TABLEPREFIX . 'profilePicture` FROM `' . TABLEPREFIX . 'users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {
@@ -72,9 +72,9 @@ class users extends dataBase {
     public function getUserInfoById() {
         $isCorrect = false;
         $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `picProfileName`'
-                . ' FROM `' . SELF::prefix . 'users`'
-                . ' LEFT JOIN `' . SELF::prefix . 'profilePicture` ON `' . SELF::prefix . 'profilePicture`.`id` = `' . SELF::prefix . 'users`.`id_' . SELF::prefix . 'profilePicture`'
-                . ' WHERE `' . SELF::prefix . 'users`.`id` = :id';
+                . ' FROM `' . TABLEPREFIX . 'users`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'profilePicture`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture`'
+                . ' WHERE `' . TABLEPREFIX . 'users`.`id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         if ($queryResult->execute()) {
@@ -99,7 +99,7 @@ class users extends dataBase {
      * @return bolean
      */
     public function updateUser() {
-        $query = 'UPDATE `' . SELF::prefix . 'users` SET `role` = :role, `rank` = :rank, `platform` = :platform, `battlenetAccount` = :battlenetAccount WHERE `id` = :id';
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `role` = :role, `rank` = :rank, `platform` = :platform, `battlenetAccount` = :battlenetAccount WHERE `id` = :id';
         $updateUser = $this->db->prepare($query);
         $updateUser->bindValue(':role', $this->role, PDO::PARAM_STR);
         $updateUser->bindValue(':rank', $this->rank, PDO::PARAM_STR);
@@ -110,7 +110,7 @@ class users extends dataBase {
     }
 
     public function updateProfilePicture() {
-        $query = 'UPDATE `' . SELF::prefix . 'users` SET `id_' . SELF::prefix . 'profilePicture` = :idPicture WHERE id = :id';
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'profilePicture` = :idPicture WHERE id = :id';
         $updatePictureProfile = $this->db->prepare($query);
         $updatePictureProfile->bindValue(':idPicture', $this->id_owprjt_profilePicture, PDO::PARAM_INT);
         $updatePictureProfile->bindValue(':id', $this->id, PDO::PARAM_INT);

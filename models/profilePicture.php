@@ -15,7 +15,7 @@ class profilePicture extends dataBase {
      * @return type
      */
     public function addPicture() {
-        $query = 'INSERT INTO `'.SELF::prefix.'profilePicture` (`picProfileName`) VALUES (:name)';
+        $query = 'INSERT INTO `' . TABLEPREFIX . 'profilePicture` (`picProfileName`) VALUES (:name)';
         $addPicture = $this->db->prepare($query);
         $addPicture->bindValue('name', $this->name, PDO::PARAM_STR);
         return $addPicture->execute();
@@ -27,7 +27,7 @@ class profilePicture extends dataBase {
      */
     public function listPicturesById() {
         $listPictures = array();
-        $query = 'SELECT `id`, `picProfileName` FROM `'.SELF::prefix.'profilePicture`';
+        $query = 'SELECT `id`, `picProfileName` FROM `' . TABLEPREFIX . 'profilePicture` ORDER BY `picProfileName` ASC';
         $result = $this->db->query($query);
         if (is_object($result)) {
             $listPictures = $result->fetchAll(PDO::FETCH_OBJ);
@@ -36,7 +36,7 @@ class profilePicture extends dataBase {
     }
 
     public function getPictureById() {
-        $query = 'SELECT `id` FROM `'.SELF::prefix.'profilePicture` WHERE `picProfileName` = :picture';
+        $query = 'SELECT `id` FROM `' . TABLEPREFIX . 'profilePicture` WHERE `picProfileName` = :picture';
         $pictureProfile = $this->db->prepare($query);
         $pictureProfile->bindValue(':picture', $this->name, PDO::PARAM_STR);
         $pictureProfile->execute();

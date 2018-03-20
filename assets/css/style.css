@@ -101,21 +101,31 @@ p {
     color: #FFB033;
     margin-top: 40px;
 }
-.divComments .comment {
+.divComments .commentBlock {
     margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ffb033;
+    background-color: #202020;
 }
-.divComments .comment img {
+.divComments .commentBlock img {
     float: left;
     width: 60px; 
     height: auto;
-    margin-right:20px;
+    margin-right: 20px;
+    border: 1px solid #ffb033;
+    background-color: black;
 } 
 
-.divComments .comment p {
+.divComments .commentBlock a {
+    font-size: 15px;
+} 
+
+.divComments .commentBlock p {
+    margin-top: 60px;
     font-size: 15px;
 }
 
-.divComments .comment span {
+.divComments .commentBlock span {
     margin-left: 10px;
     color: #FFB033;
 }

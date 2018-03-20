@@ -14,7 +14,7 @@ class comments extends dataBase {
     }
 
     public function addComment() {
-        $query = 'INSERT INTO `owprjt_comments` (`publicationDate`, `content`, `id_' . SELF::prefix . 'articles`, `id_' . SELF::prefix . 'users`) VALUES (NOW(), :comment, :article, :user)';
+        $query = 'INSERT INTO `' . TABLEPREFIX . 'comments` (`publicationDate`, `content`, `id_' . TABLEPREFIX . 'articles`, `id_' . TABLEPREFIX . 'users`) VALUES (NOW(), :comment, :article, :user)';
         $addComment = $this->db->prepare($query);
         $addComment->bindValue(':comment', $this->content, PDO::PARAM_STR);
         $addComment->bindValue(':article', $this->id_owprjt_articles, PDO::PARAM_INT);
@@ -23,11 +23,15 @@ class comments extends dataBase {
     }
 
     public function showComments() {
-        $query = 'SELECT `owprjt_comments`.`id`, DATE_FORMAT(`owprjt_comments`.`publicationDate`, "%d/%m/%Y" ) AS `date`, DATE_FORMAT(`owprjt_comments`.`publicationDate`, "%H:%i" ) AS `hour`, `owprjt_comments`.`content`, `owprjt_comments`.`id_owprjt_articles`, `owprjt_comments`.`id_owprjt_users`, `owprjt_comments`.`id_1`, `owprjt_users`.`userName`, `owprjt_profilePicture`.`picProfileName`'
-                . ' FROM `owprjt_comments` LEFT JOIN `owprjt_articles` ON `owprjt_comments`.`id_owprjt_articles` = `owprjt_articles`.`id`'
-                . ' LEFT JOIN `owprjt_users` ON `owprjt_comments`.`id_owprjt_users` = `owprjt_users`.`id`'
-                . ' LEFT JOIN `owprjt_profilePicture` ON `owprjt_users`.`id_owprjt_profilePicture` = `owprjt_profilePicture`.`id`'
-                . ' WHERE `owprjt_comments`.`id_owprjt_articles` = :id ORDER BY `id` ASC';
+        $query = 'SELECT `' . TABLEPREFIX . 'comments`.`id` AS id, DATE_FORMAT(`' . TABLEPREFIX . 'comments`.`publicationDate`, "%d/%m/%Y" ) AS `date`,'
+                . ' DATE_FORMAT(`' . TABLEPREFIX . 'comments`.`publicationDate`, "%H:%i" ) AS `hour`, `' . TABLEPREFIX . 'comments`.`content`,'
+                . ' `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles`, `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'users`,'
+                . ' `' . TABLEPREFIX . 'comments`.`id_1`, `' . TABLEPREFIX . 'users`.`userName`, `' . TABLEPREFIX . 'profilePicture`.`picProfileName`'
+                . ' FROM `' . TABLEPREFIX . 'comments`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'articles` ON `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles` = `' . TABLEPREFIX . 'articles`.`id`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'users` = `' . TABLEPREFIX . 'users`.`id`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture` = `' . TABLEPREFIX . 'profilePicture`.`id`'
+                . ' WHERE `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles` = :id ORDER BY `id` ASC';
         $showComments = $this->db->prepare($query);
         $showComments->bindValue(':id', $this->id_owprjt_articles, PDO::PARAM_INT);
         $showComments->execute();
@@ -35,13 +39,19 @@ class comments extends dataBase {
     }
     
     public function countNumberComments() {
-        $query = 'SELECT COUNT(`id`) as nbComments FROM `owprjt_comments` WHERE `id_owprjt_articles` = :id ';
+        $query = 'SELECT COUNT(`id`) as nbComments FROM `' . TABLEPREFIX . 'comments` WHERE `id_' . TABLEPREFIX . 'articles` = :id ';
         $numberComments = $this->db->prepare($query);
         $numberComments->bindValue(':id', $this->id_owprjt_articles, PDO::PARAM_INT);
         $numberComments->execute();
         return $numberComments->fetch(PDO::FETCH_OBJ);
     }
 
+    public function deleteComment() {
+        $query = 'DELETE FROM `' . TABLEPREFIX . 'comments` WHERE `id` = :id';
+        $deleteComment = $this->db->prepare($query);
+        $deleteComment->bindValue('id', $this->id, PDO::PARAM_INT);
+        return $deleteComment->execute();
+    }
 
     public function __destruct() {
         parent::__destruct();

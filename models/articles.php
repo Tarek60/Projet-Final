@@ -20,7 +20,8 @@ class articles extends dataBase {
      * @return type
      */
     public function createArticle() {
-        $query = 'INSERT INTO `'.SELF::prefix.'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users`) VALUES (NOW(), :title, :picture, :resume, :content, :id_'.SELF::prefix.'users)';
+        $query = 'INSERT INTO `' . TABLEPREFIX . 'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_' . TABLEPREFIX . 'users`)'
+                . ' VALUES (NOW(), :title, :picture, :resume, :content, :id_' . TABLEPREFIX . 'users)';
         $createArticle = $this->db->prepare($query);
         $createArticle->bindValue('title', $this->title, PDO::PARAM_STR);
         $createArticle->bindValue('picture', $this->picture, PDO::PARAM_STR);
@@ -35,7 +36,7 @@ class articles extends dataBase {
      * @return type
      */
     public function getListArticles() {
-        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `'.SELF::prefix.'articles` ORDER BY `id` DESC';
+        $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `' . TABLEPREFIX . 'articles` ORDER BY `id` DESC';
         $queryResult = $this->db->query($query);
         if (is_object($queryResult)) {
             $articlesList = $queryResult->fetchAll(PDO::FETCH_OBJ);
@@ -48,7 +49,11 @@ class articles extends dataBase {
      * @return type
      */
     public function getArticleById() {
-        $query = 'SELECT `'.SELF::prefix.'articles`.`id`,  DATE_FORMAT( `'.SELF::prefix.'articles`.`publicationDate`, "%d/%m/%Y" ) AS `date`, DATE_FORMAT( `'.SELF::prefix.'articles`.`publicationDate`, "%H:%i" ) AS `hour`, `'.SELF::prefix.'articles`.`title`, `'.SELF::prefix.'articles`.`picture`, `'.SELF::prefix.'articles`.`resume`, `'.SELF::prefix.'articles`.`content`, `'.SELF::prefix.'articles`.`id_'.SELF::prefix.'users`, `'.SELF::prefix.'users`.`userName` FROM `'.SELF::prefix.'articles` LEFT JOIN `'.SELF::prefix.'users` ON `'.SELF::prefix.'users`.`id` = `'.SELF::prefix.'articles`.`id_'.SELF::prefix.'users` WHERE `'.SELF::prefix.'articles`.`id` = :id';
+        $query = 'SELECT `' . TABLEPREFIX . 'articles`.`id`,  DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%d/%m/%Y" ) AS `date`, DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%H:%i" ) AS `hour`,'
+                . ' `' . TABLEPREFIX . 'articles`.`title`, `' . TABLEPREFIX . 'articles`.`picture`, `' . TABLEPREFIX . 'articles`.`resume`, `' . TABLEPREFIX . 'articles`.`content`, `'
+                . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`, `' . TABLEPREFIX . 'users`.`userName` FROM `' . TABLEPREFIX . 'articles`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'users`.`id` = `' . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`'
+                . ' WHERE `' . TABLEPREFIX . 'articles`.`id` = :id';
         $articleInfo = $this->db->prepare($query);
         $articleInfo->bindValue(':id', $this->id, PDO::PARAM_INT);
         $articleInfo->execute();
@@ -60,7 +65,7 @@ class articles extends dataBase {
      * @return boolean
      */
     public function updateArticle() {
-        $query = 'UPDATE `'.SELF::prefix.'articles` SET `title` = :title, `picture` = :picture, `resume` = :resume, `content` = :content WHERE `id` = :id';
+        $query = 'UPDATE `' . TABLEPREFIX . 'articles` SET `title` = :title, `picture` = :picture, `resume` = :resume, `content` = :content WHERE `id` = :id';
         $updateArticle = $this->db->prepare($query);
         $updateArticle->bindValue('title', $this->title, pdo::PARAM_STR);
         $updateArticle->bindValue('picture', $this->picture, pdo::PARAM_STR);
@@ -75,7 +80,7 @@ class articles extends dataBase {
      * @return boolean
      */
     public function deleteArticle() {
-        $query = 'DELETE FROM `'.SELF::prefix.'articles` WHERE `id` = :id';
+        $query = 'DELETE FROM `' . TABLEPREFIX . 'articles` WHERE `id` = :id';
         $deleteArticle = $this->db->prepare($query);
         $deleteArticle->bindValue('id', $this->id, PDO::PARAM_INT);
         return $deleteArticle->execute();

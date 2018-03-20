@@ -1,5 +1,6 @@
-<?php 
+<?php
 session_start();
+include_once 'configuration.php';
 include_once 'models/dataBase.php';
 include_once 'models/articles.php';
 include_once 'models/comments.php';
@@ -34,13 +35,23 @@ include_once 'header.php';
                         <div class="col-lg-offset-1 col-lg-10">
                             <div class="divComments">
                                 <h2>Commentaires (<?= $numberComments->nbComments ?>)</h2>
-                                <div class="comment">
-                                    <?php foreach ($commentDetails as $comments) { ?>
-                                    <img src="assets/img/profil/<?= $comments->picProfileName ?>" alt="photo de l'utilisateur" class="img-responsive img-circle" />
-                                    <a href=""><?= $comments->userName ?></a><span><?= $comments->date ?>, à <?= $comments->hour ?></span>
-                                    <p><?= $comments->content ?></p>
-                                    <?php } ?>
-                                </div>
+                                <?php foreach ($commentDetails as $comments) { ?>
+                                    <div class="commentBlock">
+                                        <img src="assets/img/profil/<?= $comments->picProfileName ?>" alt="photo de l'utilisateur" class="img-responsive" />
+                                        <a href=""><?= $comments->userName ?></a>
+                                        <span><?= $comments->date ?>, à <?= $comments->hour ?></span>
+                                        <p><?= $comments->content ?></p>
+                                        <a href="article1.php?articleId=<?= $articles->id ?>&deleteComment=<?= $comments->id ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le commentaire ?')">
+                                            <i class="fa fa-trash" aria-hidden="true" id="commentDel"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-success">
+                                            <i class="fa fa-pencil" aria-hidden="true" id="commentDel"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-primary">
+                                            <i class="fa fa-comment" aria-hidden="true" id="commentDel"></i>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
