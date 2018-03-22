@@ -19,10 +19,10 @@ if (isset($_POST['submit'])) {
                 $_SESSION['id'] = $userLogin->id;
                 $_SESSION['userName'] = $userLogin->userName;
                 $_SESSION['mail'] = $userLogin->mail;
-                $_SESSION['role'] = $userLogin->role;
-                $_SESSION['rank'] = $userLogin->rank;
-                $_SESSION['platform'] = $userLogin->platform;
-                $_SESSION['battlenetAccount'] = $userLogin->battlenetAccount;
+                $_SESSION['id_owprjt_role'] = $userLogin->id_owprjt_role;
+                $_SESSION['id_owprjt_rank'] = $userLogin->id_owprjt_rank;
+                $_SESSION['id_owprjt_platform'] = $userLogin->id_owprjt_platform;
+                $_SESSION['account'] = $userLogin->account;
                 $_SESSION['id_owprjt_profilePicture'] = $userLogin->id_owprjt_profilePicture;
                 // On redirige vers la page d'acutalité
                 header('Location: actualite.php');
@@ -35,4 +35,5 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+
 ?> 

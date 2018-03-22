@@ -6,7 +6,7 @@ class dataBase {
 
     public function __construct() {
         try {
-            $this->db = new PDO('mysql:host=127.0.0.1;dbname=Overchat;charset=utf8', 'project_overwatch', '12081999');
+            $this->db = new PDO('mysql:host=127.0.0.1;dbname=Overchat2;charset=utf8', 'root', '12081999');
 
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());

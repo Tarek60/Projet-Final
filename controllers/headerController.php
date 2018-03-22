@@ -7,5 +7,5 @@ include_once 'controllers/profilController.php';
 $users = new users();
 if (isset($_SESSION['id'])) {
     $users->id = $_SESSION['id'];
-    $users->getUserInfoById();
+    $userInfo = $users->getUserInfoById();
 }

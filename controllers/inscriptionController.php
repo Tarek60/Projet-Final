@@ -9,6 +9,15 @@ $regMail = '#[A-Z-a-z-0-9-.éàèîÏôöùüûêëç]{2,}@[A-Z-a-z-0-9éèàê�
 $regPassword = '#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])#';
 $regBattlenet = '';
 
+$role = new role();
+$roleList = $role->showRoleList();
+
+$rank = new rank();
+$rankList = $rank->showRankList();
+
+$platform = new platform();
+$platformList = $platform->showPlatformList();
+
 // Si on clique sur le bouton submit
 if (isset($_POST['submit'])) {
 // On verifie si les input du formulaires ne sont pas vides
@@ -43,27 +52,27 @@ if (isset($_POST['submit'])) {
 
     // Si un role est selectionner
     if (isset($_POST['role'])) {
-        $users->role = htmlspecialchars($_POST['role']);
+        $users->id_owprjt_role = htmlspecialchars($_POST['role']);
     } else {
         $formError['role'] = 'Le role n\'est pas correct';
     }
     // Si un role est selectionner
     if (isset($_POST['rank'])) {
-        $users->rank = htmlspecialchars($_POST['rank']);
+        $users->id_owprjt_rank = htmlspecialchars($_POST['rank']);
     } else {
         $formError['rank'] = 'Le rank est incorrect';
     }
     // Si une platforme est selectionner
     if (isset($_POST['platform'])) {
-        $users->platform = htmlspecialchars($_POST['platform']);
+        $users->id_owprjt_platform = htmlspecialchars($_POST['platform']);
     } else {
         $formError['platform'] = 'La plateforme est incorrect';
     }
     // Si le compte battlenet est rempli
-    if (!empty($_POST['battlenetAccount'])) {
-        $users->battlenetAccount = htmlspecialchars($_POST['battlenetAccount']);
+    if (!empty($_POST['account'])) {
+        $users->account = htmlspecialchars($_POST['account']);
     } else {
-        $formError['battlenetAccount'] = 'Le compte battle.net est incorrect';
+        $formError['account'] = 'Le compte battle.net est incorrect';
     }
 
 //On vérifie qu'il n'y a pas eu d'erreur

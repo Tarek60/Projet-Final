@@ -49,7 +49,8 @@ class articles extends dataBase {
      * @return type
      */
     public function getArticleById() {
-        $query = 'SELECT `' . TABLEPREFIX . 'articles`.`id`,  DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%d/%m/%Y" ) AS `date`, DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%H:%i" ) AS `hour`,'
+        $query = 'SELECT `' . TABLEPREFIX . 'articles`.`id`,  DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%d/%m/%Y" ) AS `date`,'
+                . ' DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%H:%i" ) AS `hour`,'
                 . ' `' . TABLEPREFIX . 'articles`.`title`, `' . TABLEPREFIX . 'articles`.`picture`, `' . TABLEPREFIX . 'articles`.`resume`, `' . TABLEPREFIX . 'articles`.`content`, `'
                 . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`, `' . TABLEPREFIX . 'users`.`userName` FROM `' . TABLEPREFIX . 'articles`'
                 . ' LEFT JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'users`.`id` = `' . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`'
@@ -82,7 +83,7 @@ class articles extends dataBase {
     public function deleteArticle() {
         $query = 'DELETE FROM `' . TABLEPREFIX . 'articles` WHERE `id` = :id';
         $deleteArticle = $this->db->prepare($query);
-        $deleteArticle->bindValue('id', $this->id, PDO::PARAM_INT);
+        $deleteArticle->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $deleteArticle->execute();
     }
 

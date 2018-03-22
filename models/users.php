@@ -7,11 +7,10 @@ class users extends dataBase {
     public $userName = '';
     public $mail = '';
     public $password = '';
-    public $passwordConfirm = '';
-    public $role = '';
-    public $rank = '';
-    public $platform = '';
-    public $battlenetAccount = '';
+    public $id_owprjt_role = 0;
+    public $id_owprjt_rank = 0;
+    public $id_owprjt_platform = 0;
+    public $account = '';
     public $id_owprjt_profilePicture = 0;
     public $picProfileName = '';
 
@@ -24,15 +23,15 @@ class users extends dataBase {
      * @return boolean
      */
     public function addUsers() {
-        $query = 'INSERT INTO `' . TABLEPREFIX . 'users`(`userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`) VALUES(:userName, :mail, :password, :role, :rank, :platform, :battlenetAccount)';
+        $query = 'INSERT INTO `' . TABLEPREFIX . 'users`(`userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`) VALUES (:userName, :mail, :password, :role, :rank, :platform, :account)';
         $usersAdd = $this->db->prepare($query);
         $usersAdd->bindValue(':userName', $this->userName, PDO::PARAM_STR);
         $usersAdd->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $usersAdd->bindValue(':password', $this->password, PDO::PARAM_STR);
-        $usersAdd->bindValue(':role', $this->role, PDO::PARAM_STR);
-        $usersAdd->bindValue(':rank', $this->rank, PDO::PARAM_STR);
-        $usersAdd->bindValue(':platform', $this->platform, PDO::PARAM_STR);
-        $usersAdd->bindValue(':battlenetAccount', $this->battlenetAccount, PDO::PARAM_STR);
+        $usersAdd->bindValue(':role', $this->id_owprjt_role, PDO::PARAM_INT);
+        $usersAdd->bindValue(':rank', $this->id_owprjt_rank, PDO::PARAM_INT);
+        $usersAdd->bindValue(':platform', $this->id_owprjt_platform, PDO::PARAM_INT);
+        $usersAdd->bindValue(':account', $this->account, PDO::PARAM_STR);
 //Si l'insertion s'est correctement déroulée on retourne vrai
         return $usersAdd->execute();
     }
@@ -54,7 +53,7 @@ class users extends dataBase {
      */
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `id`, `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `id_' . TABLEPREFIX . 'profilePicture` FROM `' . TABLEPREFIX . 'users` WHERE `mail` = :mail';
+        $query = 'SELECT `id`, `userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`, `id_' . TABLEPREFIX . 'profilePicture` FROM `' . TABLEPREFIX . 'users` WHERE `mail` = :mail';
         $userInfo = $this->db->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {
@@ -70,28 +69,19 @@ class users extends dataBase {
      * @return boolean
      */
     public function getUserInfoById() {
-        $isCorrect = false;
-        $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount`, `picProfileName`'
-                . ' FROM `' . TABLEPREFIX . 'users`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'profilePicture`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture`'
-                . ' WHERE `' . TABLEPREFIX . 'users`.`id` = :id';
+        $userInfo = array();
+        $query = 'SELECT `userName`, `mail`, `password`, `owprjt_role`.`role`, `owprjt_rank`.`rank`, `owprjt_platform`.`platform`, `account`, `picProfileName` FROM `owprjt_users`'
+                . ' LEFT JOIN `owprjt_profilePicture` ON `owprjt_profilePicture`.`id` = `owprjt_users`.`id_owprjt_profilePicture`'
+                . ' LEFT JOIN `owprjt_role` ON `owprjt_role`.`id` = `owprjt_users`.`id_owprjt_role`'
+                . ' LEFT JOIN `owprjt_rank` ON `owprjt_rank`.`id` = `owprjt_users`.`id_owprjt_rank`'
+                . ' LEFT JOIN `owprjt_platform` ON `owprjt_platform`.`id` = `owprjt_users`.`id_owprjt_platform`'
+                . ' WHERE `owprjt_users`.`id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         if ($queryResult->execute()) {
             $userInfo = $queryResult->fetch(PDO::FETCH_OBJ);
-            if (is_object($userInfo)) {
-                $this->userName = $userInfo->userName;
-                $this->mail = $userInfo->mail;
-                $this->password = $userInfo->password;
-                $this->role = $userInfo->role;
-                $this->rank = $userInfo->rank;
-                $this->platform = $userInfo->platform;
-                $this->battlenetAccount = $userInfo->battlenetAccount;
-                $this->picProfileName = $userInfo->picProfileName;
-                $isCorrect = true;
-            }
-            return $isCorrect;
         }
+        return $userInfo;
     }
 
     /**
@@ -99,16 +89,24 @@ class users extends dataBase {
      * @return bolean
      */
     public function updateUser() {
-        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `role` = :role, `rank` = :rank, `platform` = :platform, `battlenetAccount` = :battlenetAccount WHERE `id` = :id';
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_owprjt_role` = :role, `id_owprjt_rank` = :rank, `id_owprjt_platform` = :platform, `account` = :account WHERE `id` = :id';
         $updateUser = $this->db->prepare($query);
-        $updateUser->bindValue(':role', $this->role, PDO::PARAM_STR);
-        $updateUser->bindValue(':rank', $this->rank, PDO::PARAM_STR);
-        $updateUser->bindValue(':platform', $this->platform, PDO::PARAM_STR);
-        $updateUser->bindValue(':battlenetAccount', $this->battlenetAccount, PDO::PARAM_STR);
+        $updateUser->bindValue(':role', $this->id_owprjt_role, PDO::PARAM_STR);
+        $updateUser->bindValue(':rank', $this->id_owprjt_rank, PDO::PARAM_STR);
+        $updateUser->bindValue(':platform', $this->id_owprjt_platform, PDO::PARAM_STR);
+        $updateUser->bindValue(':account', $this->account, PDO::PARAM_STR);
         $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updateUser->execute();
     }
-
+    
+    public function updatePassword() {
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `password` = :newPassword WHERE `id` = :id';
+        $updatePassword = $this->db->prepare($query);
+        $updatePassword->bindValue(':newPassword', $this->password, PDO::PARAM_STR);
+        $updatePassword->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updatePassword->execute();
+    }
+    
     public function updateProfilePicture() {
         $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'profilePicture` = :idPicture WHERE id = :id';
         $updatePictureProfile = $this->db->prepare($query);

@@ -2,6 +2,9 @@
 include_once 'configuration.php';
 include_once 'models/dataBase.php';
 include_once 'models/users.php';
+include_once 'models/role.php';
+include_once 'models/rank.php';
+include_once 'models/platform.php';
 include_once 'controllers/inscriptionController.php';
 include_once 'header-accueil.php';
 ?>
@@ -21,33 +24,29 @@ include_once 'header-accueil.php';
                     <p><label for="age">Mot de passe * </label><input type="password" name="password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>" /></p>
                     <p><label for="email">Confirmer mot de passe *</label><input type="password" name="passwordConfirm" value="<?= isset($_POST['passwordConfirm']) ? $_POST['passwordConfirm'] : '' ?>" /></p>
                     <p>Rôle principal *</p>
-                    <p><label for="role">Dps</label><input type="radio" name="role" value="Dps<?= $users->role ?>" /></p>
-                    <p><label for="role">Tank</label><input type="radio" name="role" value="Tank<?= $users->role ?>" /></p>
-                    <p><label for="role">Support</label><input type="radio" name="role" value="Support<?= $users->role ?>" /></p>
-                    <p><label for="rank">Rang compétitif *</label><select name="rank" value="<?= $users->rank ?>" >
-                            <option>Non-classé</option>
-                            <option>Bronze 500-1499</option>
-                            <option>Argent 1500-1999</option>
-                            <option>Gold 2000-2499</option>
-                            <option>Platine 2500-2999</option>
-                            <option>Diamant 3000-3499</option>
-                            <option>Maitre 3500-3999</option>
-                            <option>Grand Maitre +4000</option>
-                            <option>Top 500</option>
+                    <?php foreach ($roleList as $role) { ?>
+                        <p><label for="role"><?= $role->role ?></label><input type="radio" name="role" value="<?= $role->id ?>" /></p>
+                    <?php } ?>
+                    <p><label for="rank">Rang compétitif *</label>
+                        <select name="rank">
+                            <?php foreach ($rankList as $rank) { ?>
+                                <option value="<?= $rank->id ?>"><?= $rank->rank ?></option>
+                            <?php } ?>
+                        </select>
+                    </p>
+                    <p><label for="plateform">Plateforme *</label><select name="platform">
+                            <?php foreach ($platformList as $platform) { ?>
+                                <option value="<?= $platform->id ?>"><?= $platform->platform ?></option>
+                            <?php } ?>
                         </select></p>
-                    <p><label for="plateform">Plateforme *</label><select name="platform" value="<?= $users->platform ?>" >
-                            <option >PC</option>
-                            <option>PS4</option>
-                            <option>XBOX ONE</option>
-                        </select></p>
-                    <p><label for="battlenet">Compte battle.net *</label><input type="text" name="battlenetAccount" value="<?= $users->battlenetAccount ?>" /></p>
+                    <p><label for="account">Compte battle.net *</label><input type="text" name="account" value="<?= $users->account ?>" /></p>
                     <input class="btn btn-warning" type="submit" name="submit" value="Enregistrer" id="submit">
                 </form>
             </div>
-                <!-- On afficher un message pour montrer que le formulaire à bien été envoyer -->
-                <?php if ($insertSuccess) { ?>
+            <!-- On affiche un message pour montrer que le formulaire à bien été envoyer -->
+            <?php if ($insertSuccess) { ?>
                 <div class="alert alert-success" role="alert"><?= $insertSuccess ? 'Envoi réussi' : '' ?></div>
-                <?php } ?>
+            <?php } ?>
         </div>
     </div>
 </div>
