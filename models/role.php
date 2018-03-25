@@ -9,7 +9,11 @@ class role extends dataBase {
     public function __construct() {
         parent::__construct();
     }
-
+    
+    /**
+     * Cete méthode permet d'afficher la liste des rôle
+     * @return array
+     */
     public function showRoleList() {
         $roleList = array();
         $query = 'SELECT `id`, `role` FROM `' . TABLEPREFIX . 'role`';

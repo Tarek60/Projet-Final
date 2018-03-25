@@ -9,7 +9,11 @@ class platform extends dataBase {
     public function __construct() {
         parent::__construct();
     }
-
+    
+    /**
+     * Cette méthode permet d'afficher la liste des platforme de jeu
+     * @return array
+     */
     public function showPlatformList() {
         $platformList = array();
         $query = 'SELECT `id`, `platform` FROM `' . TABLEPREFIX . 'platform`';

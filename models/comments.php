@@ -12,7 +12,11 @@ class comments extends dataBase {
     public function __construct() {
         parent::__construct();
     }
-
+    
+    /**
+     * Cette méthode permet d'ajouter un commentaire à un article
+     * @return bool
+     */
     public function addComment() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'comments` (`publicationDate`, `content`, `id_' . TABLEPREFIX . 'articles`, `id_' . TABLEPREFIX . 'users`) VALUES (NOW(), :comment, :article, :user)';
         $addComment = $this->db->prepare($query);
@@ -21,7 +25,11 @@ class comments extends dataBase {
         $addComment->bindValue(':user', $this->id_owprjt_users, PDO::PARAM_INT);
         return $addComment->execute();
     }
-
+    
+    /**
+     * Cette méthode permet d'afficher les commentaires dans un article
+     * @return bool
+     */
     public function showComments() {
         $query = 'SELECT `' . TABLEPREFIX . 'comments`.`id` AS id, DATE_FORMAT(`' . TABLEPREFIX . 'comments`.`publicationDate`, "%d/%m/%Y" ) AS `date`,'
                 . ' DATE_FORMAT(`' . TABLEPREFIX . 'comments`.`publicationDate`, "%H:%i" ) AS `hour`, `' . TABLEPREFIX . 'comments`.`content`,'
@@ -38,6 +46,10 @@ class comments extends dataBase {
         return $showComments->fetchAll(PDO::FETCH_OBJ);
     }
     
+    /**
+     * Cette méthode permet de compter le nombre de commentaire dans un article
+     * @return array
+     */
     public function countNumberComments() {
         $query = 'SELECT COUNT(`id`) as nbComments FROM `' . TABLEPREFIX . 'comments` WHERE `id_' . TABLEPREFIX . 'articles` = :id ';
         $numberComments = $this->db->prepare($query);
@@ -45,7 +57,11 @@ class comments extends dataBase {
         $numberComments->execute();
         return $numberComments->fetch(PDO::FETCH_OBJ);
     }
-
+    
+    /**
+     * Cette méthode permet de supprimer un commentaire
+     * @return bool
+     */
     public function deleteComment() {
         $query = 'DELETE FROM `' . TABLEPREFIX . 'comments` WHERE `id` = :id';
         $deleteComment = $this->db->prepare($query);

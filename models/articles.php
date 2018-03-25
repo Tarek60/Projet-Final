@@ -17,7 +17,7 @@ class articles extends dataBase {
 
     /**
      * Cette méthode permet de créer un article via un formulaire
-     * @return type
+     * @return bool
      */
     public function createArticle() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_' . TABLEPREFIX . 'users`)'
@@ -33,7 +33,7 @@ class articles extends dataBase {
 
     /**
      * Cette méthode permet de récupérer la liste des articles dans la base de données, et les afficher
-     * @return type
+     * @return array
      */
     public function getListArticles() {
         $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `' . TABLEPREFIX . 'articles` ORDER BY `id` DESC';
@@ -46,7 +46,7 @@ class articles extends dataBase {
 
     /**
      * Cette méthode permet de récupérer les info d'un article par rapport à son id 
-     * @return type
+     * @return array
      */
     public function getArticleById() {
         $query = 'SELECT `' . TABLEPREFIX . 'articles`.`id`,  DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%d/%m/%Y" ) AS `date`,'
@@ -63,7 +63,7 @@ class articles extends dataBase {
 
     /**
      * Cette méthode permet de modifier un article 
-     * @return boolean
+     * @return bool
      */
     public function updateArticle() {
         $query = 'UPDATE `' . TABLEPREFIX . 'articles` SET `title` = :title, `picture` = :picture, `resume` = :resume, `content` = :content WHERE `id` = :id';
@@ -78,7 +78,7 @@ class articles extends dataBase {
 
     /**
      * Cette méthode permet de supprimer un article
-     * @return boolean
+     * @return bool
      */
     public function deleteArticle() {
         $query = 'DELETE FROM `' . TABLEPREFIX . 'articles` WHERE `id` = :id';

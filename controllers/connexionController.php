@@ -1,20 +1,22 @@
 <?php
 
+// On instancie l'objet users
 $users = new users();
 $formError = array();
 
-// Si on clique sur le bouton
+/* On vérifie que toutes les variables $_POST existent
+ * On assigne la valeur des $_POST dans les attributs de l'objet patients
+ * On appelle la methode qui permet de se connecter avec l'adresse email
+ * On verifie que le compte existe
+ * Si le mot de passe dans l'input correspond au mot de passe crypté dans la base de données
+ * On démarre une session, et on stocke les info de l'utilisateur dans des variables de sessions
+ */
 if (isset($_POST['submit'])) {
-    //Si l'input de l'email est rempli
     if (!empty($_POST['mail'])) {
         $users->mail = $_POST['mail'];
-        // On appelle la methode qui permet de se connecter avec l'adresse email
         $userLogin = $users->loginUserByMail();
-        // Si le compte existe
         if ($userLogin != NULL) {
-        // Si le mot de passe dans l'input correspond au mot de passe crypté dans la base de données
             if (password_verify($_POST['password'], $userLogin->password)) {
-                // On démarre une session, et on stocke les info de l'utilisateur dans des variables de sessions
                 session_start();
                 $_SESSION['id'] = $userLogin->id;
                 $_SESSION['userName'] = $userLogin->userName;
@@ -24,7 +26,6 @@ if (isset($_POST['submit'])) {
                 $_SESSION['id_owprjt_platform'] = $userLogin->id_owprjt_platform;
                 $_SESSION['account'] = $userLogin->account;
                 $_SESSION['id_owprjt_profilePicture'] = $userLogin->id_owprjt_profilePicture;
-                // On redirige vers la page d'acutalité
                 header('Location: actualite.php');
                 exit;
             } else {
@@ -35,5 +36,3 @@ if (isset($_POST['submit'])) {
         }
     }
 }
-
-?> 

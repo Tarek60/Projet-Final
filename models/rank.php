@@ -9,7 +9,11 @@ class rank extends dataBase {
     public function __construct() {
         parent::__construct();
     }
-
+    
+    /**
+     * Cette méthode permet d'afficher la liste des rang compétitif
+     * @return array
+     */
     public function showRankList() {
         $roleList = array();
         $query = 'SELECT `id`, `rank` FROM `' . TABLEPREFIX . 'rank`';

@@ -20,7 +20,7 @@ class users extends dataBase {
 
     /**
      * Cette méthode permet d'ajouter un utilisateur 
-     * @return boolean
+     * @return bool
      */
     public function addUsers() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'users`(`userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`) VALUES (:userName, :mail, :password, :role, :rank, :platform, :account)';
@@ -66,16 +66,16 @@ class users extends dataBase {
 
     /**
      * Cette méthode permet d'afficher les infos de l'utilisateur sur la page profil
-     * @return boolean
+     * @return bool
      */
     public function getUserInfoById() {
         $userInfo = array();
-        $query = 'SELECT `userName`, `mail`, `password`, `owprjt_role`.`role`, `owprjt_rank`.`rank`, `owprjt_platform`.`platform`, `account`, `picProfileName` FROM `owprjt_users`'
-                . ' LEFT JOIN `owprjt_profilePicture` ON `owprjt_profilePicture`.`id` = `owprjt_users`.`id_owprjt_profilePicture`'
-                . ' LEFT JOIN `owprjt_role` ON `owprjt_role`.`id` = `owprjt_users`.`id_owprjt_role`'
-                . ' LEFT JOIN `owprjt_rank` ON `owprjt_rank`.`id` = `owprjt_users`.`id_owprjt_rank`'
-                . ' LEFT JOIN `owprjt_platform` ON `owprjt_platform`.`id` = `owprjt_users`.`id_owprjt_platform`'
-                . ' WHERE `owprjt_users`.`id` = :id';
+        $query = 'SELECT `userName`, `mail`, `password`, `' . TABLEPREFIX . 'role`.`role`, `' . TABLEPREFIX . 'rank`.`rank`, `' . TABLEPREFIX . 'platform`.`platform`, `account`, `picProfileName` FROM `owprjt_users`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'profilePicture`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'role` ON `' . TABLEPREFIX . 'role`.`id` = `' . TABLEPREFIX . 'users`.`id_owprjt_role`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'rank` ON `' . TABLEPREFIX . 'rank`.`id` = `' . TABLEPREFIX . 'users`.`id_owprjt_rank`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'platform` ON `' . TABLEPREFIX . 'platform`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'platform`'
+                . ' WHERE `' . TABLEPREFIX . 'users`.`id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         if ($queryResult->execute()) {
@@ -86,10 +86,10 @@ class users extends dataBase {
 
     /**
      * Cette méthode permet de modifier les info de l'utilisateur
-     * @return bolean
+     * @return bool
      */
     public function updateUser() {
-        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_owprjt_role` = :role, `id_owprjt_rank` = :rank, `id_owprjt_platform` = :platform, `account` = :account WHERE `id` = :id';
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'role` = :role, `id_' . TABLEPREFIX . 'rank` = :rank, `id_' . TABLEPREFIX . 'platform` = :platform, `account` = :account WHERE `id` = :id';
         $updateUser = $this->db->prepare($query);
         $updateUser->bindValue(':role', $this->id_owprjt_role, PDO::PARAM_STR);
         $updateUser->bindValue(':rank', $this->id_owprjt_rank, PDO::PARAM_STR);
@@ -99,6 +99,10 @@ class users extends dataBase {
         return $updateUser->execute();
     }
     
+    /**
+     * Cette méthode permet de changer le mot de passe
+     * @return bool
+     */
     public function updatePassword() {
         $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `password` = :newPassword WHERE `id` = :id';
         $updatePassword = $this->db->prepare($query);
@@ -107,6 +111,10 @@ class users extends dataBase {
         return $updatePassword->execute();
     }
     
+    /**
+     * Cette méthode permet de changer l'image de profil
+     * @return bool
+     */
     public function updateProfilePicture() {
         $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'profilePicture` = :idPicture WHERE id = :id';
         $updatePictureProfile = $this->db->prepare($query);

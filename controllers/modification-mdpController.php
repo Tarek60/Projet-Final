@@ -1,5 +1,6 @@
 <?php
 
+// On instancie l'objet users
 $users = new users();
 $formError = array();
 $insertSuccess = false;

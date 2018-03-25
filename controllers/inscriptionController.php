@@ -1,5 +1,6 @@
 <?php
 
+//On instancie l'objet patients
 $users = new users();
 $insertSuccess = false;
 $formError = array();
@@ -7,20 +8,23 @@ $formError = array();
 $regUserName = '#^([a-zA-Z0-9-_]{2,30})$#';
 $regMail = '#[A-Z-a-z-0-9-.éàèîÏôöùüûêëç]{2,}@[A-Z-a-z-0-9éèàêâùïüëç]{2,}[.][a-z]{2,6}$#';
 $regPassword = '#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])#';
-$regBattlenet = '';
 
+// On instancie l'objet role, puis on appelle la méthode pour afficher la liste des rôles
 $role = new role();
 $roleList = $role->showRoleList();
 
+// On instancie l'objet rank, puis on appelle la méthode pour afficher la liste des rangs compétitifs
 $rank = new rank();
 $rankList = $rank->showRankList();
 
+// On instancie l'objet platform, puis on appelle la méthode pour afficher la liste des platforme de jeu
 $platform = new platform();
 $platformList = $platform->showPlatformList();
 
-// Si on clique sur le bouton submit
+/* On vérifie que toutes les variables $_POST existent
+ * Puis on assigne la valeur des $_POST dans les attributs de l'objet patients
+ */
 if (isset($_POST['submit'])) {
-// On verifie si les input du formulaires ne sont pas vides
     if (!empty($_POST['userName'])) {
         $users->userName = htmlspecialchars($_POST['userName']);
     } if (!preg_match($regUserName, $users->userName)) {
@@ -32,7 +36,6 @@ if (isset($_POST['submit'])) {
     } if (!preg_match($regMail, $users->mail)) {
         $formError['mail'] = 'L\'adresse mail est incorrect';
     }
-    // Si les mot des passes existent
     if (isset($_POST['password']) && isset($_POST['passwordConfirm'])) {
         //Si les mot de passes ne sont pas identiques 
         if ($_POST['password'] != ($_POST['passwordConfirm'])) {
@@ -43,39 +46,31 @@ if (isset($_POST['submit'])) {
             } if (!preg_match($regPassword, $users->password)) {
                 $formError['password'] = 'Le mot de passe est incorrect';
             }
-
-            if (!empty($_POST['passwordConfirm'])) {
-                $users->passwordConfirm = htmlspecialchars($_POST['passwordConfirm']);
-            }
         }
     }
 
-    // Si un role est selectionner
     if (isset($_POST['role'])) {
         $users->id_owprjt_role = htmlspecialchars($_POST['role']);
     } else {
         $formError['role'] = 'Le role n\'est pas correct';
     }
-    // Si un role est selectionner
     if (isset($_POST['rank'])) {
         $users->id_owprjt_rank = htmlspecialchars($_POST['rank']);
     } else {
         $formError['rank'] = 'Le rank est incorrect';
     }
-    // Si une platforme est selectionner
     if (isset($_POST['platform'])) {
         $users->id_owprjt_platform = htmlspecialchars($_POST['platform']);
     } else {
         $formError['platform'] = 'La plateforme est incorrect';
     }
-    // Si le compte battlenet est rempli
     if (!empty($_POST['account'])) {
         $users->account = htmlspecialchars($_POST['account']);
     } else {
         $formError['account'] = 'Le compte battle.net est incorrect';
     }
 
-//On vérifie qu'il n'y a pas eu d'erreur
+//Si il n'y a aucune erreur lors de l'envoi du formulaire, on appelle la méthode pour enregistrer les infos de l'utilisateur dans la base de données
     if (count($formError) == 0) {
         $insertSuccess = true;
         $users->addUsers();

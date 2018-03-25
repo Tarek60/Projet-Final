@@ -12,7 +12,7 @@ class profilePicture extends dataBase {
 
     /**
      * Cette méthode permet d'ajouter une image de profil via un formulaire
-     * @return type
+     * @return bool
      */
     public function addPicture() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'profilePicture` (`picProfileName`) VALUES (:name)';
@@ -23,7 +23,7 @@ class profilePicture extends dataBase {
 
     /**
      * Cette méthode permet d'afficher la liste des images de profil
-     * @return type
+     * @return array
      */
     public function listPicturesById() {
         $listPictures = array();
@@ -34,7 +34,11 @@ class profilePicture extends dataBase {
         }
         return $listPictures;
     }
-
+    
+    /**
+     * Cette méthode permet d'afficher la photo de profil de l'utilisateur
+     * @return array
+     */
     public function getPictureById() {
         $query = 'SELECT `id` FROM `' . TABLEPREFIX . 'profilePicture` WHERE `picProfileName` = :picture';
         $pictureProfile = $this->db->prepare($query);

@@ -1,5 +1,6 @@
 <?php
 
+// La partie AJAX où j'ai rien compris 
 if (isset($_POST['picture'])) {
     session_start();
     include_once '../configuration.php';
@@ -18,6 +19,7 @@ if (isset($_POST['picture'])) {
 
 $users = new users();
 $formError = array();
+
 if (isset($_GET['userId'])) {
     $users->id = $_GET['userId'];
     $userInfo = $users->getUserInfoById();
