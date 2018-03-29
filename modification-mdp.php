@@ -1,12 +1,6 @@
 <?php
 session_start();
 include_once 'configuration.php';
-include_once 'models/dataBase.php';
-include_once 'models/users.php';
-include_once 'models/role.php';
-include_once 'models/rank.php';
-include_once 'models/platform.php';
-include_once 'models/profilePicture.php';
 include_once 'controllers/modification-mdpController.php';
 $title = 'Profil';
 include 'header.php';

@@ -8,6 +8,7 @@ class role extends dataBase {
 
     public function __construct() {
         parent::__construct();
+        $this->connectDB();
     }
     
     /**
@@ -17,7 +18,7 @@ class role extends dataBase {
     public function showRoleList() {
         $roleList = array();
         $query = 'SELECT `id`, `role` FROM `' . TABLEPREFIX . 'role`';
-        $showRoleList = $this->db->query($query);
+        $showRoleList = $this->pdo->query($query);
         if (is_object($showRoleList)) {
             $roleList = $showRoleList->fetchAll(PDO::FETCH_OBJ);
         }

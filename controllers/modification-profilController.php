@@ -4,9 +4,6 @@
 if (isset($_POST['picture'])) {
     session_start();
     include_once '../configuration.php';
-    include_once '../models/dataBase.php';
-    include_once '../models/users.php';
-    include_once '../models/profilePicture.php';
     $picture = new profilePicture();
     $users = new users();
     $picture->name = $_POST['picture'];

@@ -16,6 +16,7 @@ class users extends dataBase {
 
     public function __construct() {
         parent::__construct();
+        $this->connectDB();
     }
 
     /**
@@ -24,7 +25,7 @@ class users extends dataBase {
      */
     public function addUsers() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'users`(`userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`) VALUES (:userName, :mail, :password, :role, :rank, :platform, :account)';
-        $usersAdd = $this->db->prepare($query);
+        $usersAdd = $this->pdo->prepare($query);
         $usersAdd->bindValue(':userName', $this->userName, PDO::PARAM_STR);
         $usersAdd->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $usersAdd->bindValue(':password', $this->password, PDO::PARAM_STR);
@@ -36,16 +37,15 @@ class users extends dataBase {
         return $usersAdd->execute();
     }
 
-    /* public function getUsersList() {
-      $usersList = array();
-      $query = 'SELECT `userName`, `mail`, `password`, `role`, `rank`, `platform`, `battlenetAccount` FROM `owprjt_users`';
-      $usersResult = $this->db->query($query);
-      if (is_object($usersResult)) {
-      $usersList = $usersResult->fetch(PDO::FETCH_OBJ);
-      }
-      return $usersList;
-      }
-     */
+    public function getUsersList() {
+        $usersList = array();
+        $query = 'SELECT * FROM `owprjt_users`';
+        $usersResult = $this->pdo->query($query);
+        if (is_object($usersResult)) {
+            $usersList = $usersResult->fetchAll(PDO::FETCH_OBJ);
+        }
+        return $usersList;
+    }
 
     /**
      * Cette méthode permet de se connecter avec l'adresse email de l'utilisateur
@@ -54,7 +54,7 @@ class users extends dataBase {
     public function loginUserByMail() {
         $userLogin = array();
         $query = 'SELECT `id`, `userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`, `id_' . TABLEPREFIX . 'profilePicture` FROM `' . TABLEPREFIX . 'users` WHERE `mail` = :mail';
-        $userInfo = $this->db->prepare($query);
+        $userInfo = $this->pdo->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {
             if ($userInfo->execute()) {
@@ -70,13 +70,16 @@ class users extends dataBase {
      */
     public function getUserInfoById() {
         $userInfo = array();
-        $query = 'SELECT `userName`, `mail`, `password`, `' . TABLEPREFIX . 'role`.`role`, `' . TABLEPREFIX . 'rank`.`rank`, `' . TABLEPREFIX . 'platform`.`platform`, `account`, `picProfileName` FROM `owprjt_users`'
+        $query = 'SELECT `userName`, `mail`, `password`, `' . TABLEPREFIX . 'role`.`role`, `' . TABLEPREFIX . 'rank`.`rank`, `' . TABLEPREFIX . 'platform`.`platform`,'
+                . ' `account`, `picProfileName`, `' . TABLEPREFIX . 'userCategory`.`userCategoryName`'
+                . ' FROM `owprjt_users`'
                 . ' LEFT JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'profilePicture`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'role` ON `' . TABLEPREFIX . 'role`.`id` = `' . TABLEPREFIX . 'users`.`id_owprjt_role`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'rank` ON `' . TABLEPREFIX . 'rank`.`id` = `' . TABLEPREFIX . 'users`.`id_owprjt_rank`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'role` ON `' . TABLEPREFIX . 'role`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'role`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'rank` ON `' . TABLEPREFIX . 'rank`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'rank`'
                 . ' LEFT JOIN `' . TABLEPREFIX . 'platform` ON `' . TABLEPREFIX . 'platform`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'platform`'
+                . ' LEFT JOIN `' . TABLEPREFIX . 'userCategory` ON `' . TABLEPREFIX . 'userCategory`.`id` = `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'userCategory`'
                 . ' WHERE `' . TABLEPREFIX . 'users`.`id` = :id';
-        $queryResult = $this->db->prepare($query);
+        $queryResult = $this->pdo->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         if ($queryResult->execute()) {
             $userInfo = $queryResult->fetch(PDO::FETCH_OBJ);
@@ -90,7 +93,7 @@ class users extends dataBase {
      */
     public function updateUser() {
         $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'role` = :role, `id_' . TABLEPREFIX . 'rank` = :rank, `id_' . TABLEPREFIX . 'platform` = :platform, `account` = :account WHERE `id` = :id';
-        $updateUser = $this->db->prepare($query);
+        $updateUser = $this->pdo->prepare($query);
         $updateUser->bindValue(':role', $this->id_owprjt_role, PDO::PARAM_STR);
         $updateUser->bindValue(':rank', $this->id_owprjt_rank, PDO::PARAM_STR);
         $updateUser->bindValue(':platform', $this->id_owprjt_platform, PDO::PARAM_STR);
@@ -98,26 +101,26 @@ class users extends dataBase {
         $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updateUser->execute();
     }
-    
+
     /**
      * Cette méthode permet de changer le mot de passe
      * @return bool
      */
     public function updatePassword() {
         $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `password` = :newPassword WHERE `id` = :id';
-        $updatePassword = $this->db->prepare($query);
+        $updatePassword = $this->pdo->prepare($query);
         $updatePassword->bindValue(':newPassword', $this->password, PDO::PARAM_STR);
         $updatePassword->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updatePassword->execute();
     }
-    
+
     /**
      * Cette méthode permet de changer l'image de profil
      * @return bool
      */
     public function updateProfilePicture() {
         $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'profilePicture` = :idPicture WHERE id = :id';
-        $updatePictureProfile = $this->db->prepare($query);
+        $updatePictureProfile = $this->pdo->prepare($query);
         $updatePictureProfile->bindValue(':idPicture', $this->id_owprjt_profilePicture, PDO::PARAM_INT);
         $updatePictureProfile->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updatePictureProfile->execute();

@@ -5,7 +5,7 @@ $users = new users();
 $insertSuccess = false;
 $formError = array();
 // Déclarations des regex qui permettent de verifier les données d'un formulaire
-$regUserName = '#^([a-zA-Z0-9-_]{2,30})$#';
+$regUserName = '#^([a-zA-Z0-9-_]{3,30})$#';
 $regMail = '#[A-Z-a-z-0-9-.éàèîÏôöùüûêëç]{2,}@[A-Z-a-z-0-9éèàêâùïüëç]{2,}[.][a-z]{2,6}$#';
 $regPassword = '#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])#';
 
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     if (!empty($_POST['userName'])) {
         $users->userName = htmlspecialchars($_POST['userName']);
     } if (!preg_match($regUserName, $users->userName)) {
-        $formError['userName'] = 'Le pseudo est incorrect';
+        $formError['userName'] = 'Le pseudo doit contenir minimum 3 caratères';
     }
 
     if (!empty($_POST['mail'])) {
@@ -74,6 +74,12 @@ if (isset($_POST['submit'])) {
     if (count($formError) == 0) {
         $insertSuccess = true;
         $users->addUsers();
+        $users->userName = '';
+        $users->mail = '';
+        $users->password = '';
+        $users->id_owprjt_role = '';
+        $users->id_owprjt_rank = '';
+        $users->id_owprjt_platform = '';
+        $users->account = '';
     }
 }
-?>

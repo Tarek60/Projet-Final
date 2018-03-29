@@ -1,9 +1,6 @@
 <?php
 session_start();
 include_once 'configuration.php';
-include_once 'models/dataBase.php';
-include_once 'models/users.php';
-include_once 'models/profilePicture.php';
 include_once 'controllers/profilController.php';
 $title = 'Profil';
 include 'header.php';
@@ -27,6 +24,9 @@ include 'header.php';
                             <h2>Adresse email :</h2>
                             <p><?= $userInfo->mail ?></p>
                             <hr>
+                            <h2>Catégorie : </h2>
+                            <p><?= $userInfo->userCategoryName ?></p>
+                            <hr>
                             <h2>Plateforme : </h2>
                             <p><?= $userInfo->platform ?></p>
                             <hr>
@@ -35,6 +35,9 @@ include 'header.php';
                             <hr>
                             <h2>Rang actuel :</h2>
                             <p><?= $userInfo->rank ?></p>
+                            <hr>
+                            <h2>Compte battle.net :</h2>
+                            <p><?= $userInfo->account ?></p>
                             <hr>
                             <h2>Compte battle.net :</h2>
                             <p><?= $userInfo->account ?></p>

@@ -130,6 +130,14 @@ p {
     color: #FFB033;
 }
 
+.divComments .formCommentUpdate {
+    display: none;
+}
+
+.divComments .formCommentResponse {
+    margin-top: 10px;
+    display: none;
+}
 /* Style de la page création d'article */
 
 .divCreate {
@@ -469,4 +477,26 @@ p {
     display: block;
     font-size: 15px;
     margin-top: 40px;
+}
+
+/* Style de la page liste-membres */
+
+.divList h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFB033;
+}
+
+.divList table {
+    text-align: center;
+    color: white;
+}
+
+.divList table thead {
+    color: #FFB033;
+}
+
+.divList select {
+    text-align: center;
+    color: black;
 }

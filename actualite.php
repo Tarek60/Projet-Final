@@ -1,10 +1,6 @@
 <?php
 session_start();
 include_once 'configuration.php';
-include_once 'models/dataBase.php';
-include_once 'models/users.php';
-include_once 'models/profilePicture.php';
-include_once 'models/articles.php';
 include_once 'controllers/profilController.php';
 include_once 'controllers/liste-articlesController.php';
 include_once 'controllers/liste-imagesController.php';
@@ -18,7 +14,8 @@ include_once 'header.php';
             <div class="divNews">
                 <h1>Dernières nouveautés Overwatch</h1>
                 <a href="creer-article.php" class="btn btn-warning">Créer nouvel article</a>
-                <?php foreach ($articlesList as $articles) { ?>
+                <?php if (!empty($articlesList)) {
+                foreach ($articlesList as $articles) { ?>
                     <div class="article">
                         <a href="article1.php?articleId=<?= $articles->id ?>">
                             <img class=img-responsive src="assets/img/article/<?= $articles->picture; ?>" alt="" id="picture">
@@ -30,7 +27,7 @@ include_once 'header.php';
                         <a href="actualite.php?deleteArticle=<?= $articles->id ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'article ?')">Supprimer l'article</a>
                     </div>
                     <br>
-                <?php } ?>
+                <?php } } ?>
             </div>
         </div>
     </div>

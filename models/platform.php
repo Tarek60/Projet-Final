@@ -8,6 +8,7 @@ class platform extends dataBase {
 
     public function __construct() {
         parent::__construct();
+        $this->connectDB();
     }
     
     /**
@@ -17,7 +18,7 @@ class platform extends dataBase {
     public function showPlatformList() {
         $platformList = array();
         $query = 'SELECT `id`, `platform` FROM `' . TABLEPREFIX . 'platform`';
-        $showPlatformList = $this->db->query($query);
+        $showPlatformList = $this->pdo->query($query);
         if (is_object($showPlatformList)) {
             $platformList = $showPlatformList->fetchAll(PDO::FETCH_OBJ);
         }

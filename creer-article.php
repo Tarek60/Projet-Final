@@ -1,8 +1,6 @@
 <?php
 session_start();
 include_once 'configuration.php';
-include_once 'models/dataBase.php';
-include_once 'models/articles.php';
 include_once 'controllers/creer-articleController.php';
 $title = 'Créer un article';
 include_once 'header.php';
@@ -13,7 +11,7 @@ include_once 'header.php';
             <div class="divCreate">
                 <h1>Créer un article</h1>
                 <?php foreach ($formError as $error) { ?>
-                <p style="color: red"><?= $error ?></p>
+                    <p style="color: red"><?= $error ?></p>
                 <?php } ?>
                 <form method="POST" action="creer-article.php" enctype="multipart/form-data">
                     <div class="form-group">
@@ -34,7 +32,9 @@ include_once 'header.php';
                     </div>
                     <input type="submit" name="submit" class="btn btn-warning" value="Créer article" />
                 </form>
-                    <p style="color: #FFB033;"><?= $insertSuccess ? 'Envoi réussi' : '' ?></p>
+                <?php if ($insertSuccess) { ?>
+                    <p style="color: #FFB033;">L'article à bien été créer. Vous pouvez consulter la liste des article en cliquant <a href="actualite.php">ici</a></p>
+                <?php } ?>
             </div>
         </div>
     </div>

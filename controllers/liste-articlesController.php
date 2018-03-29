@@ -2,6 +2,7 @@
 
 // On instancie l'objet articles
 $articles = new articles();
+$articlesList = $articles->getListArticles();
 $success = false;
 
 /* On vérifie que la variable $_GET existe
@@ -14,6 +15,5 @@ if (isset($_GET['deleteArticle'])) {
     }
 }
 
-$articlesList = $articles->getListArticles();
 ?>
 

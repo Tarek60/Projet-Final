@@ -1,8 +1,5 @@
 <?php
 include_once 'configuration.php';
-include_once 'models/dataBase.php';
-include_once 'models/users.php';
-include_once 'models/profilePicture.php';
 include_once 'controllers/liste-imagesController.php';
 include_once 'controllers/headerController.php';
 ?>
@@ -41,6 +38,7 @@ include_once 'controllers/headerController.php';
                             <li><a href="actualite.php">News</a></li>
                             <li><a href="overtchat.php">Overchat</a></li>
                             <li><a href="forum.php">Forum</a></li>
+                            <li><a href="liste-membres.php">Liste membres</a></li>
                         </ul>
                         <ul class="navbar-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/<?= $userInfo->picProfileName ?>" alt="#" class="img-responsive" id="iconProfil"/></a>
