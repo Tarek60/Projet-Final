@@ -1,5 +1,7 @@
 <?php
 session_start();
+include_once 'configuration.php';
+include_once 'controllers/overchatController.php';
 $title = 'Chat';
 include_once 'header.php';
 ?>
@@ -9,62 +11,21 @@ include_once 'header.php';
             <div class="divChat">
                 <h1>Chatbox</h1>
                 <div class="chat-box">
-                    <div class="chat-message">
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
-                                <span>Jeankevin_du_02</span>
-                            </a>
-                            <span id="user-message"> : Salut</span>
-                        </div>
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/soldat76.png" id="user-picture"/>
-                                <span>Tarekool60</span>
-                            </a>
-                            <span id="user-message"> : T'es qui ?</span>
-                        </div>
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
-                                <span>Jeankevin_du_02</span>
-                            </a>
-                            <span id="user-message"> : Je m'appelle Kevin</span>
-                        </div>
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/soldat76.png" id="user-picture"/>
-                                <span>Tarekool60</span>
-                            </a>
-                            <span id="user-message"> : D'accord</span>
-                        </div>
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
-                                <span>Jeankevin_du_02</span>
-                            </a>
-                            <span id="user-message"> : Tu veux jouer ?</span>
-                        </div>
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/soldat76.png" id="user-picture"/>
-                                <span>Tarekool60</span>
-                            </a>
-                            <span id="user-message"> : Non</span>
-                        </div>
-                        <div class="message-content">
-                            <a href="#" id="userName"> 
-                                <img src="assets/img/profil/lucio.png" id="user-picture"/>
-                                <span>Jeankevin_du_02</span>
-                            </a>
-                            <span id="user-message"> : Ok</span>
-                        </div>
-
+                    <div class="chat-message" id="chat-message">
+                        <?php foreach ($messagesList as $message) { ?>
+                            <div class="message-content" id="message-content">
+                                <a href="profil.php?userId=<?= $message->id_owprjt_users ?>" id="userName"> 
+                                    <img src="assets/img/profil/<?= $message->picProfileName ?>" id="user-picture"/>
+                                    <span><?= $message->userName ?></span>
+                                </a>
+                                <span id="user-message"> : <?= wordwrap($message->content, 20, ' ', 1) ?></span>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
-                <form>
-                    <textarea class="form-control" rows="1" id="chatInput"></textarea>
-                    <button type="submit" class="btn btn-default">Envoyer</button>
+                <form action="overtchat.php" method="POST">
+                    <textarea class="form-control" name="sendMessage" rows="1" id="chatInput"></textarea>
+                    <button type="submit" name="submit" class="btn btn-default" id="sendButton">Envoyer</button>
                 </form>
             </div>
         </div>

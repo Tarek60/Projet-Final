@@ -32,9 +32,6 @@ include_once 'header.php';
                     </div>
                     <input type="submit" name="submit" class="btn btn-warning" value="Créer article" />
                 </form>
-                <?php if ($insertSuccess) { ?>
-                    <p style="color: #FFB033;">L'article à bien été créer. Vous pouvez consulter la liste des article en cliquant <a href="actualite.php">ici</a></p>
-                <?php } ?>
             </div>
         </div>
     </div>

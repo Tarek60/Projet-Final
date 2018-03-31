@@ -9,7 +9,7 @@ $formError = array();
  * On appelle la methode qui permet de se connecter avec l'adresse email
  * On verifie que le compte existe
  * Si le mot de passe dans l'input correspond au mot de passe crypté dans la base de données
- * On démarre une session, et on stocke les info de l'utilisateur dans des variables de sessions
+ * On démarre une session, et on stocke l'id de l'utilisateur dans une variables de sessions
  */
 if (isset($_POST['submit'])) {
     if (!empty($_POST['mail'])) {
@@ -21,11 +21,12 @@ if (isset($_POST['submit'])) {
                 $_SESSION['id'] = $userLogin->id;
                 $_SESSION['userName'] = $userLogin->userName;
                 $_SESSION['mail'] = $userLogin->mail;
+                $_SESSION['account'] = $userLogin->account;
                 $_SESSION['id_owprjt_role'] = $userLogin->id_owprjt_role;
                 $_SESSION['id_owprjt_rank'] = $userLogin->id_owprjt_rank;
                 $_SESSION['id_owprjt_platform'] = $userLogin->id_owprjt_platform;
-                $_SESSION['account'] = $userLogin->account;
                 $_SESSION['id_owprjt_profilePicture'] = $userLogin->id_owprjt_profilePicture;
+                $_SESSION['id_owprjt_userCategory'] = $userLogin->id_owprjt_userCategory;
                 header('Location: actualite.php');
                 exit;
             } else {

@@ -11,6 +11,10 @@ class userCategory extends dataBase {
         $this->connectDB();
     }
     
+    /**
+     * Cette méthode permet d'afficher la liste des catégorie d'utilisateur
+     * @return type
+     */
     public function getUserCategoryList() {
         $query = 'SELECT `id`, `userCategoryName` FROM `' . TABLEPREFIX . 'userCategory`';
         $userCategoryResult = $this->pdo->query($query);

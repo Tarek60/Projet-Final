@@ -3,7 +3,6 @@
 // On instancie l'objet articles
 $articles = new articles();
 $formError = array();
-$insertSuccess = false;
 
 /* On vérifie que toutes les variables $_POST existent
  * Puis on assigne la valeur des $_POST dans les attributs de l'objet patients
@@ -37,9 +36,9 @@ if (isset($_POST['submit'])) {
  * Puis on appelle la méthode permettant de créer l'article
  */
     if (count($formError) == 0) {
-        $insertSuccess = true;
         $articles->id_owprjt_users = $_SESSION['id'];
         $articles->createArticle();
+        header('Location: actualite.php');
     }
 }
 ?>

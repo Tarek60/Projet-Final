@@ -111,7 +111,7 @@ p {
     float: left;
     width: 60px; 
     height: auto;
-    margin-right: 20px;
+    margin-right: 10px;
     border: 1px solid #ffb033;
     background-color: black;
 } 
@@ -433,6 +433,7 @@ p {
     height: 700px;
     margin-bottom: 20px;
     border: 1px solid #ffb033;
+    overflow: auto;
 }
 .divChat .chat-message {
     margin: 15px;
@@ -440,9 +441,9 @@ p {
 
 .divChat #user-picture {
     margin: 15px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    width: 60px; 
+    height: auto;
+    border: 1px solid #ffb033;
 }
 
 .divChat #userName {
@@ -500,3 +501,8 @@ p {
     text-align: center;
     color: black;
 }
+
+.divList input {
+    color: black;
+}
+

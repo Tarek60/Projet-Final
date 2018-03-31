@@ -16,7 +16,7 @@ include_once 'header.php';
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section">
-                                <p id="datetimeArticle">Écrit par <a href="#"><?= $articleInfo->userName ?></a>, le <?= $articleInfo->date ?> à <?= $articleInfo->hour ?></p>
+                                <p id="datetimeArticle">Écrit par <a href="profil.php?userId=<?= $articleInfo->id_owprjt_users ?>"><?= $articleInfo->userName ?></a>, le <?= $articleInfo->date ?> à <?= $articleInfo->hour ?></p>
                                 <?= $articleInfo->content ?>
                             </div>
                             <form class="comment" action="article1.php?articleId=<?= $articleInfo->id ?>" method="post">
@@ -34,36 +34,41 @@ include_once 'header.php';
                                 <h2>Commentaires (<?= $numberComments->nbComments ?>)</h2>
                                 <?php foreach ($commentDetails as $comments) { ?>
                                     <div class="commentBlock">
-                                        <img src="assets/img/profil/<?= $comments->picProfileName ?>" alt="photo de l'utilisateur" class="img-responsive" />
-                                        <a href=""><?= $comments->userName ?></a>
+                                        <a href="profil.php?userId=<?= $comments->id_owprjt_users ?>">
+                                            <img src="assets/img/profil/<?= $comments->picProfileName ?>" alt="photo de l'utilisateur" class="img-responsive" />
+                                            <?= $comments->userName ?>
+                                        </a>
                                         <span><?= $comments->date ?>, à <?= $comments->hour ?></span>
-                                        <p id="commentText"><?= $comments->content ?></p>
+                                        <p id="commentText"><?= wordwrap($comments->content, 20, ' ', 1) ?></p>
                                         <?php foreach ($formError as $error) { ?>
                                             <p><?= $error ?></p>
                                         <?php } ?>
-                                        <form class="formCommentUpdate" action="article1.php?articleId=<?= $articleInfo->id ?>&updateComment=<?= $comments->id ?>" method="post">
+                                        <form class="formCommentUpdate" action="article1.php?articleId=<?= $articleInfo->id ?>&updateComment=<?= $comments->id ?>" method="POST">
                                             <div class="commentUpdate">
                                                 <textarea class="form-control" name="formCommentUpdate" rows="4" id="comment"><?= $comments->content ?></textarea>
                                                 <button type="submit" name="submit" class="btn btn-default">Envoyer</button>
                                             </div> 
                                         </form>
-                                        <a href="article1.php?articleId=<?= $articles->id ?>&deleteComment=<?= $comments->id ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le commentaire ?')">
-                                            <i class="fa fa-trash" aria-hidden="true" id="commentDel"></i>
-                                        </a>
-                                        <button id="" class="btn btn-success btnCommentUpdate">
-                                            <i class="fa fa-pencil" aria-hidden="true" ></i>
-                                        </button>
-                                        </a>
+                                        <?php if (isset($_SESSION['id']) && $_SESSION['id'] == $comments->id_owprjt_users || $_SESSION['id'] == 1) { ?>
+                                            <a href="article1.php?articleId=<?= $articles->id ?>&deleteComment=<?= $comments->id ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le commentaire ?')">
+                                                <i class="fa fa-trash" aria-hidden="true" id="commentDel"></i>
+                                            </a>
+                                        <?php } ?>
+                                        <?php if (isset($_SESSION['id']) && $_SESSION['id'] == $comments->id_owprjt_users) { ?>
+                                            <button id="" class="btn btn-success btnCommentUpdate">
+                                                <i class="fa fa-pencil" aria-hidden="true" ></i>
+                                            </button>
+                                        <?php } ?>
                                         <button class="btn btn-primary btnCommentResponse">
                                             <i class="fa fa-comment" aria-hidden="true"></i>
                                         </button>
-                                        <form class="formCommentResponse" action="article1.php?articleId=<?= $articleInfo->id ?>" method="post">
-                                            <div class="formCommentResponse">
-                                                <textarea class="form-control" name="formCommentResponse" rows="4" id="comment"></textarea>
-                                                <button type="submit" name="submit" class="btn btn-default">Envoyer</button>
-                                            </div> 
-                                        </form>
                                     </div>
+                                    <form class="formCommentResponse" action="article1.php?articleId=<?= $articleInfo->id ?>" method="POST">
+                                        <div class="formCommentResponse">
+                                            <textarea class="form-control" name="formCommentResponse" rows="4" id="comment"></textarea>
+                                            <button type="submit" name="submit" class="btn btn-default">Envoyer</button>
+                                        </div> 
+                                    </form>
                                 <?php } ?>
                             </div>
                         </div>

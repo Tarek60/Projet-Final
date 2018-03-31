@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
     if (count($formError) == 0) {
         $users->updateUser();
-        header('Location: profil.php?userId=' . $_SESSION['id']);
+        header('Location: mon-profil.php?userId=' . $_SESSION['id']);
     }
 }
 ?>

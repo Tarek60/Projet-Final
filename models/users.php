@@ -7,12 +7,12 @@ class users extends dataBase {
     public $userName = '';
     public $mail = '';
     public $password = '';
+    public $account = '';
     public $id_owprjt_role = 0;
     public $id_owprjt_rank = 0;
     public $id_owprjt_platform = 0;
-    public $account = '';
     public $id_owprjt_profilePicture = 0;
-    public $picProfileName = '';
+    public $id_owprjt_userCategory = 0;
 
     public function __construct() {
         parent::__construct();
@@ -36,10 +36,16 @@ class users extends dataBase {
 //Si l'insertion s'est correctement déroulée on retourne vrai
         return $usersAdd->execute();
     }
-
+    
+    /**
+     * Cette méthode permet d'afficher la liste de tout les membres inscrit sur le site
+     * @return type
+     */
     public function getUsersList() {
         $usersList = array();
-        $query = 'SELECT * FROM `owprjt_users`';
+        $query = 'SELECT `owprjt_users`.`id`, `userName`, `mail`, `id_owprjt_userCategory`, `owprjt_userCategory`.`userCategoryName`'
+                . ' FROM `owprjt_users`'
+                . ' LEFT JOIN `owprjt_userCategory` ON `owprjt_userCategory`.`id` = `owprjt_users`.`id_owprjt_userCategory`';
         $usersResult = $this->pdo->query($query);
         if (is_object($usersResult)) {
             $usersList = $usersResult->fetchAll(PDO::FETCH_OBJ);
@@ -53,7 +59,7 @@ class users extends dataBase {
      */
     public function loginUserByMail() {
         $userLogin = array();
-        $query = 'SELECT `id`, `userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`, `id_' . TABLEPREFIX . 'profilePicture` FROM `' . TABLEPREFIX . 'users` WHERE `mail` = :mail';
+        $query = 'SELECT `id`, `userName`, `mail`, `password`, `id_owprjt_role`, `id_owprjt_rank`, `id_owprjt_platform`, `account`, `id_' . TABLEPREFIX . 'profilePicture`, `id_' . TABLEPREFIX . 'userCategory` FROM `' . TABLEPREFIX . 'users` WHERE `mail` = :mail';
         $userInfo = $this->pdo->prepare($query);
         $userInfo->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if (is_object($userInfo)) {
@@ -101,7 +107,19 @@ class users extends dataBase {
         $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updateUser->execute();
     }
-
+    
+    /**
+     * Cette méthode permet de changer l'adresse email
+     * @return bool
+     */
+     public function updateMail() {
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `mail` = :mail WHERE `id` = :id';
+        $updateMail= $this->pdo->prepare($query);
+        $updateMail->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $updateMail->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updateMail->execute();
+    }
+    
     /**
      * Cette méthode permet de changer le mot de passe
      * @return bool
@@ -126,6 +144,29 @@ class users extends dataBase {
         return $updatePictureProfile->execute();
     }
 
+    /**
+     * Cette méthode permet de changer la catégorie de l'utilisateur
+     * @return type
+     */
+    public function updateUserCategory() {
+        $query = 'UPDATE `' . TABLEPREFIX . 'users` SET `id_' . TABLEPREFIX . 'userCategory` = :userCategory WHERE id = :id';
+        $updateUserCategory = $this->pdo->prepare($query);
+        $updateUserCategory->bindValue(':userCategory', $this->id_owprjt_userCategory, PDO::PARAM_INT);
+        $updateUserCategory->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updateUserCategory->execute();
+    }
+    
+    /**
+     * Cette méthode permet de supprimer un utilisateur
+     * @return type
+     */
+    public function deleteUser() {
+        $query = 'DELETE FROM `' . TABLEPREFIX . 'users` WHERE `id` = :id';
+        $deleteUser = $this->pdo->prepare($query);
+        $deleteUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $deleteUser->execute();
+    }
+    
     public function __destruct() {
         parent::__destruct();
     }

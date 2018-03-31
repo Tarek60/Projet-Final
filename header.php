@@ -38,12 +38,14 @@ include_once 'controllers/headerController.php';
                             <li><a href="actualite.php">News</a></li>
                             <li><a href="overtchat.php">Overchat</a></li>
                             <li><a href="forum.php">Forum</a></li>
-                            <li><a href="liste-membres.php">Liste membres</a></li>
+                            <?php if (isset($_SESSION['id_owprjt_userCategory']) && $_SESSION['id_owprjt_userCategory'] == 1) { ?>
+                                <li><a href="liste-membres.php">Liste membres</a></li>
+                            <?php } ?>
                         </ul>
                         <ul class="navbar-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profil/<?= $userInfo->picProfileName ?>" alt="#" class="img-responsive" id="iconProfil"/></a>
                             <ul class="dropdown-menu">
-                                <li><a href="profil.php?userId=<?= $_SESSION['id'] ?>">Voir/Modifier profil</a></li>
+                                <li><a href="mon-profil.php?userId=<?= $_SESSION['id'] ?>">Voir/Modifier profil</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="deconnexion.php">Déconnexion</a></li>
                             </ul>
