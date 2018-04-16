@@ -11,8 +11,10 @@ if (isset($_GET['userId'])) {
 }
 
 if (isset($_POST['submit'])) {
-    if (isset($_POST['oldMail'])) {
-        if ($_POST['oldMail'] == $userInfo->mail) {
+    if (!empty($_POST['oldMail'])) {
+        if ($_POST['oldMail'] != $userInfo->mail) {
+            $formError['oldMail'] = 'Votre adresse email actuel est incorrect';
+        } else {
             if ($_POST['newMail'] != $_POST['confirmNewMail']) {
                 $formError['newMail'] = 'Les adresses email ne correspondent pas';
             } else {
@@ -22,15 +24,14 @@ if (isset($_POST['submit'])) {
                     $formError['newMail'] = 'Veuillez remplir tous les champs';
                 }
             }
-        } else {
-            $formError['oldMail'] = 'Votre adresse email actuel est incorrect';
         }
-
         if (count($formError) == 0) {
-            $users->updateMail();
             $insertSuccess = true;
+            $users->updateMail();
         }
     } else {
         $formError['oldMail'] = 'Veuillez remplir votre adresse email actuelle';
     }
 }
+
+

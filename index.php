@@ -8,7 +8,7 @@ include_once 'header-accueil.php';
             <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="title">
                     <h1>Bienvenue sur Overchat</h1>
-                    <img class="img-responsive" src="assets/img/logo-ow.png" alt="" id="logo-ow">
+                    <img class="img-responsive" src="/assets/img/logo-ow.png" alt="" id="logo-ow">
                 </div>
             </div>
         </div>

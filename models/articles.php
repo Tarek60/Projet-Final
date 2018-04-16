@@ -13,7 +13,6 @@ class articles extends dataBase {
 
     public function __construct() {
         parent::__construct();
-        $this->connectDB();
     }
 
     /**
@@ -23,7 +22,7 @@ class articles extends dataBase {
     public function createArticle() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'articles` (`publicationDate`, `title`, `picture`, `resume`, `content`, `id_' . TABLEPREFIX . 'users`)'
                 . ' VALUES (NOW(), :title, :picture, :resume, :content, :id_' . TABLEPREFIX . 'users)';
-        $createArticle = $this->pdo->prepare($query);
+        $createArticle = $this->db->prepare($query);
         $createArticle->bindValue('title', $this->title, PDO::PARAM_STR);
         $createArticle->bindValue('picture', $this->picture, PDO::PARAM_STR);
         $createArticle->bindValue('resume', $this->resume, PDO::PARAM_STR);
@@ -38,7 +37,7 @@ class articles extends dataBase {
      */
     public function getListArticles() {
         $query = 'SELECT `id`, `publicationDate`, `title`, `picture`, `resume`, `content`, `id_owprjt_users` FROM `' . TABLEPREFIX . 'articles` ORDER BY `id` DESC';
-        $queryResult = $this->pdo->query($query);
+        $queryResult = $this->db->query($query);
         if (is_object($queryResult)) {
             $articlesList = $queryResult->fetchAll(PDO::FETCH_OBJ);
         }
@@ -54,9 +53,9 @@ class articles extends dataBase {
                 . ' DATE_FORMAT( `' . TABLEPREFIX . 'articles`.`publicationDate`, "%H:%i" ) AS `hour`,'
                 . ' `' . TABLEPREFIX . 'articles`.`title`, `' . TABLEPREFIX . 'articles`.`picture`, `' . TABLEPREFIX . 'articles`.`resume`, `' . TABLEPREFIX . 'articles`.`content`, `'
                 . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`, `' . TABLEPREFIX . 'users`.`userName` FROM `' . TABLEPREFIX . 'articles`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'users`.`id` = `' . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`'
+                . ' INNER JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'users`.`id` = `' . TABLEPREFIX . 'articles`.`id_' . TABLEPREFIX . 'users`'
                 . ' WHERE `' . TABLEPREFIX . 'articles`.`id` = :id';
-        $articleInfo = $this->pdo->prepare($query);
+        $articleInfo = $this->db->prepare($query);
         $articleInfo->bindValue(':id', $this->id, PDO::PARAM_INT);
         $articleInfo->execute();
         return $articleInfo->fetch(PDO::FETCH_OBJ);
@@ -68,7 +67,7 @@ class articles extends dataBase {
      */
     public function updateArticle() {
         $query = 'UPDATE `' . TABLEPREFIX . 'articles` SET `title` = :title, `picture` = :picture, `resume` = :resume, `content` = :content WHERE `id` = :id';
-        $updateArticle = $this->pdo->prepare($query);
+        $updateArticle = $this->db->prepare($query);
         $updateArticle->bindValue('title', $this->title, pdo::PARAM_STR);
         $updateArticle->bindValue('picture', $this->picture, pdo::PARAM_STR);
         $updateArticle->bindValue('resume', $this->resume, pdo::PARAM_STR);
@@ -83,7 +82,7 @@ class articles extends dataBase {
      */
     public function deleteArticle() {
         $query = 'DELETE FROM `' . TABLEPREFIX . 'articles` WHERE `id` = :id';
-        $deleteArticle = $this->pdo->prepare($query);
+        $deleteArticle = $this->db->prepare($query);
         $deleteArticle->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $deleteArticle->execute();
     }

@@ -8,7 +8,6 @@ class userCategory extends dataBase {
     
     public function __construct() {
         parent::__construct();
-        $this->connectDB();
     }
     
     /**
@@ -17,7 +16,7 @@ class userCategory extends dataBase {
      */
     public function getUserCategoryList() {
         $query = 'SELECT `id`, `userCategoryName` FROM `' . TABLEPREFIX . 'userCategory`';
-        $userCategoryResult = $this->pdo->query($query);
+        $userCategoryResult = $this->db->query($query);
         if (is_object($userCategoryResult)) {
             $userCategoryList = $userCategoryResult->fetchAll(PDO::FETCH_OBJ);
         }

@@ -5,7 +5,6 @@ $formError = array();
 if (isset($_POST['ajaxReady'])) {
     session_start();
     include_once '../configuration.php';
-    include_once '../models/messages.php';
     $messages = new messages();
     $formError = array();
     $messages->id_owprjt_users = $_SESSION['id'];

@@ -7,6 +7,9 @@ include_once 'controllers/commentairesController.php';
 $title = 'Article';
 include_once 'header.php';
 ?>
+
+<!-- Partie article -->
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
@@ -28,6 +31,9 @@ include_once 'header.php';
                             </form>
                         </div>
                     </div>
+
+                    <!-- Partie commentaires -->
+
                     <div class="row">
                         <div class="col-lg-offset-1 col-lg-10">
                             <div class="divComments">
@@ -40,9 +46,6 @@ include_once 'header.php';
                                         </a>
                                         <span><?= $comments->date ?>, à <?= $comments->hour ?></span>
                                         <p id="commentText"><?= wordwrap($comments->content, 20, ' ', 1) ?></p>
-                                        <?php foreach ($formError as $error) { ?>
-                                            <p><?= $error ?></p>
-                                        <?php } ?>
                                         <form class="formCommentUpdate" action="article1.php?articleId=<?= $articleInfo->id ?>&updateComment=<?= $comments->id ?>" method="POST">
                                             <div class="commentUpdate">
                                                 <textarea class="form-control" name="formCommentUpdate" rows="4" id="comment"><?= $comments->content ?></textarea>
@@ -63,12 +66,6 @@ include_once 'header.php';
                                             <i class="fa fa-comment" aria-hidden="true"></i>
                                         </button>
                                     </div>
-                                    <form class="formCommentResponse" action="article1.php?articleId=<?= $articleInfo->id ?>" method="POST">
-                                        <div class="formCommentResponse">
-                                            <textarea class="form-control" name="formCommentResponse" rows="4" id="comment"></textarea>
-                                            <button type="submit" name="submit" class="btn btn-default">Envoyer</button>
-                                        </div> 
-                                    </form>
                                 <?php } ?>
                             </div>
                         </div>

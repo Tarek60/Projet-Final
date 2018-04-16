@@ -1,9 +1,7 @@
 <?php
 session_start();
 include_once 'configuration.php';
-include_once 'controllers/profilController.php';
 include_once 'controllers/liste-articlesController.php';
-include_once 'controllers/liste-imagesController.php';
 $title = 'Actualités';
 include_once 'header.php';
 ?>
@@ -14,7 +12,7 @@ include_once 'header.php';
             <div class="divNews">
                 <h1>Dernières nouveautés Overwatch</h1>
                 <?php if (isset($_SESSION['id_owprjt_userCategory']) && $_SESSION['id_owprjt_userCategory'] == 1 || $_SESSION['id_owprjt_userCategory'] == 3) { ?>
-                    <a href="creer-article.php" class="btn btn-warning">Créer nouvel article</a>
+                    <a href="Créer-un-article" class="btn btn-warning">Créer nouvel article</a>
                 <?php } ?>
                 <?php foreach ($articlesList as $articles) { ?>
                     <div class="article">

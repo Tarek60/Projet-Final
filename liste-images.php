@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once 'configuration.php';
 include_once 'models/dataBase.php';
 include_once 'models/profilePicture.php';
@@ -10,7 +11,7 @@ include_once 'header.php';
     <div class="row">
         <div class="col-lg-12">
             <?php foreach($listPictures as $pictures) { ?>
-            <img src="assets/img/profil/<?= $pictures->name ?>" />
+            <img src="assets/img/profil/<?= $pictures->picProfileName ?>" />
             <?php } ?>
         </div>
     </div>

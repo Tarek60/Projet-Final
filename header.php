@@ -15,6 +15,7 @@ include_once 'controllers/headerController.php';
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/header.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
         <title><?php echo $title; ?></title>
     </head>
     <body>
@@ -35,8 +36,8 @@ include_once 'controllers/headerController.php';
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                 
                         <ul class="nav navbar-nav navbar-center">
                             <li><a href="accueil.php">Accueil</a></li>
-                            <li><a href="actualite.php">News</a></li>
-                            <li><a href="overtchat.php">Overchat</a></li>
+                            <li><a href="Actualités">News</a></li>
+                            <li><a href="overtchat.php">Chatbox</a></li>
                             <li><a href="forum.php">Forum</a></li>
                             <?php if (isset($_SESSION['id_owprjt_userCategory']) && $_SESSION['id_owprjt_userCategory'] == 1) { ?>
                                 <li><a href="liste-membres.php">Liste membres</a></li>

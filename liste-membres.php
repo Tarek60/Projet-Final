@@ -16,11 +16,11 @@ include_once 'header.php';
                 <table border="1" class="table table-rdv">
                     <thead>
                         <tr>
-                            <th>Pseudo du membres</th>
+                            <th>Pseudo du membre</th>
                             <th>Adresse email</th>
                             <th>Voir le profil</th>
                             <th>Catégorie</th>
-                            <th>Modifer catégorie</th>
+                            <th>Modifier catégorie</th>
                             <th>Supprimer le membre</th>
                         </tr>
                     </thead>
@@ -38,7 +38,7 @@ include_once 'header.php';
                                     <p><?= $user->userCategoryName?></p>
                                 </td>
                                 <td>
-                                    <form action="liste-membres.php" method="POST">
+                                    <form action="liste-membres.php?userId=<?= $user->id ?>" method="POST">
                                         <select name="userCategory">
                                             <?php foreach ($userCategoryList as $userCategory) { ?>
                                                 <option value="<?= $userCategory->id ?>" <?= $user->id_owprjt_userCategory == $userCategory->id ? 'selected' : '' ?>><?= $userCategory->userCategoryName ?></option>

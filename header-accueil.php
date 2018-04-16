@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">  
         <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet"> 
-        <link rel="stylesheet" href="assets/lib/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/header-accueil.css">
-        <link rel="stylesheet" href="assets/css/accueil.css">
+        <link rel="stylesheet" href="/assets/lib/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/header-accueil.css">
+        <link rel="stylesheet" href="/assets/css/accueil.css">
         <title>Accueil</title>
     </head>
     <body>
@@ -21,12 +21,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php">Overchat</a>
+                        <a class="navbar-brand" href="Accueil">Overchat</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <a class="btn btn-warning" href="inscription.php">Inscription</a>
-                            <a class="btn btn-warning" href="connexion.php">Connexion</a>
+                            <a class="btn btn-warning" href="Inscription">Inscription</a>
+                            <a class="btn btn-warning" href="Connexion">Connexion</a>
                         </ul>
                     </div>
                 </div>

@@ -8,20 +8,8 @@ class profilePicture extends dataBase {
 
     public function __construct() {
         parent::__construct();
-        $this->connectDB();
     }
-
-    /**
-     * Cette méthode permet d'ajouter une image de profil via un formulaire
-     * @return bool
-     */
-    public function addPicture() {
-        $query = 'INSERT INTO `' . TABLEPREFIX . 'profilePicture` (`picProfileName`) VALUES (:name)';
-        $addPicture = $this->pdo->prepare($query);
-        $addPicture->bindValue('name', $this->name, PDO::PARAM_STR);
-        return $addPicture->execute();
-    }
-
+    
     /**
      * Cette méthode permet d'afficher la liste des images de profil
      * @return array
@@ -29,7 +17,7 @@ class profilePicture extends dataBase {
     public function listPicturesById() {
         $listPictures = array();
         $query = 'SELECT `id`, `picProfileName` FROM `' . TABLEPREFIX . 'profilePicture` ORDER BY `picProfileName` ASC';
-        $result = $this->pdo->query($query);
+        $result = $this->db->query($query);
         if (is_object($result)) {
             $listPictures = $result->fetchAll(PDO::FETCH_OBJ);
         }
@@ -42,8 +30,8 @@ class profilePicture extends dataBase {
      */
     public function getPictureById() {
         $query = 'SELECT `id` FROM `' . TABLEPREFIX . 'profilePicture` WHERE `picProfileName` = :picture';
-        $pictureProfile = $this->pdo->prepare($query);
-        $pictureProfile->bindValue(':picture', $this->name, PDO::PARAM_STR);
+        $pictureProfile = $this->db->prepare($query);
+        $pictureProfile->bindValue(':picture', $this->picProfileName, PDO::PARAM_STR);
         $pictureProfile->execute();
         return $pictureProfile->fetch(PDO::FETCH_OBJ);
     }

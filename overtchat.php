@@ -10,7 +10,7 @@ include_once 'header.php';
         <div class="col-lg-9">
             <div class="divChat">
                 <h1>Chatbox</h1>
-                <div class="chat-box">
+                <div class="chat-box" id="chat-box">
                     <div class="chat-message" id="chat-message">
                         <?php foreach ($messagesList as $message) { ?>
                             <div class="message-content" id="message-content">
@@ -23,9 +23,13 @@ include_once 'header.php';
                         <?php } ?>
                     </div>
                 </div>
-                <form action="overtchat.php" method="POST">
-                    <textarea class="form-control" name="sendMessage" rows="1" id="chatInput"></textarea>
-                    <button type="submit" name="submit" class="btn btn-default" id="sendButton">Envoyer</button>
+                <form action="overtchat.php" method="POST" class="form-inline">
+                    <div class="form-group col-lg-11">
+                        <textarea class="form-control" name="sendMessage" rows="1" id="chatInput"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-default btn-lg" id="sendButton">Envoyer</button>
+                    </div>
                 </form>
             </div>
         </div>

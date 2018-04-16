@@ -10,7 +10,6 @@ class reaction extends dataBase {
 
     public function __construct() {
         parent::__construct();
-        $this->connectDB();
     }
     
     

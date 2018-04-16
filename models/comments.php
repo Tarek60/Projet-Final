@@ -8,10 +8,10 @@ class comments extends dataBase {
     public $content = '';
     public $id_owprjt_articles = 0;
     public $id_owprjt_users = 0;
+    public $id_1 = 0;
 
     public function __construct() {
         parent::__construct();
-        $this->connectDB();
     }
     
     /**
@@ -20,13 +20,13 @@ class comments extends dataBase {
      */
     public function addComment() {
         $query = 'INSERT INTO `' . TABLEPREFIX . 'comments` (`publicationDate`, `content`, `id_' . TABLEPREFIX . 'articles`, `id_' . TABLEPREFIX . 'users`) VALUES (NOW(), :comment, :article, :user)';
-        $addComment = $this->pdo->prepare($query);
+        $addComment = $this->db->prepare($query);
         $addComment->bindValue(':comment', $this->content, PDO::PARAM_STR);
         $addComment->bindValue(':article', $this->id_owprjt_articles, PDO::PARAM_INT);
         $addComment->bindValue(':user', $this->id_owprjt_users, PDO::PARAM_INT);
         return $addComment->execute();
     }
-    
+ 
     /**
      * Cette méthode permet d'afficher les commentaires dans un article
      * @return bool
@@ -37,11 +37,12 @@ class comments extends dataBase {
                 . ' `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles`, `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'users`,'
                 . ' `' . TABLEPREFIX . 'comments`.`id_1`, `' . TABLEPREFIX . 'users`.`userName`, `' . TABLEPREFIX . 'profilePicture`.`picProfileName`'
                 . ' FROM `' . TABLEPREFIX . 'comments`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'articles` ON `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles` = `' . TABLEPREFIX . 'articles`.`id`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'users` = `' . TABLEPREFIX . 'users`.`id`'
-                . ' LEFT JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture` = `' . TABLEPREFIX . 'profilePicture`.`id`'
-                . ' WHERE `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles` = :id ORDER BY `id` ASC';
-        $showComments = $this->pdo->prepare($query);
+                . ' INNER JOIN `' . TABLEPREFIX . 'articles` ON `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles` = `' . TABLEPREFIX . 'articles`.`id`'
+                . ' INNER JOIN `' . TABLEPREFIX . 'users` ON `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'users` = `' . TABLEPREFIX . 'users`.`id`'
+                . ' INNER JOIN `' . TABLEPREFIX . 'profilePicture` ON `' . TABLEPREFIX . 'users`.`id_' . TABLEPREFIX . 'profilePicture` = `' . TABLEPREFIX . 'profilePicture`.`id`'
+                . ' WHERE `' . TABLEPREFIX . 'comments`.`id_' . TABLEPREFIX . 'articles` = :id'
+                . ' ORDER BY `' . TABLEPREFIX . 'comments`.`publicationDate` ASC';
+        $showComments = $this->db->prepare($query);
         $showComments->bindValue(':id', $this->id_owprjt_articles, PDO::PARAM_INT);
         $showComments->execute();
         return $showComments->fetchAll(PDO::FETCH_OBJ);
@@ -53,7 +54,7 @@ class comments extends dataBase {
      */
     public function countNumberComments() {
         $query = 'SELECT COUNT(`id`) as nbComments FROM `' . TABLEPREFIX . 'comments` WHERE `id_' . TABLEPREFIX . 'articles` = :id ';
-        $numberComments = $this->pdo->prepare($query);
+        $numberComments = $this->db->prepare($query);
         $numberComments->bindValue(':id', $this->id_owprjt_articles, PDO::PARAM_INT);
         $numberComments->execute();
         return $numberComments->fetch(PDO::FETCH_OBJ);
@@ -65,7 +66,7 @@ class comments extends dataBase {
      */
     public function updateComment() {
         $query = 'UPDATE `' . TABLEPREFIX . 'comments` SET `content` = :formCommentUpdate WHERE id = :id';
-        $updateComment = $this->pdo->prepare($query);
+        $updateComment = $this->db->prepare($query);
         $updateComment->bindValue(':formCommentUpdate', $this->content, PDO::PARAM_STR);
         $updateComment->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $updateComment->execute();
@@ -77,7 +78,7 @@ class comments extends dataBase {
      */
     public function deleteComment() {
         $query = 'DELETE FROM `' . TABLEPREFIX . 'comments` WHERE `id` = :id';
-        $deleteComment = $this->pdo->prepare($query);
+        $deleteComment = $this->db->prepare($query);
         $deleteComment->bindValue('id', $this->id, PDO::PARAM_INT);
         return $deleteComment->execute();
     }

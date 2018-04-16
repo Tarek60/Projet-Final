@@ -19,7 +19,7 @@ include('header.php');
                                 <div class="col-lg-3">
                                     <!-- Div contenant les info de l'user -->
                                     <div class="infoUser">
-                                        <p><?= $_SESSION['userName']; ?></p>
+                                        <p>User 1</p>
                                         <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive" />
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@ include('header.php');
                                 <div class="col-lg-3">
                                     <!-- Div contenant les info de l'user -->
                                     <div class="infoUser">
-                                        <p><?= $_SESSION['userName']; ?></p>
+                                        <p>User 1</p>
                                         <img src="assets/img/profil/soldat76.png" alt="photo de l'utilisateur" class="img-responsive" />
                                     </div>
                                 </div>

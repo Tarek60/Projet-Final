@@ -9,7 +9,7 @@ $formError = array();
  * On appelle la methode qui permet de se connecter avec l'adresse email
  * On verifie que le compte existe
  * Si le mot de passe dans l'input correspond au mot de passe crypté dans la base de données
- * On démarre une session, et on stocke l'id de l'utilisateur dans une variables de sessions
+ * On démarre une session, et on stocke l'id de l'utilisateur dans une variable de sessions
  */
 if (isset($_POST['submit'])) {
     if (!empty($_POST['mail'])) {
@@ -19,15 +19,9 @@ if (isset($_POST['submit'])) {
             if (password_verify($_POST['password'], $userLogin->password)) {
                 session_start();
                 $_SESSION['id'] = $userLogin->id;
-                $_SESSION['userName'] = $userLogin->userName;
-                $_SESSION['mail'] = $userLogin->mail;
-                $_SESSION['account'] = $userLogin->account;
-                $_SESSION['id_owprjt_role'] = $userLogin->id_owprjt_role;
-                $_SESSION['id_owprjt_rank'] = $userLogin->id_owprjt_rank;
-                $_SESSION['id_owprjt_platform'] = $userLogin->id_owprjt_platform;
-                $_SESSION['id_owprjt_profilePicture'] = $userLogin->id_owprjt_profilePicture;
                 $_SESSION['id_owprjt_userCategory'] = $userLogin->id_owprjt_userCategory;
-                header('Location: actualite.php');
+//                $_SESSION['id_owprjt_profilePicture'] = $userLogin->id_owprjt_profilePicture;
+                header('Location: /Actualités');
                 exit;
             } else {
                 $formError['password'] = 'L\'adresse email ou le mot de passe est incorrect';
@@ -35,5 +29,7 @@ if (isset($_POST['submit'])) {
         } else {
             $formError['login'] = 'Votre compte n\'existe pas';
         }
+    } else {
+        $formError['login'] = 'Le champs "Adresse e-mail" est vide';
     }
 }

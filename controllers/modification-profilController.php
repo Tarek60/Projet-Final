@@ -6,12 +6,11 @@ if (isset($_POST['picture'])) {
     include_once '../configuration.php';
     $picture = new profilePicture();
     $users = new users();
-    $picture->name = $_POST['picture'];
+    $picture->picProfileName = $_POST['picture'];
     $pictureProfil = $picture->getPictureById();
     $users->id = $_SESSION['id'];
     $users->id_owprjt_profilePicture = $pictureProfil->id;
     $users->updateProfilePicture();
-    echo 'Success';
 }
 
 $users = new users();

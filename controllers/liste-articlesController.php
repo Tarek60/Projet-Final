@@ -1,19 +1,20 @@
 <?php
 
-// On instancie l'objet articles
+/*
+ * On instancie l'objet articles
+ * On appelle la methode qui permet d'afficher la liste des articles
+ */
 $articles = new articles();
 $articlesList = $articles->getListArticles();
-$success = false;
 
 /* On vérifie que la variable $_GET existe
- * Puis on assigne la valeur de $_GET dans l'attribut id de l'objet articles
+ * On assigne l'id de l'article au parametre d'url $_GET[deleteArticle]
+ * On appelle la methode qui permet de supprimer l'article
+ * On rappelle la méthode pour afficher la liste des articles
  */
 if (isset($_GET['deleteArticle'])) {
     $articles->id = $_GET['deleteArticle'];
-    if ($articles->deleteArticle()) {
-        $success = true;
-        $articlesList = $articles->getListArticles();
-    }
+    $articles->deleteArticle();
+    $articlesList = $articles->getListArticles();
 }
-?>
 

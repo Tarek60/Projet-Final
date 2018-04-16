@@ -20,13 +20,13 @@ include 'header.php';
                             <h1>Modification adresse email</h1>
                             <form method="post" action="modification-email.php?userId=<?= $_SESSION['id'] ?>">
                                 <h2>Adresse email actuelle : </h2>
-                                <input type="email" name="oldEmail" />
+                                <input type="email" name="oldMail" />
                                 <hr>
                                 <h2>Nouvelle adresse email : </h2>
-                                <input type="email" name="newEmail" />
+                                <input type="email" name="newMail" />
                                 <hr>
                                 <h2>Confirmer nouvelle adresse email : </h2>
-                                <input type="email" name="confirmNewEmail" />
+                                <input type="email" name="confirmNewMail" />
                                 <p id="edit"><input type="submit" name="submit" class="btn btn-success" value="Enregistrer les modifications" /></p>
                             </form>
                             <?php foreach ($formError as $error) { ?>

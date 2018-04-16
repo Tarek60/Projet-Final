@@ -1,8 +1,15 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: 'Cabin', serif;
     background: url('../img/fond-body5.jpg') fixed no-repeat;
     background-size: cover;
     background-position: top;
+    min-height: 100%;
+    margin-bottom: 60px;
 }
 p {
     font-size: 15px;
@@ -53,7 +60,7 @@ p {
 
 .divArticle {
     background-color: rgba(0, 0, 0, 0.3);
-    height: auto;
+    min-height: 808px;
     border-left: 1px #FFB033 solid;
     border-right: 1px #FFB033 solid;
     padding-left: 50px;
@@ -107,6 +114,7 @@ p {
     border: 1px solid #ffb033;
     background-color: #202020;
 }
+
 .divComments .commentBlock img {
     float: left;
     width: 60px; 
@@ -136,8 +144,39 @@ p {
 
 .divComments .formCommentResponse {
     margin-top: 10px;
-    display: none;
 }
+
+.divComments .commentBlockResponse {
+    margin-top: 50px;
+    margin-left: 40px;
+    padding: 20px;
+    border: 1px solid #ffb033;
+    background-color: #202020;
+}
+
+.divComments .commentBlockResponse img {
+    float: left;
+    width: 60px; 
+    height: auto;
+    margin-right: 10px;
+    border: 1px solid #ffb033;
+    background-color: black;
+} 
+
+.divComments .commentBlockResponse a {
+    font-size: 15px;
+} 
+
+.divComments .commentBlockResponse p {
+    margin-top: 60px;
+    font-size: 15px;
+}
+
+.divComments .commentBlockResponse span {
+    margin-left: 10px;
+    color: #FFB033;
+}
+
 /* Style de la page création d'article */
 
 .divCreate {
@@ -145,6 +184,7 @@ p {
     height: auto;
     border: 1px #FFB033 solid;
     margin-top: 60px;
+    margin-bottom: 60px;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: px;
@@ -171,6 +211,7 @@ p {
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .divProfil .infoUser h1 {
@@ -226,6 +267,7 @@ p {
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .divEditProfil .infoUser h1 {
@@ -249,7 +291,7 @@ p {
 
 .divEditProfil .infoUser input, select {
     float: right;
-    
+
 }
 .divEditProfil .imgUser {
     text-align: center;
@@ -458,8 +500,7 @@ p {
 }
 
 .divChat #chatInput {
-    display: inline;
-    width: 93%;
+    width: 100%;
 
 }
 

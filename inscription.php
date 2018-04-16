@@ -32,12 +32,14 @@ include_once 'header-accueil.php';
                     <?php } ?>
                     <p><label for="rank">Rang compétitif *</label>
                         <select name="rank">
+                            <option disabled selected>- Choisir un rang -</option>
                             <?php foreach ($rankList as $rank) { ?>
                                 <option value="<?= $rank->id ?>"><?= $rank->rank ?></option>
                             <?php } ?>
                         </select>
                     </p>
                     <p><label for="plateform">Plateforme *</label><select name="platform">
+                            <option disabled selected>- Choisir une plateforme -</option>
                             <?php foreach ($platformList as $platform) { ?>
                                 <option value="<?= $platform->id ?>"><?= $platform->platform ?></option>
                             <?php } ?>
@@ -51,7 +53,7 @@ include_once 'header-accueil.php';
                 <div class="alert alert-success" role="alert"><?= $insertSuccess ? 'Votre compte à bien été enregistrer. Vous pouvez maintenant vous ' : '' ?>
                     <a href="connexion.php">connecter</a></div>
             <?php } ?>
-            <!-- On afficher les erreurs si il y en a -->
+            <!-- On affiche les erreurs si il y en a -->
             <?php foreach ($formError as $error) { ?>
                 <div class="alert alert-danger" role="alert"><?= $error ?></div>
             <?php } ?>

@@ -8,7 +8,6 @@ class rank extends dataBase {
 
     public function __construct() {
         parent::__construct();
-        $this->connectDB();
     }
     
     /**
@@ -18,7 +17,7 @@ class rank extends dataBase {
     public function showRankList() {
         $roleList = array();
         $query = 'SELECT `id`, `rank` FROM `' . TABLEPREFIX . 'rank`';
-        $showRankList = $this->pdo->query($query);
+        $showRankList = $this->db->query($query);
         if (is_object($showRankList)) {
             $rankList = $showRankList->fetchAll(PDO::FETCH_OBJ);
         }

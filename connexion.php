@@ -8,7 +8,7 @@ include_once 'header-accueil.php';
     <div class="row">
         <div class="col-ls-offset-2 col-lg-8 col-lg-offset-2">     
             <div class="divLogin">
-                <form class="connexion" action="connexion.php" method="post">
+                <form class="connexion" action="Connexion" method="post">
                     <h1>Connexion</h1>
                     <p><label for="mail">Adresse e-mail</label><input type="mail" name="mail" value="<?= $users->mail ?>" /></p>
                     <p><label for="password">Mot de passe</label><input type="password" name="password" /></p>
